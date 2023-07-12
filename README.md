@@ -14,5 +14,8 @@ cd ../target
 ./ftxui-starter
 ~~~
 
+if it fails on 'Could NOT find Boost': 
+[install Boost](https://stackoverflow.com/questions/19029175/installing-boost-in-debian-for-codeblocks)
+
 # Ver&auml;nderungen zum Entwurf:
 
