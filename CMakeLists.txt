@@ -17,15 +17,15 @@ endif()
 
 # ------------------------------------------------------------------------------
 
-project(ftxui-starter
+project(ects-tui
   LANGUAGES CXX
   VERSION 1.0.0
 )
 
-add_executable(ftxui-starter "src/ectsTUI.cpp")
-target_include_directories(ftxui-starter PRIVATE src)
+add_executable(ects-tui "src/ectsTUI.cpp")
+target_include_directories(ects-tui PRIVATE src)
 
-target_link_libraries(ftxui-starter
+target_link_libraries(ects-tui
   PRIVATE ftxui::screen
   PRIVATE ftxui::dom
   PRIVATE ftxui::component # Not needed for this example.

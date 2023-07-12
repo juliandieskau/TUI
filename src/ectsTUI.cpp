@@ -4,8 +4,10 @@
 #include "ftxui/screen/screen.hpp"
 #include "ftxui/screen/string.hpp"
 
+using namespace ftxui;
+
 int main(void) {
-  using namespace ftxui;
+  
 
   auto summary = [&] {
     auto content = vbox({
