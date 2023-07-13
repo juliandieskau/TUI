@@ -1,14 +1,10 @@
-ftxui-starter
--------------
+# ftxui-starter
 
-[![Snap Status](https://build.snapcraft.io/badge/ArthurSonzogni/ftxui-starter.svg)](https://build.snapcraft.io/user/ArthurSonzogni/ftxui-starter)
-
-[![Build Status](https://travis-ci.com/ArthurSonzogni/ftxui-starter.svg?branch=master)](https://travis-ci.com/ArthurSonzogni/ftxui-starter)
-
+CMakeList and main() method based on ftxui-starter:  
 Minimal starter project using the [FTXUI library](https://github.com/ArthurSonzogni/ftxui)
 
-
 # Build instructions:
+
 ~~~bash
 mkdir build
 cd build
@@ -18,14 +14,8 @@ cd ../target
 ./ftxui-starter
 ~~~
 
-## Webassembly build:
-~~~bash
-mkdir build_emscripten && cd build_emscripten
-emcmake cmake ..
-make -j
-./run_webassembly.py
-(visit localhost:8000)
-~~~
+if it fails on 'Could NOT find Boost': 
+[install Boost](https://stackoverflow.com/questions/19029175/installing-boost-in-debian-for-codeblocks)
 
-## Linux snap build:
-Upload your game to github and visit https://snapcraft.io/build.
+# Ver&auml;nderungen zum Entwurf:
+

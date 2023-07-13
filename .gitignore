@@ -1,0 +1,6 @@
+# Build Files
+build
+out
+
+# Visual Studio Project Files
+.vs

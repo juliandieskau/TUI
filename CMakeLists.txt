@@ -1,8 +1,9 @@
-cmake_minimum_required (VERSION 3.11)
+cmake_minimum_required (VERSION 3.18.4)
 
-# --- Fetch FTXUI --------------------------------------------------------------
+
 include(FetchContent)
 
+# --- Fetch FTXUI --------------------------------------------------------------
 set(FETCHCONTENT_UPDATES_DISCONNECTED TRUE)
 FetchContent_Declare(ftxui
   GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui
@@ -15,28 +16,42 @@ if(NOT ftxui_POPULATED)
   add_subdirectory(${ftxui_SOURCE_DIR} ${ftxui_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
+# --- Fetch rosbridgecpp
+FetchContent_Declare(rosbridgecpp
+  GIT_REPOSITORY https://github.com/ppianpak/rosbridgecpp
+  GIT_TAG origin/master
+)
+
+FetchContent_GetProperties(rosbridgecpp)
+if(NOT rosbridgecpp_POPULATED)
+  FetchContent_Populate(rosbridgecpp)
+  add_subdirectory(${rosbridgecpp_SOURCE_DIR} ${rosbridgecpp_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
+
+
 # ------------------------------------------------------------------------------
 
-project(ftxui-starter
+project(ects-tui
   LANGUAGES CXX
   VERSION 1.0.0
 )
 
-add_executable(ftxui-starter src/main.cpp)
-target_include_directories(ftxui-starter PRIVATE src)
+add_executable(ects-tui "src/ectsTUI.cpp")
+target_include_directories(ects-tui PRIVATE src)
 
-target_link_libraries(ftxui-starter
+include_directories(${rosbridgecpp_SOURCE_DIR})
+add_subdirectory(${rosbridgecpp_SOURCE_DIR} rosbridgecpp)
+
+target_link_libraries(ects-tui
   PRIVATE ftxui::screen
   PRIVATE ftxui::dom
   PRIVATE ftxui::component # Not needed for this example.
+  PRIVATE rosbridgecpp
 )
+
 
 if (EMSCRIPTEN) 
   string(APPEND CMAKE_CXX_FLAGS " -s USE_PTHREADS") 
   string(APPEND CMAKE_EXE_LINKER_FLAGS " -s ASYNCIFY") 
   string(APPEND CMAKE_EXE_LINKER_FLAGS " -s PROXY_TO_PTHREAD") 
-
-  foreach(file "index.html" "run_webassembly.py")
-    configure_file("src/${file}" ${file})
-  endforeach(file)
 endif() 
