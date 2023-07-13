@@ -1,5 +1,4 @@
-cmake_minimum_required (VERSION 3.11)
-
+cmake_minimum_required (VERSION 3.18.4)
 
 
 include(FetchContent)
@@ -29,6 +28,7 @@ if(NOT rosbridgecpp_POPULATED)
   add_subdirectory(${rosbridgecpp_SOURCE_DIR} ${rosbridgecpp_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
+
 # ------------------------------------------------------------------------------
 
 project(ects-tui
@@ -39,11 +39,16 @@ project(ects-tui
 add_executable(ects-tui "src/ectsTUI.cpp")
 target_include_directories(ects-tui PRIVATE src)
 
+include_directories(${rosbridgecpp_SOURCE_DIR})
+add_subdirectory(${rosbridgecpp_SOURCE_DIR} rosbridgecpp)
+
 target_link_libraries(ects-tui
   PRIVATE ftxui::screen
   PRIVATE ftxui::dom
   PRIVATE ftxui::component # Not needed for this example.
+  PRIVATE rosbridgecpp
 )
+
 
 if (EMSCRIPTEN) 
   string(APPEND CMAKE_CXX_FLAGS " -s USE_PTHREADS") 
