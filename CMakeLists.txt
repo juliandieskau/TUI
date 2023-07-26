@@ -17,15 +17,16 @@ if(NOT ftxui_POPULATED)
 endif()
 
 # --- Fetch rosbridgecpp
-FetchContent_Declare(rosbridgecpp
-  GIT_REPOSITORY https://github.com/ppianpak/rosbridgecpp
-  GIT_TAG origin/master
+FetchContent_Declare(rosbridge_client_cpp
+  #GIT_REPOSITORY https://github.com/ppianpak/rosbridgecpp -- was a mistake, wrong repository
+  GIT_REPOSITORY https://github.com/antoniocoratelli/rosbridge_client_cpp
+  GIT_TAG v2018
 )
 
-FetchContent_GetProperties(rosbridgecpp)
-if(NOT rosbridgecpp_POPULATED)
-  FetchContent_Populate(rosbridgecpp)
-  add_subdirectory(${rosbridgecpp_SOURCE_DIR} ${rosbridgecpp_BINARY_DIR} EXCLUDE_FROM_ALL)
+FetchContent_GetProperties(rosbridge_client_cpp)
+if(NOT rosbridge_client_cpp_POPULATED)
+  FetchContent_Populate(rosbridge_client_cpp)
+  add_subdirectory(${rosbridge_client_cpp_SOURCE_DIR} ${rosbridge_client_cpp_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
 
@@ -39,14 +40,16 @@ project(ects-tui
 add_executable(ects-tui "src/ectsTUI.cpp")
 target_include_directories(ects-tui PRIVATE src)
 
-include_directories(${rosbridgecpp_SOURCE_DIR})
-add_subdirectory(${rosbridgecpp_SOURCE_DIR} rosbridgecpp)
+include_directories(${rosbridge_client_cpp_SOURCE_DIR})
+add_subdirectory(${rosbridge_client_cpp_SOURCE_DIR} rosbridge_client_cpp)
 
 target_link_libraries(ects-tui
   PRIVATE ftxui::screen
   PRIVATE ftxui::dom
   PRIVATE ftxui::component # Not needed for this example.
-  PRIVATE rosbridgecpp
+  PRIVATE rosbridge_client_cpp::publisher
+  PRIVATE rosbridge_client_cpp::subscriber
+  PRIVATE rosbridge_client_cpp::rosbridgeclient
 )
 
 
