@@ -3,6 +3,13 @@
 CMakeList and main() method based on ftxui-starter:  
 Minimal starter project using the [FTXUI library](https://github.com/ArthurSonzogni/ftxui)
 
+# VSCode Dev Container:
+
+install [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
+press F1 ">Dev Containers: Open Folder in Container"
+and select root folder (that contains .devcontainer)
+
+
 # Build instructions:
 
 ~~~bash
