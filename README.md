@@ -32,7 +32,7 @@ Since it fails in this step, execution instruction not included^.
 see CMakeFiles/ for error log
 
 # Terminal output for cmake
-
+~~~bash
 [variant] Loaded new set of variants <br>
 [kit] Successfully loaded 2 kits from /home/vscode/.local/share/CMakeTools/cmake-tools-kits.json<br>
 [proc] Executing command: /usr/bin/cmake --version<br>
@@ -124,3 +124,4 @@ see CMakeFiles/ for error log
 [cmake] See also "/workspaces/tui/build/CMakeFiles/CMakeOutput.log".<br>
 [cmake] See also "/workspaces/tui/build/CMakeFiles/CMakeError.log".<br>
 [proc] The command: /usr/bin/cmake --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++ -S/workspaces/tui -B/workspaces/tui/build -G Ninja exited with code: 1<br>
+~~~
