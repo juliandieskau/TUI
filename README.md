@@ -5,8 +5,10 @@ Minimal starter project using the [FTXUI library](https://github.com/ArthurSonzo
 
 # VSCode Dev Container:
 
-install [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
-press F1 ">Dev Containers: Open Folder in Container"
+install [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension 
+
+press F1 ">Dev Containers: Open Folder in Container" 
+
 and select root folder (that contains .devcontainer)
 
 
