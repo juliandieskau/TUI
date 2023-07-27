@@ -17,16 +17,16 @@ if(NOT ftxui_POPULATED)
 endif()
 
 # --- Fetch rosbridgecpp
-FetchContent_Declare(rosbridge_client_cpp
+FetchContent_Declare(rosbridge_client
   #GIT_REPOSITORY https://github.com/ppianpak/rosbridgecpp -- was a mistake, wrong repository
   GIT_REPOSITORY https://github.com/antoniocoratelli/rosbridge_client_cpp
   GIT_TAG v2018
 )
 
-FetchContent_GetProperties(rosbridge_client_cpp)
-if(NOT rosbridge_client_cpp_POPULATED)
-  FetchContent_Populate(rosbridge_client_cpp)
-  add_subdirectory(${rosbridge_client_cpp_SOURCE_DIR} ${rosbridge_client_cpp_BINARY_DIR} EXCLUDE_FROM_ALL)
+FetchContent_GetProperties(rosbridge_client)
+if(NOT rosbridge_client_POPULATED)
+  FetchContent_Populate(rosbridge_client)
+  add_subdirectory(${rosbridge_client_SOURCE_DIR} ${rosbridge_client_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
 
@@ -40,18 +40,15 @@ project(ects-tui
 add_executable(ects-tui "src/ectsTUI.cpp")
 target_include_directories(ects-tui PRIVATE src)
 
-include_directories(${rosbridge_client_cpp_SOURCE_DIR})
-add_subdirectory(${rosbridge_client_cpp_SOURCE_DIR} rosbridge_client_cpp)
+include_directories(${rosbridge_client_SOURCE_DIR})
+add_subdirectory(${rosbridge_client_SOURCE_DIR} rosbridge_client)
 
 target_link_libraries(ects-tui
   PRIVATE ftxui::screen
   PRIVATE ftxui::dom
   PRIVATE ftxui::component # Not needed for this example.
-  PRIVATE rosbridge_client_cpp::publisher
-  PRIVATE rosbridge_client_cpp::subscriber
-  PRIVATE rosbridge_client_cpp::rosbridgeclient
+  PRIVATE rosbridge_client_cpp
 )
-
 
 if (EMSCRIPTEN) 
   string(APPEND CMAKE_CXX_FLAGS " -s USE_PTHREADS") 
