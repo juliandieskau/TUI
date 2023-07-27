@@ -5,7 +5,7 @@ Minimal starter project using the [FTXUI library](https://github.com/ArthurSonzo
 
 # rosbridge
 
-https://github.com/antoniocoratelli/rosbridge_client_cpp/tree/v2018/ rosbridge_client_cpp as ros-bridge library. (Currently error trying to include in CMakeLists.txt)
+[Rosbridge Client](https://github.com/antoniocoratelli/rosbridge_client_cpp/tree/v2018/) rosbridge_client_cpp as ros-bridge library. (Currently error trying to include in CMakeLists.txt)
 
 # VSCode Dev Container:
 
