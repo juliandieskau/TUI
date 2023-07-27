@@ -33,94 +33,94 @@ see CMakeFiles/ for error log
 
 # Terminal output for cmake
 
-[variant] Loaded new set of variants
-[kit] Successfully loaded 2 kits from /home/vscode/.local/share/CMakeTools/cmake-tools-kits.json
-[proc] Executing command: /usr/bin/cmake --version
-[proc] Executing command: /usr/bin/gcc -v
-[main] Configuring project: tui 
-[proc] Executing command: /usr/bin/cmake --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++ -S/workspaces/tui -B/workspaces/tui/build -G Ninja
-[cmake] Not searching for unused variables given on the command line.
-[cmake] -- The CXX compiler identification is GNU 10.2.1
-[cmake] -- Detecting CXX compiler ABI info
-[cmake] -- Detecting CXX compiler ABI info - done
-[cmake] -- Check for working CXX compiler: /usr/bin/g++ - skipped
-[cmake] -- Detecting CXX compile features
-[cmake] -- Detecting CXX compile features - done
-[cmake] -- Looking for C++ include pthread.h
-[cmake] -- Looking for C++ include pthread.h - found
-[cmake] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
-[cmake] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
-[cmake] -- Looking for pthread_create in pthreads
-[cmake] -- Looking for pthread_create in pthreads - not found
-[cmake] -- Looking for pthread_create in pthread
-[cmake] -- Looking for pthread_create in pthread - found
-[cmake] -- Found Threads: TRUE  
-[cmake] -- clang-tidy not found.
-[cmake] -- ftxui_set_options screen
-[cmake] -- ftxui_set_options dom
-[cmake] -- ftxui_set_options component
-[cmake] -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
-[cmake] Doxygen need to be installed to generate the doxygen documentation
-[cmake] -- The C compiler identification is GNU 10.2.1
-[cmake] -- Detecting C compiler ABI info
-[cmake] -- Detecting C compiler ABI info - done
-[cmake] -- Check for working C compiler: /usr/bin/gcc - skipped
-[cmake] -- Detecting C compile features
-[cmake] -- Detecting C compile features - done
-[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:40 (add_library):
+[variant] Loaded new set of variants <br>
+[kit] Successfully loaded 2 kits from /home/vscode/.local/share/CMakeTools/cmake-tools-kits.json<br>
+[proc] Executing command: /usr/bin/cmake --version<br>
+[proc] Executing command: /usr/bin/gcc -v<br>
+[main] Configuring project: tui <br>
+[proc] Executing command: /usr/bin/cmake --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++ -S/workspaces/tui -B/workspaces/tui/build -G Ninja<br>
+[cmake] Not searching for unused variables given on the command line.<br>
+[cmake] -- The CXX compiler identification is GNU 10.2.1<br>
+[cmake] -- Detecting CXX compiler ABI info<br>
+[cmake] -- Detecting CXX compiler ABI info - done<br>
+[cmake] -- Check for working CXX compiler: /usr/bin/g++ - skipped<br>
+[cmake] -- Detecting CXX compile features<br>
+[cmake] -- Detecting CXX compile features - done<br>
+[cmake] -- Looking for C++ include pthread.h<br>
+[cmake] -- Looking for C++ include pthread.h - found<br>
+[cmake] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD<br>
+[cmake] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed<br>
+[cmake] -- Looking for pthread_create in pthreads<br>
+[cmake] -- Looking for pthread_create in pthreads - not found<br>
+[cmake] -- Looking for pthread_create in pthread<br>
+[cmake] -- Looking for pthread_create in pthread - found<br>
+[cmake] -- Found Threads: TRUE  <br>
+[cmake] -- clang-tidy not found.<br>
+[cmake] -- ftxui_set_options screen<br>
+[cmake] -- ftxui_set_options dom<br>
+[cmake] -- ftxui_set_options component<br>
+[cmake] -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) <br>
+[cmake] Doxygen need to be installed to generate the doxygen documentation<br>
+[cmake] -- The C compiler identification is GNU 10.2.1<br>
+[cmake] -- Detecting C compiler ABI info<br>
+[cmake] -- Detecting C compiler ABI info - done<br>
+[cmake] -- Check for working C compiler: /usr/bin/gcc - skipped<br>
+[cmake] -- Detecting C compile features<br>
+[cmake] -- Detecting C compile features - done<br>
+[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:40 (add_library):<br>
 [cmake]   add_library cannot create target "rosbridge_client_cpp" because another
 [cmake]   target with the same name already exists.  The existing target is a shared
 [cmake]   library created in source directory
 [cmake]   "/workspaces/tui/build/_deps/rosbridge_client_cpp-src".  See documentation
-[cmake]   for policy CMP0002 for more details.
+[cmake]   for policy CMP0002 for more details.<br>
 [cmake] 
 [cmake] 
-[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:43 (target_link_libraries):
+[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:43 (target_link_libraries):<br>
 [cmake]   Attempt to add link library "pthread" to target "rosbridge_client_cpp"
-[cmake]   which is not built in this directory.
+[cmake]   which is not built in this directory.<br>
 [cmake] 
-[cmake]   This is allowed only when policy CMP0079 is set to NEW.
+[cmake]   This is allowed only when policy CMP0079 is set to NEW.<br>
 [cmake] 
 [cmake] 
-[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:51 (add_executable):
+[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:51 (add_executable):<br>
 [cmake]   add_executable cannot create target "rosbridge_client_cpp_examples" because
 [cmake]   another target with the same name already exists.  The existing target is
 [cmake]   an executable created in source directory
 [cmake]   "/workspaces/tui/build/_deps/rosbridge_client_cpp-src".  See documentation
-[cmake]   for policy CMP0002 for more details.
+[cmake]   for policy CMP0002 for more details.<br>
 [cmake] 
 [cmake] 
-[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:54 (target_link_libraries):
+[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:54 (target_link_libraries):<br>
 [cmake]   Attempt to add link library "rosbridge_client_cpp" to target
-[cmake]   "rosbridge_client_cpp_examples" which is not built in this directory.
+[cmake]   "rosbridge_client_cpp_examples" which is not built in this directory.<br>
 [cmake] 
-[cmake]   This is allowed only when policy CMP0079 is set to NEW.
+[cmake]   This is allowed only when policy CMP0079 is set to NEW.<br>
 [cmake] 
 [cmake] 
-[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:67 (add_executable):
+[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:67 (add_executable):<br>
 [cmake]   add_executable cannot create target "rosbridge_client_cpp_unit_tests"
 [cmake]   because another target with the same name already exists.  The existing
 [cmake]   target is an executable created in source directory
 [cmake]   "/workspaces/tui/build/_deps/rosbridge_client_cpp-src".  See documentation
-[cmake]   for policy CMP0002 for more details.
+[cmake]   for policy CMP0002 for more details.<br>
 [cmake] 
 [cmake] 
-[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:72 (target_link_libraries):
+[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:72 (target_link_libraries):<br>
 [cmake]   Attempt to add link library "rosbridge_client_cpp" to target
-[cmake]   "rosbridge_client_cpp_unit_tests" which is not built in this directory.
+[cmake]   "rosbridge_client_cpp_unit_tests" which is not built in this directory.<br>
 [cmake] 
-[cmake]   This is allowed only when policy CMP0079 is set to NEW.
+[cmake]   This is allowed only when policy CMP0079 is set to NEW.<br>
 [cmake] 
 [cmake] 
-[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:96 (add_custom_target):
+[cmake] CMake Error at build/_deps/rosbridge_client_cpp-src/CMakeLists.txt:96 (add_custom_target):<br>
 [cmake]   add_custom_target cannot create target "rosbridge_client_cpp_files" because
 [cmake]   another target with the same name already exists.  The existing target is a
 [cmake]   custom target created in source directory
 [cmake]   "/workspaces/tui/build/_deps/rosbridge_client_cpp-src".  See documentation
-[cmake]   for policy CMP0002 for more details.
+[cmake]   for policy CMP0002 for more details.<br>
 [cmake] 
-[cmake] 
+[cmake] <br>
 [cmake] -- Configuring incomplete, errors occurred!
-[cmake] See also "/workspaces/tui/build/CMakeFiles/CMakeOutput.log".
-[cmake] See also "/workspaces/tui/build/CMakeFiles/CMakeError.log".
-[proc] The command: /usr/bin/cmake --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++ -S/workspaces/tui -B/workspaces/tui/build -G Ninja exited with code: 1
+[cmake] See also "/workspaces/tui/build/CMakeFiles/CMakeOutput.log".<br>
+[cmake] See also "/workspaces/tui/build/CMakeFiles/CMakeError.log".<br>
+[proc] The command: /usr/bin/cmake --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++ -S/workspaces/tui -B/workspaces/tui/build -G Ninja exited with code: 1<br>
