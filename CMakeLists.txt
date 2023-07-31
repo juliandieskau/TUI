@@ -1,5 +1,6 @@
 cmake_minimum_required (VERSION 3.18.4)
 
+set(CMAKE_CXX_STANDARD 11)
 
 include(FetchContent)
 
@@ -31,23 +32,25 @@ endif()
 
 
 # ------------------------------------------------------------------------------
-
 project(ects-tui
   LANGUAGES CXX
   VERSION 1.0.0
 )
 
-add_executable(ects-tui "src/ectsTUI.cpp")
+add_executable(ects-tui "src/main.cpp" "src/ectsTUI.cpp" "src/PluginManager.cpp" "src/StatusBar.cpp" "src/SystemMonitoringPlugin.cpp" "src/ControlPlugin.cpp" "src/WaypointPlugin.cpp" "src/TopicMonitorPlugin.cpp" "src/BatteryPlugin.cpp" "src/IMUPlugin.cpp")
 target_include_directories(ects-tui PRIVATE src)
 
 include_directories(${rosbridge_client_SOURCE_DIR})
-add_subdirectory(${rosbridge_client_SOURCE_DIR} rosbridge_client)
+#add_subdirectory(${rosbridge_client_SOURCE_DIR} rosbridge_client)
+include_directories(src/Inc)
+target_include_directories(ects-tui PRIVATE ${rosbridge_client_cpp_SOURCE_DIR}/include)
+target_include_directories(ects-tui PRIVATE ${rosbridge_client_cpp_SOURCE_DIR}/include/rosbridge_client_cpp/vendor)
 
 target_link_libraries(ects-tui
-  PRIVATE ftxui::screen
-  PRIVATE ftxui::dom
-  PRIVATE ftxui::component # Not needed for this example.
-  PRIVATE rosbridge_client
+PRIVATE ftxui::screen
+PRIVATE ftxui::dom
+PRIVATE ftxui::component # Not needed for this example.
+PRIVATE rosbridge_client_cpp
 )
 
 if (EMSCRIPTEN) 
