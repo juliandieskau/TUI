@@ -39,7 +39,7 @@ project(ects-tui
 )
 
 add_executable(ects-tui "src/main.cpp" "src/ectsTUI.cpp" "src/PluginManager.cpp" "src/StatusBar.cpp" "src/SystemMonitoringPlugin.cpp" "src/ControlPlugin.cpp" "src/WaypointPlugin.cpp" "src/TopicMonitorPlugin.cpp" "src/BatteryPlugin.cpp" "src/IMUPlugin.cpp")
-target_include_directories(ects-tui PRIVATE src)
+target_include_directories(ects-tui PRIVATE src/Inc)
 
 include_directories(${rosbridge_client_SOURCE_DIR})
 #add_subdirectory(${rosbridge_client_SOURCE_DIR} rosbridge_client)

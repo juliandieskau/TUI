@@ -5,3 +5,6 @@ out
 # Visual Studio Project Files
 .vs
 .vscode
+
+# test files
+main.cpp
