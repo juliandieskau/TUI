@@ -1,0 +1,13 @@
+# Target labels
+ ftxui-populate
+# Source files and their labels
+/workspaces/tui/build/_deps/ftxui-subbuild/CMakeFiles/ftxui-populate
+/workspaces/tui/build/_deps/ftxui-subbuild/CMakeFiles/ftxui-populate.rule
+/workspaces/tui/build/_deps/ftxui-subbuild/CMakeFiles/ftxui-populate-complete.rule
+/workspaces/tui/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-install.rule
+/workspaces/tui/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-mkdir.rule
+/workspaces/tui/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-download.rule
+/workspaces/tui/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-patch.rule
+/workspaces/tui/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-configure.rule
+/workspaces/tui/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-build.rule
+/workspaces/tui/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-test.rule

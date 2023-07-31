@@ -1,0 +1,3 @@
+repository='https://github.com/antoniocoratelli/rosbridge_client_cpp'
+module=''
+tag='origin'
