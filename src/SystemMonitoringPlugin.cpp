@@ -70,16 +70,16 @@ void SystemMontitoringPlugin::subcribeToROS(){
   rosbridge_client_cpp::Subscriber my_sub12(*ros, "/ects/system/averages/{aggregation_name}/cpu/usage", "CpuUsageHistory.msg ", my_callback12, 5);
   
   auto my_callback13 = [&](const picojson::object& json){ allcpuUsagehist = std::to_string(json); };
-  rosbridge_client_cpp::Subscriber my_sub12(*ros, "/ects/system/averages/{aggregation_name}/disk/{mountpoint}/usage", "CpuUsageHistory.msg ", my_callback13, 5);
+  rosbridge_client_cpp::Subscriber my_sub13(*ros, "/ects/system/averages/{aggregation_name}/disk/{mountpoint}/usage", "CpuUsageHistory.msg ", my_callback13, 5);
   
   auto my_callback14 = [&](const picojson::object& json){ disusagehist = std::to_string(json); };
-  rosbridge_client_cpp::Subscriber my_sub12(*ros, "/ects/system/averages/{aggregation_name}/cpu/usage", "DiskUsageHistory.msg", my_callback14, 5);
+  rosbridge_client_cpp::Subscriber my_sub14(*ros, "/ects/system/averages/{aggregation_name}/cpu/usage", "DiskUsageHistory.msg", my_callback14, 5);
   
   auto my_callback15 = [&](const picojson::object& json){ totalprocesshist = std::to_string(json); };
-  rosbridge_client_cpp::Subscriber my_sub12(*ros, "/ects/system/averages/{aggregation_name}/processes/total", "ProcessTotalHistory.msg", my_callback15, 5);
+  rosbridge_client_cpp::Subscriber my_sub15(*ros, "/ects/system/averages/{aggregation_name}/processes/total", "ProcessTotalHistory.msg", my_callback15, 5);
   
   auto my_callback16 = [&](const picojson::object& json){ networkhist = std::to_string(json); };
-  rosbridge_client_cpp::Subscriber my_sub12(*ros, "/ects/system/averages/{aggregation_name}/network/{adapter}/usage", "NetworkUsageHistory.msg", my_callback16, 5);
+  rosbridge_client_cpp::Subscriber my_sub16(*ros, "/ects/system/averages/{aggregation_name}/network/{adapter}/usage", "NetworkUsageHistory.msg", my_callback16, 5);
 };
 
 std::string SystemMontitoringPlugin::getName() {
