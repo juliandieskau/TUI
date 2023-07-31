@@ -12,8 +12,8 @@
 using namespace ftxui;
 class TopicMonitorPlugin {
     private:
-    rosbridge_client_cpp::RosbridgeClient ros;
+    std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     public:
-    TopicMonitorPlugin(rosbridge_client_cpp::RosbridgeClient rb);
+    TopicMonitorPlugin(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
 };
 #endif //TOPIC_MONITOR_PLUGIN_H

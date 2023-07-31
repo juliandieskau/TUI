@@ -1,11 +1,12 @@
 #include "ectsTUI.hpp"
 #include "ECTSPlugin.hpp"
 
-ectsTUI::ectsTUI(rosbridge_client_cpp::RosbridgeClient rb) {
+ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   counter = 0;
   ros = rb;
   states = {};
 };
+
 int ectsTUI::main() {
   std::vector<Component> container;
   auto cont = Container::Horizontal({});
@@ -55,10 +56,13 @@ int ectsTUI::main() {
   screen.Loop(all);
   return 0;
 };
-RosbridgeClient* ectsTUI::getRosbridge() {
+
+/*RosbridgeClient* ectsTUI::getRosbridge() {
   return &ros;
-};
+};*/
+
 void ectsTUI::removePlugin(){};
+
 void ectsTUI::addPlugin(ECTSPlugin* plugin) {
   allPlugins.push_back(plugin);
   states[counter] = true;

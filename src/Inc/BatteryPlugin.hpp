@@ -11,8 +11,8 @@
 using namespace ftxui;
 class BatteryPlugin {
     public:
-    BatteryPlugin(rosbridge_client_cpp::RosbridgeClient rb);
+    BatteryPlugin(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     private:
-    rosbridge_client_cpp::RosbridgeClient ros;
+    std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
 };
 #endif //BATTERY_PLUGIN_H

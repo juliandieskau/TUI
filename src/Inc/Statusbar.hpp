@@ -7,6 +7,7 @@
 #include "ftxui/component/screen_interactive.hpp"
 #include "ftxui/dom/elements.hpp"
 #include "ECTSPlugin.hpp"
+
 using namespace ftxui;
 class Statusbar {
 private:

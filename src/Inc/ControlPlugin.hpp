@@ -12,14 +12,14 @@ using namespace ftxui;
 
 class ControlPlugin : public ECTSPlugin {
 public:
-    ControlPlugin(std::string name, rosbridge_client_cpp::RosbridgeClient rb);
+    ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage(int topic, int message);
     Element displayData();
     Component displayDataComp();
     bool* getshown();
-    void subcribeToROS(int RosbridgeClient);
+    void subcribeToROS();
     std::string getName() { return name; };
-    void unsubscribeFromRos(int RosbridgeClient);
+    void unsubscribeFromRos();
     void update();
     std::string getboolean() {
         return shown ? "true" : "false";
@@ -32,6 +32,6 @@ private:
     bool right;
     bool* shown;
     std::string name;
-    rosbridge_client_cpp::RosbridgeClient ros;
+    std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
 };
 #endif //ECTS_PLUGIN_H

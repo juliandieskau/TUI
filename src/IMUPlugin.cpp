@@ -1,5 +1,5 @@
 #include "IMUPlugin.hpp"
 
-IMUPlugin::IMUPlugin(rosbridge_client_cpp::RosbridgeClient rb) {
+IMUPlugin::IMUPlugin(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
     ros = rb;
 }

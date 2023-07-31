@@ -1,7 +1,7 @@
 #include "ControlPlugin.hpp"
 using namespace ftxui;
 
-ControlPlugin::ControlPlugin(std::string name, rosbridge_client_cpp::RosbridgeClient rb) {
+ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   this->name = name;
   ros = rb;
 }
@@ -32,8 +32,8 @@ Component ControlPlugin::displayDataComp() {
 bool* ControlPlugin::getshown() {
   return shown;
 }
-void ControlPlugin::subcribeToROS(int RosbridgeClient){};
-void ControlPlugin::unsubscribeFromRos(int RosbridgeClient){};
+void ControlPlugin::subcribeToROS(){};
+void ControlPlugin::unsubscribeFromRos(){};
 void ControlPlugin::update(){};
 
 

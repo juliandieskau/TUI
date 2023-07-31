@@ -13,6 +13,7 @@
 #include <iostream>
 #include <thread>
 #include "rosbridge_client_cpp/rosbridge.h"
+
 using namespace ftxui;
 class ectsTUI {
 private:
@@ -21,11 +22,11 @@ private:
     int counter;
     PluginManager manager;
     Statusbar status;
-    rosbridge_client_cpp::RosbridgeClient ros;
+    std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
 public:
-    ectsTUI(rosbridge_client_cpp::RosbridgeClient rb);
+    ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     int main();
-    rosbridge_client_cpp::RosbridgeClient* getRosbridge();
+    //rosbridge_client_cpp::RosbridgeClient* getRosbridge();
     void removePlugin();
     void addPlugin(ECTSPlugin* plugin);
 };

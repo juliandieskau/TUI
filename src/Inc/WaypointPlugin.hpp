@@ -12,8 +12,8 @@
 using namespace ftxui;
 class WaypointPlugin {
     private:
-    rosbridge_client_cpp::RosbridgeClient ros;
+    std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     public:
-    WaypointPlugin(rosbridge_client_cpp::RosbridgeClient rb);
+    WaypointPlugin(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
 };
 #endif //WAYPOINT_PLUGIN_H

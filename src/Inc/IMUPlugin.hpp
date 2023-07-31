@@ -12,8 +12,8 @@
 using namespace ftxui;
 class IMUPlugin {
     public:
-    IMUPlugin(rosbridge_client_cpp::RosbridgeClient rb);
+    IMUPlugin(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     private:
-    rosbridge_client_cpp::RosbridgeClient ros;
+    std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
 };
 #endif //IMU_PLUGIN_H

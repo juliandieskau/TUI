@@ -13,7 +13,7 @@ using namespace ftxui;
 
 class SystemMontitoringPlugin : public ECTSPlugin {
 public:
-    SystemMontitoringPlugin(std::string name, rosbridge_client_cpp::RosbridgeClient rb);
+    SystemMontitoringPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();
     Component displayDataComp();
     Element displayData();
@@ -25,7 +25,7 @@ public:
     std::string getboolean();
 private:
     bool shown;
-    rosbridge_client_cpp::RosbridgeClient ros;
+    std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::string name;
     std::string aggregationlist = "";
     std::string cpuUsage = "20";

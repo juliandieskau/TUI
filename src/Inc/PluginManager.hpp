@@ -10,6 +10,7 @@
 #include "rosbridge_client_cpp/rosbridge.h"
 
 using namespace ftxui;
+// Fügt der TUI die Checkboxen hinzu und managed visibility der Plugins
 class PluginManager {
 private:
 	Component container;

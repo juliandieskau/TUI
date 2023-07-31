@@ -9,8 +9,11 @@ int main() {
   { std::cout << "RosbridgeClient connected" << std::endl; };
   auto on_disconnection = []()
   { std::cout << "RosbridgeClient disconnected" << std::endl; };
-  rosbridge_client_cpp::RosbridgeClient rb("localhost", 9090, on_connection, on_disconnection);
 
+  //rosbridge_client_cpp::RosbridgeClient rb("localhost", 9090, on_connection, on_disconnection);
+  // rb ist shared_ptr auf RosbridgeClient, nicht ros client selbst!
+  auto rb = std::make_shared<rosbridge_client_cpp::RosbridgeClient>("localhost", 9090, on_connection, on_disconnection);
+  
   // initialize the TUI and add the ROS client to it
   ectsTUI tui(rb);
   ECTSPlugin* e1 = new SystemMontitoringPlugin("sddjjj", rb);
