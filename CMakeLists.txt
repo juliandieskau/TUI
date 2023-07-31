@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.18.4)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 include(FetchContent)
 
@@ -20,7 +20,8 @@ endif()
 # --- Fetch rosbridgecpp
 FetchContent_Declare(rosbridge_client
   #GIT_REPOSITORY https://github.com/ppianpak/rosbridgecpp -- was a mistake, wrong repository
-  GIT_REPOSITORY https://github.com/antoniocoratelli/rosbridge_client_cpp
+  #GIT_REPOSITORY https://github.com/antoniocoratelli/rosbridge_client_cpp
+  GIT_REPOSITORY https://git.scc.kit.edu/pse-robot-monitoring/rosbridge_client_cpp.git
   GIT_TAG v2018
 )
 
