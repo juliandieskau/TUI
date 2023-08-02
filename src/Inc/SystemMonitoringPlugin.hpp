@@ -15,33 +15,29 @@ class SystemMontitoringPlugin : public ECTSPlugin {
 public:
     SystemMontitoringPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();
-    Component displayDataComp();
-    Element displayData();
+    Component displayData();
     void subcribeToROS();
     std::string getName();
     void unsubscribeFromRos();
     void update();
     bool* getshown();
     std::string getboolean();
+    void addtabadapter(std::string name, std::string content);
+    void addtabmountpoint(std::string name, std::string content);
 private:
     bool shown;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::string name;
-    std::string aggregationlist = "";
     std::string cpuUsage = "20";
     std::string allcpuUsage = "30";
     std::string memoryUsage = "40";
-    std::string mountpointlist = "{}";
-    std::string disusage = "20";
     std::string totalprocess = "2";
-    std::string adapterlist = "{}";
-    std::string allcpuUsagehist = "30";
-    std::string memoryUsagehist = "40";
-    std::string disusagehist = "20";
-    std::string totalprocesshist = "2";
-    std::string networkinfo = "";
-    std::string networkusage = "";
-    std::string networkhist = "";
+    std::vector<Component> adapters;
+    std::vector<Component> mountpoints;
+    std::vector<std::string> name_adapters;
+    int mountpoint_tab_selected = 0;
+    std::vector<std::string> name_mountpoints;
+    int adapter_tab_selected = 0;
 };
 
 
