@@ -8,12 +8,29 @@
 #include "ftxui/dom/elements.hpp"
 #include "ECTSPlugin.hpp"
 #include "rosbridge_client_cpp/rosbridge.h"
+#include <cmath>
 
 using namespace ftxui;
 class WaypointPlugin {
     private:
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
+    std::value waypointlist;
+    int current_index;
+    int amount_of_waypoints;
+    int distance_to_next;
+    int total_distance;
+    float determineDistance(int index);
+    std::string allcontent;
     public:
-    WaypointPlugin(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
+    WaypointPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
+    void sendMessage();
+    Component displayData();
+    void subcribeToROS();
+    std::string getName();
+    void unsubscribeFromRos();
+    void update();
+    bool* getshown();
+    std::string getboolean();
+    void calculate();
 };
 #endif //WAYPOINT_PLUGIN_H
