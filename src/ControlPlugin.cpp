@@ -32,9 +32,15 @@ Component ControlPlugin::displayDataComp() {
 bool* ControlPlugin::getshown() {
   return shown;
 }
-void ControlPlugin::subcribeToROS(){};
-void ControlPlugin::unsubscribeFromRos(){};
-void ControlPlugin::update(){};
+void ControlPlugin::subcribeToROS(){
+
+};
+void ControlPlugin::unsubscribeFromRos(){
+
+};
+void ControlPlugin::update(){
+  
+};
 
 
 

@@ -12,8 +12,25 @@
 using namespace ftxui;
 class IMUPlugin {
     public:
-    IMUPlugin(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
+    IMUPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
+    void sendMessage();
+    Component displayData();
+    void subcribeToROS();
+    std::string getName();
+    void unsubscribeFromRos();
+    void update();
+    bool* getshown();
+    std::string getboolean();
+    void calculate();
+    std::vector<std::shared_ptr<String>> getImportantValues();
     private:
+    rosbridge_client_cpp::Publisher my_pub;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
+    std::string name;
+    std::string allcontent;
+    std::vector<std::shared_ptr<std::string>> important;
+    std::string orientation;
+    std::string angular_velocity;
+    std::string linear_acceleration;
 };
 #endif //IMU_PLUGIN_H

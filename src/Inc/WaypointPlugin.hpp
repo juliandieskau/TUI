@@ -13,17 +13,21 @@
 using namespace ftxui;
 class WaypointPlugin {
     private:
+    rosbridge_client_cpp::Publisher my_pub;
+    std::string name;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
-    std::value waypointlist;
+    picojson::value waypointlist;
     int current_index;
     int amount_of_waypoints;
     int distance_to_next;
     int total_distance;
     float determineDistance(int index);
     std::string allcontent;
+    std::vector<std::shared_ptr<std::string>> important;
     public:
     WaypointPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();
+    std::vector<std::shared_ptr<String>> getImportantValues();
     Component displayData();
     void subcribeToROS();
     std::string getName();

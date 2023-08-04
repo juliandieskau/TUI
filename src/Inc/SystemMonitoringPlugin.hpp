@@ -22,10 +22,16 @@ public:
     void update();
     bool* getshown();
     std::string getboolean();
+    std::string allcontent;
     void addtabadapter(std::string name, std::string content);
     void addtabmountpoint(std::string name, std::string content);
+    std::vector<std::shared_ptr<String>> getImportantValues();
 private:
     bool shown;
+    std::vector<std::string> mountnames;
+    std::vector<std::string> adapternames;
+    rosbridge_client_cpp::Publisher my_pub;
+    std::vector<std::shared_ptr<std::string>> important;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::string name;
     std::string cpuUsage = "20";
