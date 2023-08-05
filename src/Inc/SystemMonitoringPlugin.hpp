@@ -8,6 +8,7 @@
 #include "ftxui/dom/elements.hpp"
 #include "ECTSPlugin.hpp"
 #include "rosbridge_client_cpp/rosbridge.h"
+#include <array>
 
 using namespace ftxui;
 
@@ -20,17 +21,17 @@ public:
     std::string getName();
     void unsubscribeFromRos();
     void update();
-    bool* getshown();
     std::string getboolean();
     std::string allcontent;
-    void addtabadapter(std::string name, std::string content);
-    void addtabmountpoint(std::string name, std::string content);
-    std::vector<std::shared_ptr<String>> getImportantValues();
+    void addtabadapterUsage(int index);
+    void addtabadapterInfo(int index);
+    void addtabmountpoint(int index);
+    std::vector<std::shared_ptr<std::string>> getImportantValues();
 private:
     bool shown;
-    std::vector<std::string> mountnames;
-    std::vector<std::string> adapternames;
-    rosbridge_client_cpp::Publisher my_pub;
+    std::vector<std::string> mountnamestopic;
+    std::vector<std::string> adapternamestopic;
+    std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::vector<std::shared_ptr<std::string>> important;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::string name;
@@ -38,10 +39,19 @@ private:
     std::string allcpuUsage = "30";
     std::string memoryUsage = "40";
     std::string totalprocess = "2";
-    std::vector<Component> adapters;
+    std::vector<Component> adaptersInfo;
+    std::vector<Component> adaptersUsage;
     std::vector<Component> mountpoints;
+    std::vector<std::string> adaptersInfocontent;
+    std::vector<std::string> adaptersUsagecontent;
+    std::vector<std::string> mountpointscontent;
     std::vector<std::string> name_adapters;
     int mountpoint_tab_selected = 0;
+    int counterm = 0;
+    int countera = 0;
+    int counteri = 0;
+    int sizea = 0;
+    int sizem = 0;
     std::vector<std::string> name_mountpoints;
     int adapter_tab_selected = 0;
 };

@@ -19,12 +19,11 @@ class IMUPlugin {
     std::string getName();
     void unsubscribeFromRos();
     void update();
-    bool* getshown();
     std::string getboolean();
     void calculate();
-    std::vector<std::shared_ptr<String>> getImportantValues();
+    std::vector<std::shared_ptr<std::string>> getImportantValues();
     private:
-    rosbridge_client_cpp::Publisher my_pub;
+    std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::string name;
     std::string allcontent;

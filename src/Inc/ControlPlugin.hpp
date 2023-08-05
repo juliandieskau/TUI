@@ -14,9 +14,7 @@ class ControlPlugin : public ECTSPlugin {
 public:
     ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage(int topic, int message);
-    Element displayData();
-    Component displayDataComp();
-    bool* getshown();
+    Component displayData();
     void subcribeToROS();
     std::string getName() { return name; };
     void unsubscribeFromRos();

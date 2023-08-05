@@ -19,7 +19,7 @@ int ectsTUI::main() {
   }
   i = 0;
   auto foot = statusbar.displayData();
-  Component remnant = Renderer(foot,[&] {
+  Component remnant = Renderer(foot, [&] {
     return window(text("Footer"), foot->Render());
   });
   Component state = manager.displayData();
@@ -64,6 +64,6 @@ void ectsTUI::addPlugin(ECTSPlugin* plugin) {
   allPlugins.push_back(plugin);
   states[counter] = true;
   manager.addCheckbox(Checkbox(plugin->getName(), &states[counter]));
-  statusbar.addField(plugin);
+  statusbar.addField(&plugin);
   counter++;
 };
