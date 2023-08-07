@@ -79,132 +79,132 @@ include CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/main.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/main.cpp.o: ../src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ects-tui.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/main.cpp.o -c /workspaces/tui/src/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/main.cpp.o -c /workspaces/tui/src/main.cpp
 
 CMakeFiles/ects-tui.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/main.cpp > CMakeFiles/ects-tui.dir/src/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/main.cpp > CMakeFiles/ects-tui.dir/src/main.cpp.i
 
 CMakeFiles/ects-tui.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/main.cpp -o CMakeFiles/ects-tui.dir/src/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/main.cpp -o CMakeFiles/ects-tui.dir/src/main.cpp.s
 
 CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.o: ../src/ectsTUI.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.o -c /workspaces/tui/src/ectsTUI.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.o -c /workspaces/tui/src/ectsTUI.cpp
 
 CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/ectsTUI.cpp > CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/ectsTUI.cpp > CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.i
 
 CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/ectsTUI.cpp -o CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/ectsTUI.cpp -o CMakeFiles/ects-tui.dir/src/ectsTUI.cpp.s
 
 CMakeFiles/ects-tui.dir/src/PluginManager.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/PluginManager.cpp.o: ../src/PluginManager.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ects-tui.dir/src/PluginManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/PluginManager.cpp.o -c /workspaces/tui/src/PluginManager.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/PluginManager.cpp.o -c /workspaces/tui/src/PluginManager.cpp
 
 CMakeFiles/ects-tui.dir/src/PluginManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/PluginManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/PluginManager.cpp > CMakeFiles/ects-tui.dir/src/PluginManager.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/PluginManager.cpp > CMakeFiles/ects-tui.dir/src/PluginManager.cpp.i
 
 CMakeFiles/ects-tui.dir/src/PluginManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/PluginManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/PluginManager.cpp -o CMakeFiles/ects-tui.dir/src/PluginManager.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/PluginManager.cpp -o CMakeFiles/ects-tui.dir/src/PluginManager.cpp.s
 
 CMakeFiles/ects-tui.dir/src/StatusBar.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/StatusBar.cpp.o: ../src/StatusBar.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ects-tui.dir/src/StatusBar.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/StatusBar.cpp.o -c /workspaces/tui/src/StatusBar.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/StatusBar.cpp.o -c /workspaces/tui/src/StatusBar.cpp
 
 CMakeFiles/ects-tui.dir/src/StatusBar.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/StatusBar.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/StatusBar.cpp > CMakeFiles/ects-tui.dir/src/StatusBar.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/StatusBar.cpp > CMakeFiles/ects-tui.dir/src/StatusBar.cpp.i
 
 CMakeFiles/ects-tui.dir/src/StatusBar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/StatusBar.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/StatusBar.cpp -o CMakeFiles/ects-tui.dir/src/StatusBar.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/StatusBar.cpp -o CMakeFiles/ects-tui.dir/src/StatusBar.cpp.s
 
 CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.o: ../src/SystemMonitoringPlugin.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.o -c /workspaces/tui/src/SystemMonitoringPlugin.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.o -c /workspaces/tui/src/SystemMonitoringPlugin.cpp
 
 CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/SystemMonitoringPlugin.cpp > CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/SystemMonitoringPlugin.cpp > CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.i
 
 CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/SystemMonitoringPlugin.cpp -o CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/SystemMonitoringPlugin.cpp -o CMakeFiles/ects-tui.dir/src/SystemMonitoringPlugin.cpp.s
 
 CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.o: ../src/ControlPlugin.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.o -c /workspaces/tui/src/ControlPlugin.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.o -c /workspaces/tui/src/ControlPlugin.cpp
 
 CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/ControlPlugin.cpp > CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/ControlPlugin.cpp > CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.i
 
 CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/ControlPlugin.cpp -o CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/ControlPlugin.cpp -o CMakeFiles/ects-tui.dir/src/ControlPlugin.cpp.s
 
 CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.o: ../src/WaypointPlugin.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.o -c /workspaces/tui/src/WaypointPlugin.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.o -c /workspaces/tui/src/WaypointPlugin.cpp
 
 CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/WaypointPlugin.cpp > CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/WaypointPlugin.cpp > CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.i
 
 CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/WaypointPlugin.cpp -o CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/WaypointPlugin.cpp -o CMakeFiles/ects-tui.dir/src/WaypointPlugin.cpp.s
 
 CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.o: ../src/TopicMonitorPlugin.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.o -c /workspaces/tui/src/TopicMonitorPlugin.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.o -c /workspaces/tui/src/TopicMonitorPlugin.cpp
 
 CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/TopicMonitorPlugin.cpp > CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/TopicMonitorPlugin.cpp > CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.i
 
 CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/TopicMonitorPlugin.cpp -o CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/TopicMonitorPlugin.cpp -o CMakeFiles/ects-tui.dir/src/TopicMonitorPlugin.cpp.s
 
 CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.o: ../src/BatteryPlugin.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.o -c /workspaces/tui/src/BatteryPlugin.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.o -c /workspaces/tui/src/BatteryPlugin.cpp
 
 CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/BatteryPlugin.cpp > CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/BatteryPlugin.cpp > CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.i
 
 CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/BatteryPlugin.cpp -o CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/BatteryPlugin.cpp -o CMakeFiles/ects-tui.dir/src/BatteryPlugin.cpp.s
 
 CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.o: CMakeFiles/ects-tui.dir/flags.make
 CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.o: ../src/IMUPlugin.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.o -c /workspaces/tui/src/IMUPlugin.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.o -c /workspaces/tui/src/IMUPlugin.cpp
 
 CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/IMUPlugin.cpp > CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/src/IMUPlugin.cpp > CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.i
 
 CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/IMUPlugin.cpp -o CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/src/IMUPlugin.cpp -o CMakeFiles/ects-tui.dir/src/IMUPlugin.cpp.s
 
 # Object files for target ects-tui
 ects__tui_OBJECTS = \

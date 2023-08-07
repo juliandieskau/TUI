@@ -79,15 +79,15 @@ include _deps/rosbridge_client-build/CMakeFiles/rosbridge_client_cpp_examples.di
 _deps/rosbridge_client-build/CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.o: _deps/rosbridge_client-build/CMakeFiles/rosbridge_client_cpp_examples.dir/flags.make
 _deps/rosbridge_client-build/CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.o: _deps/rosbridge_client-src/tests/examples.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/rosbridge_client-build/CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.o"
-	cd /workspaces/tui/build/_deps/rosbridge_client-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.o -c /workspaces/tui/build/_deps/rosbridge_client-src/tests/examples.cpp
+	cd /workspaces/tui/build/_deps/rosbridge_client-build && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.o -c /workspaces/tui/build/_deps/rosbridge_client-src/tests/examples.cpp
 
 _deps/rosbridge_client-build/CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.i"
-	cd /workspaces/tui/build/_deps/rosbridge_client-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/rosbridge_client-src/tests/examples.cpp > CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.i
+	cd /workspaces/tui/build/_deps/rosbridge_client-build && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/rosbridge_client-src/tests/examples.cpp > CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.i
 
 _deps/rosbridge_client-build/CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.s"
-	cd /workspaces/tui/build/_deps/rosbridge_client-build && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/rosbridge_client-src/tests/examples.cpp -o CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.s
+	cd /workspaces/tui/build/_deps/rosbridge_client-build && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/rosbridge_client-src/tests/examples.cpp -o CMakeFiles/rosbridge_client_cpp_examples.dir/tests/examples.cpp.s
 
 # Object files for target rosbridge_client_cpp_examples
 rosbridge_client_cpp_examples_OBJECTS = \

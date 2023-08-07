@@ -29,4 +29,8 @@ int main() {
   tui.addPlugin(e5);
   tui.addPlugin(e6);
   tui.main();
+  while (true) {
+    
+  }
+  return 0;
 }

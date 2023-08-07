@@ -79,15 +79,15 @@ include _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_modal_dial
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.o: _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_modal_dialog_custom.dir/flags.make
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.o: _deps/ftxui-src/examples/component/modal_dialog_custom.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.o"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/modal_dialog_custom.cpp
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/modal_dialog_custom.cpp
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.i"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/modal_dialog_custom.cpp > CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.i
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/modal_dialog_custom.cpp > CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.i
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.s"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/modal_dialog_custom.cpp -o CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.s
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/modal_dialog_custom.cpp -o CMakeFiles/ftxui_example_modal_dialog_custom.dir/modal_dialog_custom.cpp.s
 
 # Object files for target ftxui_example_modal_dialog_custom
 ftxui_example_modal_dialog_custom_OBJECTS = \

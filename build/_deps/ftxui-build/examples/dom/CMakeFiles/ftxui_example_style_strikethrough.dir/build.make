@@ -79,15 +79,15 @@ include _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_strikethro
 _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.o: _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_strikethrough.dir/flags.make
 _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.o: _deps/ftxui-src/examples/dom/style_strikethrough.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.o"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_strikethrough.cpp
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_strikethrough.cpp
 
 _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.i"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_strikethrough.cpp > CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.i
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_strikethrough.cpp > CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.i
 
 _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.s"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_strikethrough.cpp -o CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.s
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_strikethrough.cpp -o CMakeFiles/ftxui_example_style_strikethrough.dir/style_strikethrough.cpp.s
 
 # Object files for target ftxui_example_style_strikethrough
 ftxui_example_style_strikethrough_OBJECTS = \

@@ -79,15 +79,15 @@ include _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_input.dir/
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_input.dir/input.cpp.o: _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_input.dir/flags.make
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_input.dir/input.cpp.o: _deps/ftxui-src/examples/component/input.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_input.dir/input.cpp.o"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_input.dir/input.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/input.cpp
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_input.dir/input.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/input.cpp
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_input.dir/input.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ftxui_example_input.dir/input.cpp.i"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/input.cpp > CMakeFiles/ftxui_example_input.dir/input.cpp.i
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/input.cpp > CMakeFiles/ftxui_example_input.dir/input.cpp.i
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_input.dir/input.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ftxui_example_input.dir/input.cpp.s"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/input.cpp -o CMakeFiles/ftxui_example_input.dir/input.cpp.s
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/input.cpp -o CMakeFiles/ftxui_example_input.dir/input.cpp.s
 
 # Object files for target ftxui_example_input
 ftxui_example_input_OBJECTS = \

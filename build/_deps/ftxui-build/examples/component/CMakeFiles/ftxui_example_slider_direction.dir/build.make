@@ -79,15 +79,15 @@ include _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_slider_dir
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.o: _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_slider_direction.dir/flags.make
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.o: _deps/ftxui-src/examples/component/slider_direction.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.o"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/slider_direction.cpp
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/slider_direction.cpp
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.i"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/slider_direction.cpp > CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.i
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/slider_direction.cpp > CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.i
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.s"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/slider_direction.cpp -o CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.s
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/slider_direction.cpp -o CMakeFiles/ftxui_example_slider_direction.dir/slider_direction.cpp.s
 
 # Object files for target ftxui_example_slider_direction
 ftxui_example_slider_direction_OBJECTS = \

@@ -79,15 +79,15 @@ include _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_menu_multi
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.o: _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_menu_multiple.dir/flags.make
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.o: _deps/ftxui-src/examples/component/menu_multiple.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.o"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/menu_multiple.cpp
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/menu_multiple.cpp
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.i"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/menu_multiple.cpp > CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.i
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/menu_multiple.cpp > CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.i
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.s"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/menu_multiple.cpp -o CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.s
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/menu_multiple.cpp -o CMakeFiles/ftxui_example_menu_multiple.dir/menu_multiple.cpp.s
 
 # Object files for target ftxui_example_menu_multiple
 ftxui_example_menu_multiple_OBJECTS = \

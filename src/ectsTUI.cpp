@@ -53,7 +53,7 @@ int ectsTUI::main() {
                   }));
   });*/
   auto screen = ScreenInteractive::Fullscreen();
-  screen.Loop(all);
+  //screen.Loop(all);
   return 0;
 };
 

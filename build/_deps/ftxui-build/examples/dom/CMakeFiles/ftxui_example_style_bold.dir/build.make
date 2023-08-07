@@ -79,15 +79,15 @@ include _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_bold.dir/f
 _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.o: _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_bold.dir/flags.make
 _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.o: _deps/ftxui-src/examples/dom/style_bold.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.o"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_bold.cpp
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_bold.cpp
 
 _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.i"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_bold.cpp > CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.i
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_bold.cpp > CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.i
 
 _deps/ftxui-build/examples/dom/CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.s"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_bold.cpp -o CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.s
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/dom && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/dom/style_bold.cpp -o CMakeFiles/ftxui_example_style_bold.dir/style_bold.cpp.s
 
 # Object files for target ftxui_example_style_bold
 ftxui_example_style_bold_OBJECTS = \

@@ -79,15 +79,15 @@ include _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_tab_horizo
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.o: _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_tab_horizontal.dir/flags.make
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.o: _deps/ftxui-src/examples/component/tab_horizontal.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/workspaces/tui/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.o"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/tab_horizontal.cpp
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.o -c /workspaces/tui/build/_deps/ftxui-src/examples/component/tab_horizontal.cpp
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.i"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/tab_horizontal.cpp > CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.i
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/tui/build/_deps/ftxui-src/examples/component/tab_horizontal.cpp > CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.i
 
 _deps/ftxui-build/examples/component/CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.s"
-	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/tab_horizontal.cpp -o CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.s
+	cd /workspaces/tui/build/_deps/ftxui-build/examples/component && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/tui/build/_deps/ftxui-src/examples/component/tab_horizontal.cpp -o CMakeFiles/ftxui_example_tab_horizontal.dir/tab_horizontal.cpp.s
 
 # Object files for target ftxui_example_tab_horizontal
 ftxui_example_tab_horizontal_OBJECTS = \
