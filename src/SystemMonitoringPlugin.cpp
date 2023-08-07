@@ -10,15 +10,19 @@ SystemMontitoringPlugin::SystemMontitoringPlugin(std::string name, std::shared_p
 }
 void SystemMontitoringPlugin::sendMessage(){
   picojson::object json;
+
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/cpu/percent");
   (*my_pub).publish<picojson::object>(json);
+
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/cpu/usage");
   (*my_pub).publish<picojson::object>(json);
+
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/mem/usage");
   (*my_pub).publish<picojson::object>(json);
+
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/processes/total");
   (*my_pub).publish<picojson::object>(json);
@@ -26,9 +30,11 @@ void SystemMontitoringPlugin::sendMessage(){
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/disk/mountpoints");
   (*my_pub).publish<picojson::object>(json);
+
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/network/adapters");
   (*my_pub).publish<picojson::object>(json);
+
   for (int i = 0; i < mountnamestopic.size(); i++) {
     json["reload_all"] = picojson::value(false);
     json["topic"] = picojson::value(mountnamestopic[i]);
@@ -40,6 +46,7 @@ void SystemMontitoringPlugin::sendMessage(){
     (*my_pub).publish<picojson::object>(json);
   }
 };
+
 Component SystemMontitoringPlugin::displayData() {
   std::string name = this->name;
   
@@ -98,6 +105,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     auto usage = usage1.get<std::vector<picojson::value>>();
     picojson::value average1 = json["load_averages"];
     auto average = average1.get<std::vector<picojson::value>>();
+
     for (int a = 1; a <= usage.size(); a++) {
       all = all + "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str() + "\n";
     }

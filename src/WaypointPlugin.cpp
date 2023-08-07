@@ -87,6 +87,7 @@ void WaypointPlugin::calculate() {
    }
 
 };
+
 float WaypointPlugin::determineDistance(int index) {
    /*float x = std::stof((waypointlist[index])[x].to_str()) - std::stof((waypointlist[index - 1])[x].to_str());
    float y = std::stof((waypointlist[index])[y].to_str()) - std::stof((waypointlist[index - 1])[y].to_str());
@@ -99,11 +100,15 @@ float WaypointPlugin::determineDistance(int index) {
 std::string WaypointPlugin::getName(){
    return name;
 };
+
 void WaypointPlugin::unsubscribeFromRos(){};
+
 void WaypointPlugin::update(){};
+
 std::string WaypointPlugin::getboolean() {
    return "";
 };
+
 std::vector<std::shared_ptr<std::string>> WaypointPlugin::getImportantValues() {
   return important;
 };

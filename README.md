@@ -59,9 +59,13 @@ cd build
 
 # TODO
 - [ ] ectsTUI
-  - [ ] remove Plugin
+  - [ ] remove Plugin method
 - [ ] main
   - [ ] initialize Correct Plugins
+- [ ] Plugin Manager
+  - [ ] subscribeToROS aufrufen wenn Plugin hinzugefügt (evtl an anderer stelle)
+  - [ ] unsubscribeFromROS aufrufen wenn plugins entfernt (error handling, wenn schon passiert)
+<br>
 - [ ] Battery Plugin
   - [x] Display
   - [ ] Unsubscribe from ROS
@@ -72,6 +76,15 @@ cd build
   - [x] Display
   - [ ] Unsubscribe from ROS
 - [ ] System Monitoring Plugin
+  - [x] Display
+  - [ ] Unsubscribe from ROS
+- [ ] Waypoint Plugin
+  - [x] Display
+  - [ ] Unsubscribe from ROS
+<br>
+- [ ] Error Handling
+- [ ] White Spaces/ Code Style
+- [ ] Comments for Methods, Classes, Members (-> Entwurf)
 
 # Changes to Draft Phase
 - [x] Removed Topic Monitor Plugin (no need for it)
