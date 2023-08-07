@@ -13,16 +13,13 @@ int ectsTUI::main() {
   int i = 0;
   while (i < allPlugins.size()) {
     if (states[i]) {
-      auto rend = Renderer([&] {
-        return allPlugins[i]->displayData();
-      });
-      cont->Add(rend | Maybe(&states[i]));
+      cont->Add(allPlugins[i]->displayData() | Maybe(&states[i]));
     }
     i++;
   }
   i = 0;
-  auto foot = status.displayData();
-  Component remnant = Renderer(foot,[&] {
+  auto foot = statusbar.displayData();
+  Component remnant = Renderer(foot, [&] {
     return window(text("Footer"), foot->Render());
   });
   Component state = manager.displayData();
@@ -67,5 +64,6 @@ void ectsTUI::addPlugin(ECTSPlugin* plugin) {
   allPlugins.push_back(plugin);
   states[counter] = true;
   manager.addCheckbox(Checkbox(plugin->getName(), &states[counter]));
+  statusbar.addField(&plugin);
   counter++;
 };

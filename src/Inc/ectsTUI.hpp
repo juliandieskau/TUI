@@ -10,6 +10,7 @@
 #include <array>
 #include "PluginManager.hpp"
 #include "Statusbar.hpp"
+#include "Statusbar.hpp"
 #include <iostream>
 #include <thread>
 #include "rosbridge_client_cpp/rosbridge.h"
@@ -21,12 +22,11 @@ private:
     std::array<bool,25> states;
     int counter;
     PluginManager manager;
-    Statusbar status;
+    Statusbar statusbar;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
 public:
     ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     int main();
-    //rosbridge_client_cpp::RosbridgeClient* getRosbridge();
     void removePlugin();
     void addPlugin(ECTSPlugin* plugin);
 };

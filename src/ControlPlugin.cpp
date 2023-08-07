@@ -6,10 +6,7 @@ ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_
   ros = rb;
 }
 void ControlPlugin::sendMessage(int topic, int message){};
-Element ControlPlugin::displayData() {
-  return NULL;
-};
-Component ControlPlugin::displayDataComp() {
+Component ControlPlugin::displayData() {
   std::string name = this->name;
   auto btn_up = Button("up", [&]() { up = true; });
   auto btn_down = Button("down", [&]() { down = true; });
@@ -29,12 +26,16 @@ Component ControlPlugin::displayDataComp() {
     return element;
   });
 };
-bool* ControlPlugin::getshown() {
-  return shown;
-}
-void ControlPlugin::subcribeToROS(){};
-void ControlPlugin::unsubscribeFromRos(){};
-void ControlPlugin::update(){};
+
+void ControlPlugin::subcribeToROS(){
+
+};
+void ControlPlugin::unsubscribeFromRos(){
+
+};
+void ControlPlugin::update(){
+  
+};
 
 
 

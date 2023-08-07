@@ -14,14 +14,13 @@ class ECTSPlugin {
 public:
 	ECTSPlugin() {};
 	virtual void sendMessage() = 0;
-	virtual Element displayData() = 0;
-	virtual Component displayDataComp() = 0;
+	virtual Component displayData() = 0;
 	virtual void subcribeToROS() = 0;
 	virtual std::string getName() = 0;
-	virtual bool* getshown() = 0;
 	virtual void unsubscribeFromRos() = 0;
 	virtual void update() = 0;
 	virtual std::string getboolean() = 0;
+	virtual std::vector<std::shared_ptr<std::string>> getImportantValues() = 0;
 
 private:
 };

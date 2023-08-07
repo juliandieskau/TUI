@@ -14,5 +14,6 @@ private:
 	Component container = Container::Vertical({});
 public:
 	Component displayData();
+	void addField(ECTSPlugin** plugin);
 };
 #endif //STATUS_BAR_H
