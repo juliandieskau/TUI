@@ -38,7 +38,7 @@ void IMUPlugin::subcribeToROS() {
         "[" + (json["linear_acceleration"])["y"].to_str() + "]" + "[" + (json["linear_acceleration"])["z"].to_str() + "]\n"; */
         calculate();
         };
-    rosbridge_client_cpp::Subscriber my_sub3(*ros, "/etcs/imu/current", "sensor_msgs/Imu.msg ", my_callback4, 5);
+    rosbridge_client_cpp::Subscriber my_sub3(*ros, "/etcs/imu/current", "sensor_msgs/Imu.msg", my_callback4, 5);
     sendMessage();
 };
 void IMUPlugin::calculate() {

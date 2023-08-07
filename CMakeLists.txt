@@ -38,7 +38,7 @@ project(ects-tui
   VERSION 1.0.0
 )
 
-add_executable(ects-tui "src/main.cpp" "src/ectsTUI.cpp" "src/PluginManager.cpp" "src/StatusBar.cpp" "src/SystemMonitoringPlugin.cpp" "src/ControlPlugin.cpp" "src/WaypointPlugin.cpp" "src/TopicMonitorPlugin.cpp" "src/BatteryPlugin.cpp" "src/IMUPlugin.cpp")
+add_executable(ects-tui "src/main.cpp" "src/ectsTUI.cpp" "src/PluginManager.cpp" "src/StatusBar.cpp" "src/SystemMonitoringPlugin.cpp" "src/ControlPlugin.cpp" "src/WaypointPlugin.cpp" "src/BatteryPlugin.cpp" "src/IMUPlugin.cpp")
 target_include_directories(ects-tui PRIVATE src/Inc)
 
 include_directories(${rosbridge_client_SOURCE_DIR})

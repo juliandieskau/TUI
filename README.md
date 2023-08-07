@@ -1,4 +1,5 @@
 # ECTS TUI
+[TOC]
 
 ## Used Libraries
 
@@ -35,18 +36,18 @@ make
 Update cmake to the newest version. <br>
 Install [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) <br>
 ```bash
-apt-get update && apt-get install -y ros-noetic-rosbridge-server ros-noetic-catkin gdb iproute2 wireless-tools neovim 
+apt-get update && apt-get install -y ros-noetic-desktop-full ros-noetic-rosbridge-server ros-noetic-catkin gdb iproute2 wireless-tools neovim 
 ```
 
 ### terminal preparation
-For every terminal opened for the Backend, run in directory /Backend/
+For every terminal opened for the Backend, run in directory Backend/
 ```bash
 source /devel/setup.bash
 source /devel/local_setup.bash
 ```
 
 ### launch backend
-Follow launch instructions of the ECTS Backend README to launch roscore, rosbridge and ects in prepared terminals. <br>
+Follow launch instructions of the ECTS Backend [README.md](https://git.scc.kit.edu/pse-robot-monitoring/pse/-/blob/main/README.md) to launch `roscore`, `rosbridge` and `ects` in prepared terminals. <br>
 Prepare another terminal to call ros service.
 
 ### launch ECTS-TUI
@@ -56,8 +57,21 @@ cd build
 ./ects-tui
 ```
 
-# READY
-
-
 # TODO
+- [ ] ectsTUI
+  - [ ] remove Plugin
+- [ ] main
+  - [ ] initialize Correct Plugins
+- [ ] Battery Plugin
+  - [x] Display
+  - [ ] Unsubscribe from ROS
+- [ ] Control Plugin
+  - [x] Display Arrow Key Buttons
+  - [ ] ROS inclusion
+- [ ] IMU Plugin
+  - [x] Display
+  - [ ] Unsubscribe from ROS
+- [ ] System Monitoring Plugin
 
+# Changes to Draft Phase
+- [x] Removed Topic Monitor Plugin (no need for it)
