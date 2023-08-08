@@ -10,13 +10,30 @@ ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_
 }
 
 /**
- * TODO: sends Message with control input over cmdPub
+ * Serializes linear, angular to JSON and publishes on cmdPub to RosbridgeClient rb
 */
 void ControlPlugin::sendMessage(int topic, int message){
-  picojson::object json;
-
+  // serialize Vector3 linear to JSON
+  picojson::object linJSON;
+  linJSON["x"] = picojson::value(linear.x);
+  linJSON["y"] = picojson::value(linear.y);
+  linJSON["z"] = picojson::value(linear.z);
+  // serialize Vector3 angular to JSON
+  picojson::object angJSON;
+  angJSON["x"] = picojson::value(angular.x);
+  angJSON["y"] = picojson::value(angular.y);
+  angJSON["z"] = picojson::value(angular.z);
+  // append linear ang angular JSON objects to Twist Message
+  picojson::object twistJSON;
+  twistJSON["linear"] = picojson::value(linJSON);
+  twistJSON["angular"] = picojson::value(angJSON);
+  cmdPub->publish<picojson::object>(twistJSON);
 };
 
+/**
+ * Serializes ftxui buttons press state to Twist.msg format 
+ * Stores them inside linear, angular
+*/
 Component ControlPlugin::displayData() {
   std::string name = this->name;
   auto btn_up = Button("up", [&]() { up = true; });

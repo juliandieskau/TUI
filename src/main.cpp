@@ -25,7 +25,7 @@ int main() {
 
   // initialize an Object for every Plugin
   ECTSPlugin* plugin1 = new SystemMontitoringPlugin("System Monitor", rb);
-  ECTSPlugin* plugin2 = new BatteryPlugin("Battery");
+  ECTSPlugin* plugin2 = new BatteryPlugin("Battery", rb);
   ECTSPlugin* plugin3 = new ControlPlugin("Control", rb);
   ECTSPlugin* plugin4 = new IMUPlugin("Inertia", rb);
   ECTSPlugin* plugin5 = new WaypointPlugin("Waypoints", rb);
@@ -37,7 +37,7 @@ int main() {
   tui.addPlugin(plugin4);
   tui.addPlugin(plugin5);
 
-  // loop over Plugins to display them
+  // loop over Plugins to display them (loop inside this call)
   tui.main();
   
   /*while (true) {

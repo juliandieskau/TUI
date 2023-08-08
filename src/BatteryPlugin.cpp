@@ -43,6 +43,7 @@ Component BatteryPlugin::displayData() {
 };
 
 void BatteryPlugin::subcribeToROS() {   
+  // Battery Percentage
   auto my_callback3 = [&](const picojson::object& json1) { 
     picojson::object json = json1; 
     picojson::value v = json["data"]; 
@@ -51,7 +52,8 @@ void BatteryPlugin::subcribeToROS() {
     calculate();
   };
   rosbridge_client_cpp::Subscriber my_sub2(*ros, "/etcs/battery/percentage", "std_msgs/Float32.msg", my_callback3, 5);
-
+  
+  // is Battery critical
   auto my_callback2 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
     std::string v = json["data"].to_str(); 
@@ -64,7 +66,8 @@ void BatteryPlugin::subcribeToROS() {
     calculate();
     };
   rosbridge_client_cpp::Subscriber my_sub3(*ros, "/etcs/battery/is_critical", "std_msgs/Bool.msg", my_callback2, 5);
-
+  
+  // Batterystate
   auto my_callback1 = [&](const picojson::object& json1){
     picojson::object json = json1; 
     std::string all;
