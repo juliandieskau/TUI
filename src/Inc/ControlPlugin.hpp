@@ -20,17 +20,12 @@ class ControlPlugin : public ECTSPlugin {
     void subcribeToROS();
     std::string getName() { return name; };
     void unsubscribeFromRos();
-    void update();
-    std::string getboolean() {
-        return shown ? "true" : "false";
-    }
 
   private:
     bool up;
     bool down;
     bool left;
     bool right;
-    bool* shown;
     std::string name;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
 };

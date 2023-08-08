@@ -241,13 +241,6 @@ std::string SystemMontitoringPlugin::getName() {
 // TODO: implement unsubscribeFromRos()
 void SystemMontitoringPlugin::unsubscribeFromRos(){};
 
-// TODO: remove update()
-void SystemMontitoringPlugin::update(){};
-
-std::string SystemMontitoringPlugin::getboolean() {
-  return shown ? "true" : "false";
-}
-
 void SystemMontitoringPlugin::addtabadapterInfo(int index) {
   auto renderer = Renderer([&] {
     return text(name_adapters[index] + "\n" + adaptersInfocontent[index]);

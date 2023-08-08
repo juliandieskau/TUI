@@ -20,8 +20,6 @@ class BatteryPlugin : public ECTSPlugin {
     void subcribeToROS();
     std::string getName();
     void unsubscribeFromRos();
-    void update();
-    std::string getboolean();
     void calculate();
     std::vector<std::shared_ptr<std::string>> getImportantValues();
     private:

@@ -21,15 +21,12 @@ public:
     void subcribeToROS();
     std::string getName();
     void unsubscribeFromRos();
-    void update();
-    std::string getboolean();
     std::string allcontent;
     void addtabadapterUsage(int index);
     void addtabadapterInfo(int index);
     void addtabmountpoint(int index);
     std::vector<std::shared_ptr<std::string>> getImportantValues();
 private:
-    bool shown;
     std::vector<std::string> mountnamestopic;
     std::vector<std::string> adapternamestopic;
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;

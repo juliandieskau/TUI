@@ -22,10 +22,12 @@ int ectsTUI::main() {
   Component remnant = Renderer(foot, [&] {
     return window(text("Footer"), foot->Render());
   });
+
   Component state = manager.displayData();
   auto renderstate = Renderer(state, [&] {
     return window(text("Status"), state->Render());
   });
+  
   cont->Add(remnant);
   cont->Add(renderstate);
   auto all = Renderer(cont, [&] {
@@ -33,24 +35,8 @@ int ectsTUI::main() {
                   cont->Render());
   });
 
-  /* while (i < allPlugins.size()) {
-    if (*(allPlugins[i]->getshown())) {
-      container.push_back(allPlugins[i]->displayDataComp());
-    }
-    i++;
-  }
-  i = 0;
-  auto cont = Container::Vertical(container);
-  auto render = Renderer(cont, [&] {
-    return window(text("TUI"), vbox([&] {
-                    while (i < container.size()) {
-                      container[i]->Render();
-                      i++;
-                    }
-                  }));
-  });*/
   auto screen = ScreenInteractive::Fullscreen();
-  //screen.Loop(all);
+  screen.Loop(all);
   return 0;
 };
 

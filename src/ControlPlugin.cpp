@@ -40,7 +40,3 @@ void ControlPlugin::unsubscribeFromRos(){
 
 };
 
-// TODO: remove update()
-void ControlPlugin::update(){
-  
-};

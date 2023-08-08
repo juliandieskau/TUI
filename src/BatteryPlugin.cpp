@@ -108,13 +108,6 @@ std::string BatteryPlugin::getName() {
 // TODO: implement unsubscribeFromRos()
 void BatteryPlugin::unsubscribeFromRos() {};
 
-// TODO: remove update()
-void BatteryPlugin::update() {};
-
-std::string BatteryPlugin::getboolean() {
-  return "";
-};
-
 void BatteryPlugin::calculate() {
   allcontent = "Battery percentage: " + std::to_string(battery_percentage) + "\n";
   allcontent = allcontent + "Critical state: " + std::to_string(is_critical) + "\n";

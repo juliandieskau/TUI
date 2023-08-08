@@ -22,9 +22,9 @@ Component IMUPlugin::displayData() {
             text("IMU") | hcenter | bold,
             vbox(
                 hbox(text(allcontent))
-             ) | dim |
+            ) | dim |
                 size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10)) |
-         flex;
+        flex;
       }
   );
   return renderbasic;
@@ -57,16 +57,7 @@ std::string IMUPlugin::getName() {
 
 // TODO: implement unsubscribeFromRos()
 void IMUPlugin::unsubscribeFromRos() {
-
-};
-
-// TODO: remove update()
-void IMUPlugin::update() {
-
-};
-
-std::string IMUPlugin::getboolean() {
-  return "";
+  
 };
 
 std::vector<std::shared_ptr<std::string>> IMUPlugin::getImportantValues() {

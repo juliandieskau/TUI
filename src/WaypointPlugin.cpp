@@ -103,13 +103,8 @@ std::string WaypointPlugin::getName(){
 };
 
 // TODO: implement unsubscribeFromRos()
-void WaypointPlugin::unsubscribeFromRos(){};
+void WaypointPlugin::unsubscribeFromRos(){
 
-// TODO: remove update()
-void WaypointPlugin::update(){};
-
-std::string WaypointPlugin::getboolean() {
-  return "";
 };
 
 std::vector<std::shared_ptr<std::string>> WaypointPlugin::getImportantValues() {
