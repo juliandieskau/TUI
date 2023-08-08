@@ -59,8 +59,9 @@ cd build
 
 # TODO
 use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) for listing them inside the code
+- [ ] UNIT TESTS
 - [ ] ectsTUI
-  - [ ] remove Plugin method
+  - [ ] removePlugin method
 - [ ] main
   - [ ] initialize Correct Plugins
 - [ ] Plugin Manager
@@ -85,7 +86,8 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 - [x] Intendation
 - [ ] Code Style/ descriptive Names
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)
+- [x] remove getboolean()-methods and shown-attributes 
 
 # Changes to Draft Phase
 - [x] Removed Topic Monitor Plugin (no need for it)
-- [ ] remove update() methods, not needed (ftxui does it)
+- [x] remove update() methods, not needed (ftxui does it)

@@ -34,7 +34,7 @@ int ectsTUI::main() {
     return window(text("TUI"),
                   cont->Render());
   });
-
+  
   auto screen = ScreenInteractive::Fullscreen();
   screen.Loop(all);
   return 0;

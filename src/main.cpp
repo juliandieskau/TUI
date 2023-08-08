@@ -35,8 +35,9 @@ int main() {
 
   // loop over Plugins to display them
   tui.main();
-  while (true) {
+  
+  /*while (true) {
     // loop to hold TUI running even if nothing happens - not sure if needed
-  }
+  }*/
   return 0;
 }

@@ -13,7 +13,7 @@
 using namespace ftxui;
 
 class BatteryPlugin : public ECTSPlugin {
-    public:
+  public:
     BatteryPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();
     Component displayData();
@@ -22,7 +22,8 @@ class BatteryPlugin : public ECTSPlugin {
     void unsubscribeFromRos();
     void calculate();
     std::vector<std::shared_ptr<std::string>> getImportantValues();
-    private:
+    
+  private:
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::string name;
     float battery_percentage;

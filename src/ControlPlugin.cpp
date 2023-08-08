@@ -1,13 +1,22 @@
 #include "ControlPlugin.hpp"
+
 using namespace ftxui;
 
 ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   this->name = name;
   ros = rb;
+  cmdPub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/control/cmd", "geometry_msgs/Twist.msg", 20);
+  
 }
 
 //  TODO: implement sendMessage()
-void ControlPlugin::sendMessage(int topic, int message){};
+/**
+ * sends Message with control input over cmdPub
+*/
+void ControlPlugin::sendMessage(int topic, int message){
+  picojson::object json;
+
+};
 
 Component ControlPlugin::displayData() {
   std::string name = this->name;
@@ -32,7 +41,11 @@ Component ControlPlugin::displayData() {
 
 // TODO: implement subscribeToROS()
 void ControlPlugin::subcribeToROS(){
-
+  /* SUBSCRIBERS
+   * Topic name "/ects/control/position"
+   * Message type "nav_msgs/Odometry.msg" 
+   * "Die Position und Ausrich-tung mit Fehler"
+   */
 };
 
 // TODO: implement unsubscribeFromRos()
