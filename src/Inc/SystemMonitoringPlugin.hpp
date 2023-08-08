@@ -1,5 +1,6 @@
 #ifndef SYSTEM_MONITORING_PLUGIN_H
 #define SYSTEM_MONITORING_PLUGIN_H
+
 #include <memory>
 #include "ftxui/component/captured_mouse.hpp"
 #include "ftxui/component/component.hpp"

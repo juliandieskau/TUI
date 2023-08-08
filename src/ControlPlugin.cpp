@@ -5,7 +5,10 @@ ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_
   this->name = name;
   ros = rb;
 }
+
+//  TODO: implement sendMessage()
 void ControlPlugin::sendMessage(int topic, int message){};
+
 Component ControlPlugin::displayData() {
   std::string name = this->name;
   auto btn_up = Button("up", [&]() { up = true; });
@@ -27,16 +30,17 @@ Component ControlPlugin::displayData() {
   });
 };
 
+// TODO: implement subscribeToROS()
 void ControlPlugin::subcribeToROS(){
 
 };
+
+// TODO: implement unsubscribeFromRos()
 void ControlPlugin::unsubscribeFromRos(){
 
 };
+
+// TODO: implement update()
 void ControlPlugin::update(){
   
 };
-
-
-
-

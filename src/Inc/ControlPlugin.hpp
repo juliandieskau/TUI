@@ -1,5 +1,6 @@
 #ifndef CONTROL_PLUGIN_H
 #define CONTROL_PLUGIN_H
+
 #include <memory>
 #include "ftxui/component/captured_mouse.hpp"
 #include "ftxui/component/component.hpp"
@@ -8,6 +9,7 @@
 #include "ftxui/dom/elements.hpp"
 #include "ECTSPlugin.hpp"
 #include "rosbridge_client_cpp/rosbridge.h"
+
 using namespace ftxui;
 
 class ControlPlugin : public ECTSPlugin {
@@ -32,4 +34,5 @@ private:
     std::string name;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
 };
-#endif //ECTS_PLUGIN_H
+
+#endif //CONTROL_PLUGIN_H

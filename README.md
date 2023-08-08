@@ -58,6 +58,7 @@ cd build
 ```
 
 # TODO
+use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) for listing them inside the code
 - [ ] ectsTUI
   - [ ] remove Plugin method
 - [ ] main
@@ -88,3 +89,4 @@ cd build
 
 # Changes to Draft Phase
 - [x] Removed Topic Monitor Plugin (no need for it)
+- [ ] remove update() methods, not needed (ftxui does it)

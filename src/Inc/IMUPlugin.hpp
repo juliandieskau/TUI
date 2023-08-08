@@ -1,5 +1,6 @@
 #ifndef IMU_PLUGIN_H
 #define IMU_PLUGIN_H
+
 #include <memory>
 #include "ftxui/component/captured_mouse.hpp"
 #include "ftxui/component/component.hpp"
@@ -10,7 +11,8 @@
 #include "rosbridge_client_cpp/rosbridge.h"
 
 using namespace ftxui;
-class IMUPlugin {
+
+class IMUPlugin : public ECTSPlugin {
     public:
     IMUPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();
@@ -32,4 +34,5 @@ class IMUPlugin {
     std::string angular_velocity;
     std::string linear_acceleration;
 };
+
 #endif //IMU_PLUGIN_H

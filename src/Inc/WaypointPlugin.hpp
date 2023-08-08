@@ -1,5 +1,6 @@
 #ifndef WAYPOINT_PLUGIN_H
 #define WAYPOINT_PLUGIN_H
+
 #include <memory>
 #include "ftxui/component/captured_mouse.hpp"
 #include "ftxui/component/component.hpp"
@@ -11,7 +12,8 @@
 #include <cmath>
 
 using namespace ftxui;
-class WaypointPlugin {
+
+class WaypointPlugin : public ECTSPlugin {
     private:
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::string name;
@@ -36,4 +38,5 @@ class WaypointPlugin {
     std::string getboolean();
     void calculate();
 };
+
 #endif //WAYPOINT_PLUGIN_H

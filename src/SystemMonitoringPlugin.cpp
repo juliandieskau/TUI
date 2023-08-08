@@ -5,24 +5,25 @@ SystemMontitoringPlugin::SystemMontitoringPlugin(std::string name, std::shared_p
   ros = rb;
   important.push_back(std::make_shared<std::string>(""));
   my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ForceRetransmit.msg", 20);
-
-
+  
+  
 }
+
 void SystemMontitoringPlugin::sendMessage(){
   picojson::object json;
-
+  
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/cpu/percent");
   (*my_pub).publish<picojson::object>(json);
-
+  
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/cpu/usage");
   (*my_pub).publish<picojson::object>(json);
-
+  
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/mem/usage");
   (*my_pub).publish<picojson::object>(json);
-
+  
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/processes/total");
   (*my_pub).publish<picojson::object>(json);
@@ -30,11 +31,11 @@ void SystemMontitoringPlugin::sendMessage(){
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/disk/mountpoints");
   (*my_pub).publish<picojson::object>(json);
-
+  
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/ects/system/network/adapters");
   (*my_pub).publish<picojson::object>(json);
-
+  
   for (int i = 0; i < mountnamestopic.size(); i++) {
     json["reload_all"] = picojson::value(false);
     json["topic"] = picojson::value(mountnamestopic[i]);
@@ -51,18 +52,17 @@ Component SystemMontitoringPlugin::displayData() {
   std::string name = this->name;
   
   auto renderbasic = Renderer([&] {
-  return window(
-             text("System") | hcenter | bold,
-             vbox({
-                 hbox(text(cpuUsage)),
-                 hbox(text(allcpuUsage)),
-                 hbox(text(memoryUsage)),
-                 hbox(text(totalprocess))
-             }) | dim |
-                 size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10)) |
-         flex;
-      }
-  );
+    return window(
+      text("System") | hcenter | bold,
+      vbox({
+        hbox(text(cpuUsage)),
+        hbox(text(allcpuUsage)),
+        hbox(text(memoryUsage)),
+        hbox(text(totalprocess))
+      }) | dim |
+      size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10))
+    | flex;
+  });
   
   Component tab_menu_adapter = Menu(&name_adapters, &adapter_tab_selected);
   Component tab_container_adapter_Info = Container::Tab(
@@ -83,17 +83,18 @@ Component SystemMontitoringPlugin::displayData() {
       tab_menu_mountpoint,
       tab_container_mountpoint
   });
- 
+  
   Component renderer = Renderer(container, [&] {
     return hbox({
-               renderbasic->Render(),
-               tab_menu_adapter->Render(),
-               tab_container_adapter_Usage->Render(),
-               tab_container_adapter_Info->Render(),
-               tab_menu_mountpoint->Render(),
-               tab_container_mountpoint->Render() }) | border;}
-    );
-    return renderer;
+      renderbasic->Render(),
+      tab_menu_adapter->Render(),
+      tab_container_adapter_Usage->Render(),
+      tab_container_adapter_Info->Render(),
+      tab_menu_mountpoint->Render(),
+      tab_container_mountpoint->Render() 
+    }) | border;}
+  );
+  return renderer;
 };
 
 void SystemMontitoringPlugin::subcribeToROS(){ 
@@ -105,7 +106,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     auto usage = usage1.get<std::vector<picojson::value>>();
     picojson::value average1 = json["load_averages"];
     auto average = average1.get<std::vector<picojson::value>>();
-
+    
     for (int a = 1; a <= usage.size(); a++) {
       all = all + "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str() + "\n";
     }
@@ -136,7 +137,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     memoryUsage = all; 
     };
   rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/system/mem/usage", "MemoryUsage.msg ", my_callback4, 5);
- 
+  
   //Total processes
   auto my_callback7 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
@@ -157,7 +158,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     counterm++;
   }
   };
-
+  
   //All Mountpoints
   auto my_callback5 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
@@ -172,7 +173,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
       name_mountpoints.push_back(mount[index].to_str());
       addtabmountpoint(index);
     } 
-   
+  
   };
   rosbridge_client_cpp::Subscriber my_sub5(*ros, "/ects/system/disk/mountpoints", "MountpointList.srv", my_callback5, 5);
   //Networkinfo
@@ -192,7 +193,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     countera++;
     }
     };
-
+  
   //Networkusage
   auto my_callback10 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
@@ -207,10 +208,10 @@ void SystemMontitoringPlugin::subcribeToROS(){
     counteri++;
     }
     };
-
+  
   //All Adapters
   auto my_callback8 = [&](const picojson::object& json1){ 
-
+  
     picojson::object json = json1;
     picojson::value adapter1 = json["adaptername"];
     auto adapter = adapter1.get<std::vector<picojson::value>>();
@@ -228,39 +229,46 @@ void SystemMontitoringPlugin::subcribeToROS(){
       addtabadapterUsage(index);
     }
     
-   };  
-   rosbridge_client_cpp::Subscriber my_sub8(*ros, "/ects/system/network/adapters", "AdapterList.srv", my_callback8, 5);
-   sendMessage();
+  };  
+  rosbridge_client_cpp::Subscriber my_sub8(*ros, "/ects/system/network/adapters", "AdapterList.srv", my_callback8, 5);
+  sendMessage();
 };
 
 std::string SystemMontitoringPlugin::getName() {
   return name;
 };
 
+// TODO: implement unsubscribeFromRos()
 void SystemMontitoringPlugin::unsubscribeFromRos(){};
+
+// TODO: implement update()
 void SystemMontitoringPlugin::update(){};
 
 std::string SystemMontitoringPlugin::getboolean() {
   return shown ? "true" : "false";
 }
+
 void SystemMontitoringPlugin::addtabadapterInfo(int index) {
   auto renderer = Renderer([&] {
     return text(name_adapters[index] + "\n" + adaptersInfocontent[index]);
   });
   adaptersInfo.push_back(renderer);
 }
+
 void SystemMontitoringPlugin::addtabadapterUsage(int index) {
   auto renderer = Renderer([&] {
     return text(name_adapters[index] + "\n" + adaptersUsagecontent[index]);
   });
   adaptersUsage.push_back(renderer);
 }
+
 void SystemMontitoringPlugin::addtabmountpoint(int index) {
   auto renderer = Renderer([&] {
     return text(name_mountpoints[index] + ":\n" + mountpointscontent[index]);
   });
   mountpoints.push_back(renderer);
 }
+
 std::vector<std::shared_ptr<std::string>> SystemMontitoringPlugin::getImportantValues() {
   return important;
 };
