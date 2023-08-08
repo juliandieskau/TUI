@@ -9,9 +9,8 @@ ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_
   
 }
 
-//  TODO: implement sendMessage()
 /**
- * sends Message with control input over cmdPub
+ * TODO: sends Message with control input over cmdPub
 */
 void ControlPlugin::sendMessage(int topic, int message){
   picojson::object json;
