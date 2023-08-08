@@ -105,7 +105,7 @@ std::string WaypointPlugin::getName(){
 // TODO: implement unsubscribeFromRos()
 void WaypointPlugin::unsubscribeFromRos(){};
 
-// TODO: implement update()
+// TODO: remove update()
 void WaypointPlugin::update(){};
 
 std::string WaypointPlugin::getboolean() {

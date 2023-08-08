@@ -19,11 +19,11 @@ Component IMUPlugin::displayData() {
   
   auto renderbasic = Renderer([&] {
   return window(
-             text("IMU") | hcenter | bold,
-             vbox(
-                 hbox(text(allcontent))
+            text("IMU") | hcenter | bold,
+            vbox(
+                hbox(text(allcontent))
              ) | dim |
-                 size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10)) |
+                size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10)) |
          flex;
       }
   );
@@ -60,7 +60,7 @@ void IMUPlugin::unsubscribeFromRos() {
 
 };
 
-// TODO: implement update()
+// TODO: remove update()
 void IMUPlugin::update() {
 
 };

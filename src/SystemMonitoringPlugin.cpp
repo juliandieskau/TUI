@@ -241,7 +241,7 @@ std::string SystemMontitoringPlugin::getName() {
 // TODO: implement unsubscribeFromRos()
 void SystemMontitoringPlugin::unsubscribeFromRos(){};
 
-// TODO: implement update()
+// TODO: remove update()
 void SystemMontitoringPlugin::update(){};
 
 std::string SystemMontitoringPlugin::getboolean() {

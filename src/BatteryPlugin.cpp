@@ -31,12 +31,12 @@ Component BatteryPlugin::displayData() {
   auto renderbasic = Renderer([&] {
   // Color if Battery is low
   return window(
-             text("Battery") | hcenter | bold,
-             vbox(
-                 hbox(text(allcontent))
-             ) | dim |
-                 size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10)) |
-         flex;
+            text("Battery") | hcenter | bold,
+            vbox(
+                hbox(text(allcontent))
+            ) | dim |
+                size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10)) |
+        flex;
       }
   );
   return renderbasic;
@@ -108,7 +108,7 @@ std::string BatteryPlugin::getName() {
 // TODO: implement unsubscribeFromRos()
 void BatteryPlugin::unsubscribeFromRos() {};
 
-// TODO: implement update()
+// TODO: remove update()
 void BatteryPlugin::update() {};
 
 std::string BatteryPlugin::getboolean() {

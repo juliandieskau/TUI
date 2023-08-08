@@ -20,10 +20,10 @@ Component ControlPlugin::displayData() {
 
   return Renderer(layout, [&] {
     auto element = vbox({vbox({
-                             btn_up->Render() | vcenter,
-                         }),
-                         vbox({btn_left->Render(), btn_down->Render() | vcenter,
-                               btn_right->Render()})});
+                            btn_up->Render() | vcenter,
+                        }),
+                        vbox({btn_left->Render(), btn_down->Render() | vcenter,
+                              btn_right->Render()})});
     element = element | borderEmpty | border | size(WIDTH, LESS_THAN, 80) |
               size(HEIGHT, LESS_THAN, 20) | center;
     return element;
@@ -40,7 +40,7 @@ void ControlPlugin::unsubscribeFromRos(){
 
 };
 
-// TODO: implement update()
+// TODO: remove update()
 void ControlPlugin::update(){
   
 };
