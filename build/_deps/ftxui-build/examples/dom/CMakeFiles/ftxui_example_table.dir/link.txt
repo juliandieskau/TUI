@@ -1,1 +1,0 @@
-/usr/bin/g++ CMakeFiles/ftxui_example_table.dir/table.cpp.o -o ftxui_example_table  ../../libftxui-dom.a ../../libftxui-screen.a 

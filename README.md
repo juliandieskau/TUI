@@ -82,8 +82,9 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
   - [x] Display
   - [ ] Unsubscribe from ROS
 - [ ] Error Handling
-- [x] White Spaces/ Code Style
-- [ ] Comments for Methods, Classes, Members (-> Entwurf)
+- [x] Intendation
+- [ ] Code Style/ descriptive Names
+- [ ] Documentation for Methods, Classes, Members (-> Entwurf)
 
 # Changes to Draft Phase
 - [x] Removed Topic Monitor Plugin (no need for it)

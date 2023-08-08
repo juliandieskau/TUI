@@ -1,3 +1,0 @@
-repository='https://git.scc.kit.edu/pse-robot-monitoring/rosbridge_client_cpp.git'
-module=''
-tag='origin'

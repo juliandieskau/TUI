@@ -1,1 +1,0 @@
-/usr/bin/g++ CMakeFiles/ftxui_example_separator.dir/separator.cpp.o -o ftxui_example_separator  ../../libftxui-dom.a ../../libftxui-screen.a 

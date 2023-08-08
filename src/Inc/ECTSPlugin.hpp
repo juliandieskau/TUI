@@ -31,7 +31,7 @@ class ECTSPlugin {
     virtual void unsubscribeFromRos() = 0;
     /// Gibt den Namen des Plugins als string zurück.
     virtual std::string getName() = 0;
-    /// TODO: unused/undefined yet
+    /// TODO: delete getboolean everywhere
     virtual std::string getboolean() = 0;
     /// Gibt Werte zurück, die in der Status-Bar angezeigt werden können.
     virtual std::vector<std::shared_ptr<std::string>> getImportantValues() = 0;
