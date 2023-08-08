@@ -13,7 +13,7 @@
 using namespace ftxui;
 
 class ControlPlugin : public ECTSPlugin {
-public:
+  public:
     ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage(int topic, int message);
     Component displayData();
@@ -25,7 +25,7 @@ public:
         return shown ? "true" : "false";
     }
 
-private:
+  private:
     bool up;
     bool down;
     bool left;

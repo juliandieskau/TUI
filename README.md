@@ -82,7 +82,7 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
   - [x] Display
   - [ ] Unsubscribe from ROS
 - [ ] Error Handling
-- [ ] White Spaces/ Code Style
+- [x] White Spaces/ Code Style
 - [ ] Comments for Methods, Classes, Members (-> Entwurf)
 
 # Changes to Draft Phase
