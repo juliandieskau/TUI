@@ -18,15 +18,15 @@ int ectsTUI::main() {
     i++;
   }
   i = 0;
-  auto foot = statusbar.displayData();
+  /*auto foot = statusbar.displayData();
   Component remnant = Renderer(foot, [&] {
     return window(text("Footer"), foot->Render());
-  });
+  });*/
 
-  /*Component state = manager.displayData();
+  Component state = manager.displayData();
   auto renderstate = Renderer(state, [&] {
     return window(text("Status"), state->Render());
-  });*/
+  });
   
   cont->Add(remnant);
   //cont->Add(renderstate);
