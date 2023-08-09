@@ -39,11 +39,12 @@ int ectsTUI::main() {
   cont->Add(renderstate);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
-                  cont->Render());
+                  vbox(   {remnant->Render(), renderstate->Render()} ));
   });
   
   auto screen = ScreenInteractive::Fullscreen();
   screen.Loop(all);
+  //ScreenInteractive::FitComponent().Loop(all);
   return 0;
 };
 
