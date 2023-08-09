@@ -42,11 +42,14 @@ apt-get update && apt-get install -y ros-noetic-desktop-full ros-noetic-rosbridg
 ### terminal preparation
 For every terminal opened for the Backend, run in directory Backend/
 ```bash
-source /devel/setup.bash
-source /devel/local_setup.bash
+source devel/setup.bash
+source devel/local_setup.bash
 ```
 
 ### launch backend
+```bash
+git submodule update --recursive --init
+```
 Follow launch instructions of the ECTS Backend [README.md](https://git.scc.kit.edu/pse-robot-monitoring/pse/-/blob/main/README.md) to launch `roscore`, `rosbridge` and `ects` in prepared terminals. <br>
 Prepare another terminal to call ros service.
 
