@@ -33,7 +33,7 @@ int main() {
   // add Plugins to the tui
   tui.addPlugin(plugin1);
   tui.addPlugin(plugin2);
-  tui.addPlugin(plugin3);
+  //tui.addPlugin(plugin3);// make comment for testing, currently blocks ftxui from showing
   tui.addPlugin(plugin4);
   tui.addPlugin(plugin5);
 

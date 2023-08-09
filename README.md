@@ -50,8 +50,13 @@ source devel/local_setup.bash
 ```bash
 git submodule update --recursive --init
 ```
-Follow launch instructions of the ECTS Backend [README.md](https://git.scc.kit.edu/pse-robot-monitoring/pse/-/blob/main/README.md) to launch `roscore`, `rosbridge` and `ects` in prepared terminals. <br>
-Prepare another terminal to call ros service.
+Follow launch instructions of the ECTS Backend [README.md](https://git.scc.kit.edu/pse-robot-monitoring/pse/-/blob/main/README.md) to launch `roscore` and `rosbridge` in prepared terminals. <br>
+
+build and run `ects` in prepared terminal
+```bash
+catkin_make && rosrun ects ects ects_config.json
+```
+Prepare another terminal for service calls or publishing on rostopics.
 
 ### launch ECTS-TUI
 from TUI directory
