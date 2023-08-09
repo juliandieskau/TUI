@@ -19,13 +19,18 @@ struct Vector3 {
     y = 0.0;
     z = 0.0;
   }
+  void zero() {
+    x = 0.0;
+    y = 0.0;
+    z = 0.0;
+  }
 };
 
 class ControlPlugin : public ECTSPlugin {
   public:
     ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     // ECTSPlugin inherited methods
-    void sendMessage(int topic, int message);
+    void sendMessage();
     Component displayData();
     void subcribeToROS();
     std::string getName() { return name; };
