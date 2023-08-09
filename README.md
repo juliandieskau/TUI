@@ -61,13 +61,6 @@ cd build
 use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) for listing them inside the code
 ## TODO now
 - [ ] UNIT TESTS
-- [ ] ectsTUI
-  - [ ] removePlugin method
-- [ ] main
-  - [x] initialize Correct Plugins
-- [ ] Plugin Manager / ectsTUI
-  - [ ] subscribeToROS aufrufen wenn Plugin hinzugefügt (evtl an anderer stelle)
-  - [ ] unsubscribeFromROS aufrufen wenn plugins entfernt (error handling, wenn schon passiert)
 - [ ] Error Handling
   - [ ] every new also needs a delete, else memory leaks might happen!
 
@@ -78,4 +71,4 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 # Changes to Draft Phase
 - [x] Removed Topic Monitor Plugin (no need for it)
 - [x] remove update() methods, not needed (ftxui does it)
-- [ ] 
+- [x] removePlugin() umbenannt zu setPluginState(), subscribed unsubscribed wenn reload button gedrückt, da checkboxes kein onclick event haben und subscribe/unsubscribe nur einmal gecalled werden soll

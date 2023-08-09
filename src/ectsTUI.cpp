@@ -23,7 +23,7 @@ int ectsTUI::main() {
     return window(text("Footer"), foot->Render());
   });
 
-  // Plugin Checkboxes
+  // Plugin Checkboxes, reload button
   auto button = Button("reload", setPluginState());
   Component state = manager.displayData();
   auto pluginContainer = Container::Vertical({button, state});
