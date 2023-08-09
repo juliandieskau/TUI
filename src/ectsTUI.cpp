@@ -44,7 +44,9 @@ int ectsTUI::main() {
   return &ros;
 };*/
 
-void ectsTUI::removePlugin(){};
+void ectsTUI::removePlugin(){
+  
+};
 
 void ectsTUI::addPlugin(ECTSPlugin* plugin) {
   allPlugins.push_back(plugin);

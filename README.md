@@ -63,25 +63,25 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 - [ ] ectsTUI
   - [ ] removePlugin method
 - [ ] main
-  - [ ] initialize Correct Plugins
+  - [x] initialize Correct Plugins
 - [ ] Plugin Manager
   - [ ] subscribeToROS aufrufen wenn Plugin hinzugefügt (evtl an anderer stelle)
   - [ ] unsubscribeFromROS aufrufen wenn plugins entfernt (error handling, wenn schon passiert)
 - [x] Battery Plugin
   - [x] Display
   - [x] Unsubscribe from ROS
-- [ ] Control Plugin
+- [x] Control Plugin
   - [x] Display Arrow Key Buttons
-  - [ ] ROS inclusion
-- [ ] IMU Plugin
+  - [x] ROS inclusion
+- [x] IMU Plugin
   - [x] Display
-  - [ ] Unsubscribe from ROS
-- [ ] System Monitoring Plugin
+  - [x] Unsubscribe from ROS
+- [x] System Monitoring Plugin
   - [x] Display
-  - [ ] Unsubscribe from ROS
-- [ ] Waypoint Plugin
+  - [x] Unsubscribe from ROS
+- [x] Waypoint Plugin
   - [x] Display
-  - [ ] Unsubscribe from ROS
+  - [x] Unsubscribe from ROS
 - [ ] Error Handling
   - [ ] every new also needs a delete, else memory leaks might happen!
 - [x] Intendation
