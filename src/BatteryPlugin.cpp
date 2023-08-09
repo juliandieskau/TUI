@@ -113,6 +113,7 @@ std::string BatteryPlugin::getName() {
 void BatteryPlugin::unsubscribeFromRos() {
   // delete frees pointed-to-data, not deleting the pointer itself!
   // add a 'delete' call for every Subscriber that is created with 'new'
+  // delete calls destructor!
   delete my_sub1;
   delete my_sub2;
   delete my_sub3;

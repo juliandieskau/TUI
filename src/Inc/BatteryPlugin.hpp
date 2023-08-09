@@ -36,13 +36,13 @@ class BatteryPlugin : public ECTSPlugin {
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     
     // Battery State aggregation
-    rosbridge_client_cpp::Subscriber my_sub1;
+    rosbridge_client_cpp::Subscriber* my_sub1;
     // Battery Percentage
-    rosbridge_client_cpp::Subscriber my_sub2;
+    rosbridge_client_cpp::Subscriber* my_sub2;
     // is Battery critical
-    rosbridge_client_cpp::Subscriber my_sub3;
+    rosbridge_client_cpp::Subscriber* my_sub3;
     // Estimated Time
-    rosbridge_client_cpp::Subscriber my_sub4;
+    rosbridge_client_cpp::Subscriber* my_sub4;
 };
 
 #endif //BATTERY_PLUGIN_H
