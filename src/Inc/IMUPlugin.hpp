@@ -22,7 +22,9 @@ class IMUPlugin : public ECTSPlugin {
     void unsubscribeFromRos();
     void calculate();
     std::vector<std::shared_ptr<std::string>> getImportantValues();
-    private:
+    bool isLoaded();
+    
+  private:
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::string name;
@@ -32,6 +34,7 @@ class IMUPlugin : public ECTSPlugin {
     std::string angular_velocity;
     std::string linear_acceleration;
     rosbridge_client_cpp::Subscriber* imucurrentsub;
+    bool loaded = false;
 };
 
 #endif //IMU_PLUGIN_H

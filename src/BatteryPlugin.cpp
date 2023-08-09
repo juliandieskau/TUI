@@ -104,6 +104,7 @@ void BatteryPlugin::subcribeToROS() {
   estTimesub = &my_sub4;
   
   sendMessage();
+  loaded = true;
 };
 
 std::string BatteryPlugin::getName() {
@@ -115,6 +116,7 @@ void BatteryPlugin::unsubscribeFromRos() {
   delete criticalsub;
   delete batteryusagesub;
   delete estTimesub;
+  loaded = false;
 };
 
 void BatteryPlugin::calculate() {
@@ -123,6 +125,10 @@ void BatteryPlugin::calculate() {
   allcontent = allcontent + "Battery percentage: " + std::to_string(battery_percentage) + "\n";
   allcontent = allcontent + "Estimated time: " + std::to_string(estimated_time) + "\n";
   allcontent = allcontent + battery_state;
+}
+
+bool BatteryPlugin::isLoaded() {
+  return loaded;
 }
 
 std::vector<std::shared_ptr<std::string>> BatteryPlugin::getImportantValues() {

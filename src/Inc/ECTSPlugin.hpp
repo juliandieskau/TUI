@@ -33,6 +33,8 @@ class ECTSPlugin {
     virtual std::string getName() = 0;
     /// Gibt Werte zurück, die in der Status-Bar angezeigt werden können.
     virtual std::vector<std::shared_ptr<std::string>> getImportantValues() = 0;
+
+    virtual bool isLoaded() = 0;
   
   private:
 };

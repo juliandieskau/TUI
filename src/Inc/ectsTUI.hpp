@@ -25,7 +25,7 @@ using namespace ftxui;
 class ectsTUI {
   private:
     std::vector<ECTSPlugin*> allPlugins;
-    std::array<bool,25> states;
+    std::vector<bool> states;
     int counter;
     PluginManager manager;
     Statusbar statusbar;
@@ -34,7 +34,7 @@ class ectsTUI {
   public:
     ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     int main();
-    void removePlugin();
+    void setPluginState();
     void addPlugin(ECTSPlugin* plugin);
 };
 

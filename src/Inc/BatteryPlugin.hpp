@@ -23,6 +23,7 @@ class BatteryPlugin : public ECTSPlugin {
     /// update the ftxui visualisation of all battery data for the update
     void calculate();
     std::vector<std::shared_ptr<std::string>> getImportantValues();
+    bool isLoaded();
     
   private:
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
@@ -34,22 +35,11 @@ class BatteryPlugin : public ECTSPlugin {
     std::string allcontent;
     std::vector<std::shared_ptr<std::string>> important;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
-<<<<<<< src/Inc/BatteryPlugin.hpp
-    
-    // Battery State aggregation
-    rosbridge_client_cpp::Subscriber* my_sub1;
-    // Battery Percentage
-    rosbridge_client_cpp::Subscriber* my_sub2;
-    // is Battery critical
-    rosbridge_client_cpp::Subscriber* my_sub3;
-    // Estimated Time
-    rosbridge_client_cpp::Subscriber* my_sub4;
-=======
     rosbridge_client_cpp::Subscriber* batterypersub;
     rosbridge_client_cpp::Subscriber* criticalsub;
     rosbridge_client_cpp::Subscriber* batteryusagesub;
     rosbridge_client_cpp::Subscriber* estTimesub;
->>>>>>> src/Inc/BatteryPlugin.hpp
+    bool loaded = false;
 };
 
 #endif //BATTERY_PLUGIN_H

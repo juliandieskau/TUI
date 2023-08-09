@@ -59,36 +59,23 @@ cd build
 
 # TODO
 use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) for listing them inside the code
+## TODO now
 - [ ] UNIT TESTS
 - [ ] ectsTUI
   - [ ] removePlugin method
 - [ ] main
   - [x] initialize Correct Plugins
-- [ ] Plugin Manager
+- [ ] Plugin Manager / ectsTUI
   - [ ] subscribeToROS aufrufen wenn Plugin hinzugefügt (evtl an anderer stelle)
   - [ ] unsubscribeFromROS aufrufen wenn plugins entfernt (error handling, wenn schon passiert)
-- [x] Battery Plugin
-  - [x] Display
-  - [x] Unsubscribe from ROS
-- [x] Control Plugin
-  - [x] Display Arrow Key Buttons
-  - [x] ROS inclusion
-- [x] IMU Plugin
-  - [x] Display
-  - [x] Unsubscribe from ROS
-- [x] System Monitoring Plugin
-  - [x] Display
-  - [x] Unsubscribe from ROS
-- [x] Waypoint Plugin
-  - [x] Display
-  - [x] Unsubscribe from ROS
 - [ ] Error Handling
   - [ ] every new also needs a delete, else memory leaks might happen!
-- [x] Intendation
+
+## TODO testing phase
 - [ ] Code Style/ descriptive Names
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)
-- [x] remove getboolean()-methods and shown-attributes 
 
 # Changes to Draft Phase
 - [x] Removed Topic Monitor Plugin (no need for it)
 - [x] remove update() methods, not needed (ftxui does it)
+- [ ] 

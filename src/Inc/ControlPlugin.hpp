@@ -36,6 +36,7 @@ class ControlPlugin : public ECTSPlugin {
     std::string getName() { return name; };
     void unsubscribeFromRos();
     std::vector<std::shared_ptr<std::string>> getImportantValues();
+    bool isLoaded();
   
   private:
     // control state variables
@@ -46,6 +47,7 @@ class ControlPlugin : public ECTSPlugin {
     // ROS Client variables
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::shared_ptr<rosbridge_client_cpp::Publisher> cmdPub;
+    bool loaded = false;
 };
 
 #endif //CONTROL_PLUGIN_H

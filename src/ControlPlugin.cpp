@@ -76,6 +76,10 @@ void ControlPlugin::unsubscribeFromRos(){
   // destruktor aufrufen von ALLEN Subscribern, nicht den callbacks!
 };
 
+bool ControlPlugin::isLoaded() {
+  return true;
+}
+
 std::vector<std::shared_ptr<std::string>> ControlPlugin::getImportantValues() {
   std::vector<std::shared_ptr<std::string>> a;
   return a;

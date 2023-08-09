@@ -14,7 +14,7 @@
 using namespace ftxui;
 
 class WaypointPlugin : public ECTSPlugin {
-    private:
+  private:
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::string name;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
@@ -29,7 +29,9 @@ class WaypointPlugin : public ECTSPlugin {
     rosbridge_client_cpp::Subscriber* waypointlistsub;
     rosbridge_client_cpp::Subscriber* numwaypointsub;
     rosbridge_client_cpp::Subscriber* currentpointsub;
-    public:
+    bool isLoaded();
+  
+  public:
     WaypointPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();
     std::vector<std::shared_ptr<std::string>> getImportantValues();
@@ -38,6 +40,7 @@ class WaypointPlugin : public ECTSPlugin {
     std::string getName();
     void unsubscribeFromRos();
     void calculate();
+    bool loaded = false;
 };
 
 #endif //WAYPOINT_PLUGIN_H

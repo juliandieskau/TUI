@@ -238,7 +238,9 @@ void SystemMontitoringPlugin::subcribeToROS(){
   };  
   rosbridge_client_cpp::Subscriber my_sub8(*ros, "/ects/system/network/adapters", "AdapterList.srv", my_callback8, 5);
   adaptersub = &my_sub8;
+  
   sendMessage();
+  loaded = true;
 };
 
 std::string SystemMontitoringPlugin::getName() {
@@ -263,7 +265,7 @@ void SystemMontitoringPlugin::unsubscribeFromRos(){
     delete netusagesub[i];
   }
   netusagesub.clear();
-
+  loaded = false;
 };
 
 void SystemMontitoringPlugin::addtabadapterInfo(int index) {
@@ -285,6 +287,10 @@ void SystemMontitoringPlugin::addtabmountpoint(int index) {
     return text(name_mountpoints[index] + ":\n" + mountpointscontent[index]);
   });
   mountpoints.push_back(renderer);
+}
+
+bool SystemMontitoringPlugin::isLoaded() {
+  return loaded;
 }
 
 std::vector<std::shared_ptr<std::string>> SystemMontitoringPlugin::getImportantValues() {

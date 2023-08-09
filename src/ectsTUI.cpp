@@ -23,9 +23,12 @@ int ectsTUI::main() {
     return window(text("Footer"), foot->Render());
   });
 
+  // Plugin Checkboxes
+  auto button = Button("reload", setPluginState());
   Component state = manager.displayData();
-  auto renderstate = Renderer(state, [&] {
-    return window(text("Status"), state->Render());
+  auto pluginContainer = Container::Vertical({button, state});
+  auto renderstate = Renderer(pluginContainer, [&] {
+    return window(text("Status"), state->Render(), button->Render());
   });
   
   cont->Add(remnant);
@@ -40,17 +43,34 @@ int ectsTUI::main() {
   return 0;
 };
 
-/*RosbridgeClient* ectsTUI::getRosbridge() {
-  return &ros;
-};*/
 
-void ectsTUI::removePlugin(){
-  
+/**
+ * überprüft ob Plugin angezeigt werden soll und den state von subscribe/unsubscribe und ruft diese auf
+*/
+void ectsTUI::setPluginState() {
+  // loaded in plugins
+  // if schleife die überprüft ob schon geloaded oder nicht, während gleichzeitig state true/false
+  // allPlugins[i] gehört zu states[i] -> überprüfen
+  for (int i = 0; i < states.size(); i++) {
+    if (states[i]) { // checkbox angeclicked
+      if (!allPlugins[i]->isLoaded()) { // aber plugin nicht loaded (subscribed)
+        allPlugins[i]->subscribeToROS();
+      } // anderer case soll nichts passieren
+    } else { // checkbox nicht angeclicked
+      if (allPlugins[i]->isLoaded()) { // aber plugin noch subscribed
+        allPlugins[i]->unsubscribeFromRos();
+      }
+    }
+  }
 };
 
+/**
+ * Am anfang sind alle Plugins als angezeigt gesetzt
+ * Nur initial aufrufen, subscribe und unsubscribe ist über setPluginState()
+*/
 void ectsTUI::addPlugin(ECTSPlugin* plugin) {
   allPlugins.push_back(plugin);
-  states[counter] = true;
+  states.push_back(true);
   manager.addCheckbox(Checkbox(plugin->getName(), &states[counter]));
   statusbar.addField(&plugin);
   counter++;

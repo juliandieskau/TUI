@@ -26,6 +26,8 @@ public:
     void addtabadapterInfo(int index);
     void addtabmountpoint(int index);
     std::vector<std::shared_ptr<std::string>> getImportantValues();
+    bool isLoaded();
+    
 private:
     std::vector<std::string> mountnamestopic;
     std::vector<std::string> adapternamestopic;
@@ -61,6 +63,7 @@ private:
     int sizem = 0;
     std::vector<std::string> name_mountpoints;
     int adapter_tab_selected = 0;
+    bool loaded = false;
 };
 
 
