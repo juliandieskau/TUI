@@ -54,11 +54,11 @@ void WaypointPlugin::subscribeToROS() {
     waypointlist = json["waypoints"]; 
     calculate();
   };
-  rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/waypoints/waypoint_list", "WaypointList.msg", my_callback1, 5);   
+  rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/waypoints/waypoint_list", "WaypointList", my_callback1, 5);   
   waypointlistsub = &my_sub2;
-  rosbridge_client_cpp::Subscriber my_sub3(*ros, "/ects/waypoints/number_of_waypoints", "std_msgs/UInt32.msg", my_callback2, 5);
+  rosbridge_client_cpp::Subscriber my_sub3(*ros, "/ects/waypoints/number_of_waypoints", "std_msgs/UInt32", my_callback2, 5);
   numwaypointsub = &my_sub3;
-  rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/waypoints/current_waypoint", "std_msgs/UInt32.msg", my_callback3, 5);
+  rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/waypoints/current_waypoint", "std_msgs/UInt32", my_callback3, 5);
   currentpointsub = &my_sub4;
   sendMessage();
   loaded = true;
