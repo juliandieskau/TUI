@@ -17,7 +17,7 @@ class BatteryPlugin : public ECTSPlugin {
     BatteryPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();
     Component displayData();
-    void subcribeToROS();
+    void subscribeToROS();
     std::string getName();
     void unsubscribeFromRos();
     /// update the ftxui visualisation of all battery data for the update

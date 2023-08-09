@@ -26,7 +26,7 @@ class ECTSPlugin {
     /// Gibt FTXUI-Komponente zurück, die die Daten des Plugins darstellt um dann ins TUI eingefügt zu werdem.
     virtual Component displayData() = 0;
     /// Subscribed auf - vom Plugin benötigte - ROS-Topics in überreichtem ROS-Client.
-    virtual void subcribeToROS() = 0;
+    virtual void subscribeToROS() = 0;
     /// Unsubscribed von - vom Plugin benötigten - ROS-Topics in überreichtem ROS-Client.
     virtual void unsubscribeFromRos() = 0;
     /// Gibt den Namen des Plugins als string zurück.

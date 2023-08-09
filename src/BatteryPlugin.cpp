@@ -42,7 +42,7 @@ Component BatteryPlugin::displayData() {
   return renderbasic;
 };
 
-void BatteryPlugin::subcribeToROS() {   
+void BatteryPlugin::subscribeToROS() {   
   auto my_callback3 = [&](const picojson::object& json1) { 
     picojson::object json = json1; 
     picojson::value v = json["data"]; 

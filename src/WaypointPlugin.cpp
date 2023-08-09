@@ -36,7 +36,7 @@ Component WaypointPlugin::displayData(){
   return renderbasic;
 };
 
-void WaypointPlugin::subcribeToROS() {
+void WaypointPlugin::subscribeToROS() {
   auto my_callback2 = [&](const picojson::object& json1){
     picojson::object json = json1; 
     picojson::value indx = json["data"];

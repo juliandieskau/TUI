@@ -32,7 +32,7 @@ class ControlPlugin : public ECTSPlugin {
     // ECTSPlugin inherited methods
     void sendMessage();
     Component displayData();
-    void subcribeToROS();
+    void subscribeToROS();
     std::string getName() { return name; };
     void unsubscribeFromRos();
     std::vector<std::shared_ptr<std::string>> getImportantValues();

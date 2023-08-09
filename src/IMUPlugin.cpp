@@ -30,7 +30,7 @@ Component IMUPlugin::displayData() {
   return renderbasic;
 };
 
-void IMUPlugin::subcribeToROS() { 
+void IMUPlugin::subscribeToROS() { 
   auto my_callback4 = [&](const picojson::object& json1){ 
     picojson::object json = json1;    /*orientation = "[" + (json["orientation"])["x"].to_str() + "]" + "[" + (json["orientation"])["y"].to_str() + "]" +
     "[" + (json["orientation"])["z"].to_str() + "]" + "[" + (json["orientation"])["w"].to_str() + "]\n";

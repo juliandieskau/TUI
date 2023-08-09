@@ -51,7 +51,7 @@ void ectsTUI::setPluginState() {
   // loaded in plugins
   // if schleife die überprüft ob schon geloaded oder nicht, während gleichzeitig state true/false
   // allPlugins[i] gehört zu states[i] -> überprüfen
-  for (int i = 0; i < states.size(); i++) {
+  for (int i = 0; i < counter; i++) {
     if (states[i]) { // checkbox angeclicked
       if (!allPlugins[i]->isLoaded()) { // aber plugin nicht loaded (subscribed)
         allPlugins[i]->subscribeToROS();
@@ -70,8 +70,8 @@ void ectsTUI::setPluginState() {
 */
 void ectsTUI::addPlugin(ECTSPlugin* plugin) {
   allPlugins.push_back(plugin);
-  states.push_back(true);
-  manager.addCheckbox(Checkbox(plugin->getName(), &states[counter]));
+  states[counter] = true;
+  manager.addCheckbox(Checkbox(plugin->getName(), &states[counter] ));
   statusbar.addField(&plugin);
   counter++;
 };

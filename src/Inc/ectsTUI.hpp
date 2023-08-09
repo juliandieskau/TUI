@@ -25,7 +25,7 @@ using namespace ftxui;
 class ectsTUI {
   private:
     std::vector<ECTSPlugin*> allPlugins;
-    std::vector<bool> states;
+    std::array<bool, 25> states;
     int counter;
     PluginManager manager;
     Statusbar statusbar;

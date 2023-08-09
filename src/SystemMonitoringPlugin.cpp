@@ -97,7 +97,7 @@ Component SystemMontitoringPlugin::displayData() {
   return renderer;
 };
 
-void SystemMontitoringPlugin::subcribeToROS(){ 
+void SystemMontitoringPlugin::subscribeToROS(){ 
   //CPU usage
   auto my_callback2 = [&](const picojson::object& json1){ 
     picojson::object json = json1;

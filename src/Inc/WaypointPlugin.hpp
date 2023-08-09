@@ -36,7 +36,7 @@ class WaypointPlugin : public ECTSPlugin {
     void sendMessage();
     std::vector<std::shared_ptr<std::string>> getImportantValues();
     Component displayData();
-    void subcribeToROS();
+    void subscribeToROS();
     std::string getName();
     void unsubscribeFromRos();
     void calculate();

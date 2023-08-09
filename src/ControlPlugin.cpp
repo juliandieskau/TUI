@@ -63,7 +63,7 @@ Component ControlPlugin::displayData() {
 };
 
 // do nothing, since control only send
-void ControlPlugin::subcribeToROS(){
+void ControlPlugin::subscribeToROS(){
   /* SUBSCRIBERS
    * Topic name "/ects/control/position"
    * Message type "nav_msgs/Odometry.msg" 
