@@ -103,10 +103,10 @@ void SystemMontitoringPlugin::subscribeToROS(){
     auto average = average1.get<std::vector<picojson::value>>();
     
     for (int a = 1; a <= usage.size(); a++) {
-      all = all + "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str() + "\n";
+      all = all + "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str() + "\n"; //not printed
     }
     for (int a = 1; a <= average.size(); a++) {
-      all = all + "Per core average of Core " + std::to_string(a) + ": " + average[a].to_str() + "\n";
+      all = all + "Per core average of Core " + std::to_string(a) + ": " + average[a].to_str() + "\n"; //not printed
     }
     cpuUsage = all; 
     };
@@ -116,14 +116,14 @@ void SystemMontitoringPlugin::subscribeToROS(){
   auto my_callback3 = [&](const picojson::object& json1) {
     picojson::object json = json1; 
     allcpuUsage = "CPU usage: " + json["usage"].to_str(); 
-    *(important[0]) = allcpuUsage;
+    *(important[0]) = allcpuUsage; // prints default value
     };
   cpupersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/percent", "ects/CpuPercentage", my_callback3, 5);
   
   //Memory usage
   auto my_callback4 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
-    std::string all = "Used: " + json["used"].to_str() + " ";
+    std::string all = "Used: " + json["used"].to_str() + " "; //printed, everything after "Total: " not
     all = all + "Total: " + json["total"].to_str() + "\n";
     all = all + "Free: " + json["free"].to_str() + " ";
     all = all + "Shared: " + json["shared"].to_str() + "\n";
@@ -136,10 +136,12 @@ void SystemMontitoringPlugin::subscribeToROS(){
   //Total processes
   auto my_callback7 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
-    totalprocess = "Number of processes: " + json["number_of_processes"].to_str(); 
+    totalprocess = "Number of processes: " + json["number_of_processes"].to_str(); // printed
     };
   totalprocsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/processes/total", "ects/ProcessTotal", my_callback7, 5);
-
+  
+  // Mountpoint information is serviceserver/serviceclient model not pubsub, so no implementation
+  /*
   //Mountpoint Diskusage
   auto my_callback6 = [&](const picojson::object& json1){ 
   picojson::object json = json1;
@@ -170,8 +172,11 @@ void SystemMontitoringPlugin::subscribeToROS(){
     } 
   
   };
-  mountsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/disk/mountpoints", "ects/MountpointList", my_callback5, 5);
-
+  mountsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/disk/mountpoints", "ects/MountpointList", my_callback5, 5);*/
+  
+  // ADAPTERLIST:
+  // everything below is serviceserver/serviceclient model not pubsub, so no implementation
+  /*
   //Networkinfo
   auto my_callback9 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
@@ -205,7 +210,8 @@ void SystemMontitoringPlugin::subscribeToROS(){
     }
     };
   
-  //All Adapters
+  //All Adapters 
+  
   auto my_callback8 = [&](const picojson::object& json1){ 
   
     picojson::object json = json1;
@@ -226,7 +232,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
     }
     
   };  
-  adaptersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/network/adapters", "ects/AdapterList", my_callback8, 5);
+  adaptersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/network/adapters", "ects/AdapterList", my_callback8, 5);*/
   
   sendMessage();
   loaded = true;
