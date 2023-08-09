@@ -37,6 +37,9 @@ void ControlPlugin::sendMessage(){
 */
 Component ControlPlugin::displayData() {
   std::string name = this->name;
+  // reset previous values
+  (*linear).zero();
+  (*angular).zero();
   auto btn_up = Button("up", [&]() { (*linear).x = 1; });
   auto btn_down = Button("down", [&]() { (*linear).x = -1; });
   auto btn_right = Button("right", [&]() { (*linear).y = -1; });
@@ -45,7 +48,8 @@ Component ControlPlugin::displayData() {
   auto btn_tleft = Button("turn left", [&]() { (*angular).z = 1; });
 
   auto layout = Container::Horizontal({btn_down, btn_right, btn_up, btn_left, btn_tright, btn_tleft});
-
+  
+  sendMessage();
   return Renderer(layout, [&] {
     auto element = vbox({vbox({btn_tleft->Render(), btn_up->Render() | vcenter,
                               btn_tright->Render()}),
@@ -55,11 +59,6 @@ Component ControlPlugin::displayData() {
               size(HEIGHT, LESS_THAN, 20) | center;
     return element;
   });
-  
-  sendMessage();
-  // reset pressed values
-  (*linear).zero();
-  (*angular).zero();
 };
 
 // do nothing, since control only send
