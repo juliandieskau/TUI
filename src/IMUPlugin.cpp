@@ -56,7 +56,6 @@ std::string IMUPlugin::getName() {
   return name;
 };
 
-// TODO: implement unsubscribeFromRos()
 void IMUPlugin::unsubscribeFromRos() {
   delete imucurrentsub;
 };

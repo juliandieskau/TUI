@@ -191,10 +191,10 @@ void SystemMontitoringPlugin::subcribeToROS(){
     all = all + "Wlan ssid: " + json["wlan_ssid"].to_str();
     adaptersInfocontent[countera] = all;
     if (countera <= sizea - 1) {
-    countera = 0;
+      countera = 0;
     }
     else {
-    countera++;
+      countera++;
     }
     };
   
@@ -206,10 +206,10 @@ void SystemMontitoringPlugin::subcribeToROS(){
     all = all + "Wifi signal strength: " + json["wifi_signal_strength"].to_str();
     adaptersUsagecontent[counteri] = all;
     if (counteri <= sizea - 1) {
-    counteri = 0;
+      counteri = 0;
     }
     else {
-    counteri++;
+      counteri++;
     }
     };
   
@@ -245,7 +245,6 @@ std::string SystemMontitoringPlugin::getName() {
   return name;
 };
 
-// TODO: implement unsubscribeFromRos()
 void SystemMontitoringPlugin::unsubscribeFromRos(){
   delete cpuusagesub;
   delete cpupersub;

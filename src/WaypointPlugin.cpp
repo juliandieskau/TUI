@@ -105,7 +105,6 @@ std::string WaypointPlugin::getName(){
   return name;
 };
 
-// TODO: implement unsubscribeFromRos()
 void WaypointPlugin::unsubscribeFromRos(){
   delete waypointlistsub;
   delete numwaypointsub;
