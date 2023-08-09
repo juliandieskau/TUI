@@ -84,7 +84,7 @@ Component SystemMontitoringPlugin::displayData() {
         tab_container_mountpoint->Render() 
       })*/
       }) | dim |
-      size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10))
+      size(WIDTH, EQUAL, 100) | size(HEIGHT, EQUAL, 20))
     | flex;
   });
   
@@ -96,16 +96,16 @@ void SystemMontitoringPlugin::subscribeToROS(){
   //CPU usage
   auto my_callback2 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
-    std::string all = "Total usage: " + json["total_usage"].to_str() + " ";
+    std::string all = "Total usage: " + json["total_usage"].to_str() + "\n";
     picojson::value usage1 = json["per_core_usage"];
     auto usage = usage1.get<std::vector<picojson::value>>();
     picojson::value average1 = json["load_averages"];
     auto average = average1.get<std::vector<picojson::value>>();
     
-    for (int a = 1; a <= usage.size(); a++) {
+    for (int a = 0; a < usage.size(); a++) {
       all = all + "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str() + "\n"; //not printed
     }
-    for (int a = 1; a <= average.size(); a++) {
+    for (int a = 0; a < average.size(); a++) {
       all = all + "Per core average of Core " + std::to_string(a) + ": " + average[a].to_str() + "\n"; //not printed
     }
     cpuUsage = all; 
@@ -115,7 +115,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
   //CPU percentage
   auto my_callback3 = [&](const picojson::object& json1) {
     picojson::object json = json1; 
-    allcpuUsage = "CPU usage: " + json["usage"].to_str(); 
+    allcpuUsage = "CPU usage: " + json["usage"].to_str() + "\n"; 
     *(important[0]) = allcpuUsage; // prints default value
     };
   cpupersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/percent", "ects/CpuPercentage", my_callback3, 5);
