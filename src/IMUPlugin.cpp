@@ -21,9 +21,9 @@ Component IMUPlugin::displayData() {
   return window(
             text("IMU") | hcenter | bold,
             vbox(
-                hbox(text(allcontent))
+                hbox(paragraph(allcontent))
             ) | dim |
-                size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10)) |
+                size(WIDTH, EQUAL, 50) | size(HEIGHT, EQUAL, 10)) |
         flex;
       }
   );

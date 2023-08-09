@@ -77,6 +77,7 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 ## TODO testing phase
 - [ ] Code Style/ descriptive Names
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)
+- [ ] nicely looking newlines and data representation
 
 # Changes to Draft Phase
 - [x] Removed Topic Monitor Plugin (no need for it)

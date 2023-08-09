@@ -72,10 +72,10 @@ Component SystemMontitoringPlugin::displayData() {
     return window(
       text("System") | hcenter | bold,
       vbox({
-        hbox(text(cpuUsage)),
-        hbox(text(allcpuUsage)),
-        hbox(text(memoryUsage)),
-        hbox(text(totalprocess))
+        hbox(paragraph(cpuUsage)),
+        hbox(paragraph(allcpuUsage)),
+        hbox(paragraph(memoryUsage)),
+        hbox(paragraph(totalprocess))
         /*hbox({
         tab_menu_adapter->Render(),
         tab_container_adapter_Usage->Render(),
@@ -84,7 +84,7 @@ Component SystemMontitoringPlugin::displayData() {
         tab_container_mountpoint->Render() 
       })*/
       }) | dim |
-      size(WIDTH, EQUAL, 100) | size(HEIGHT, EQUAL, 20))
+      size(WIDTH, EQUAL, 80) | size(HEIGHT, EQUAL, 20))
     | flex;
   });
   
@@ -96,17 +96,17 @@ void SystemMontitoringPlugin::subscribeToROS(){
   //CPU usage
   auto my_callback2 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
-    std::string all = "Total usage: " + json["total_usage"].to_str() + "\n";
+    std::string all = "Total usage: " + json["total_usage"].to_str() + " \n";
     picojson::value usage1 = json["per_core_usage"];
     auto usage = usage1.get<std::vector<picojson::value>>();
     picojson::value average1 = json["load_averages"];
     auto average = average1.get<std::vector<picojson::value>>();
     
     for (int a = 0; a < usage.size(); a++) {
-      all = all + "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str() + "\n"; //not printed
+      all = all + "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str() + " \n"; 
     }
     for (int a = 0; a < average.size(); a++) {
-      all = all + "Per core average of Core " + std::to_string(a) + ": " + average[a].to_str() + "\n"; //not printed
+      all = all + "Per core average of Core " + std::to_string(a) + ": " + average[a].to_str() + " \n"; 
     }
     cpuUsage = all; 
     };
@@ -115,7 +115,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
   //CPU percentage
   auto my_callback3 = [&](const picojson::object& json1) {
     picojson::object json = json1; 
-    allcpuUsage = "CPU usage: " + json["usage"].to_str() + "\n"; 
+    allcpuUsage = "CPU usage: " + json["usage"].to_str() + " \n"; 
     *(important[0]) = allcpuUsage; // prints default value
     };
   cpupersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/percent", "ects/CpuPercentage", my_callback3, 5);
@@ -123,10 +123,10 @@ void SystemMontitoringPlugin::subscribeToROS(){
   //Memory usage
   auto my_callback4 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
-    std::string all = "Used: " + json["used"].to_str() + " "; //printed, everything after "Total: " not
-    all = all + "Total: " + json["total"].to_str() + "\n";
+    std::string all = "Used: " + json["used"].to_str() + " "; 
+    all = all + "Total: " + json["total"].to_str() + " \n";
     all = all + "Free: " + json["free"].to_str() + " ";
-    all = all + "Shared: " + json["shared"].to_str() + "\n";
+    all = all + "Shared: " + json["shared"].to_str() + " \n";
     all = all + "Buffcache: " + json["buff_cache"].to_str() + " ";
     all = all + "Available: " + json["available"].to_str();
     memoryUsage = all; 
@@ -136,7 +136,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
   //Total processes
   auto my_callback7 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
-    totalprocess = "Number of processes: " + json["number_of_processes"].to_str(); // printed
+    totalprocess = "Number of processes: " + json["number_of_processes"].to_str(); 
     };
   totalprocsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/processes/total", "ects/ProcessTotal", my_callback7, 5);
   
@@ -246,8 +246,10 @@ void SystemMontitoringPlugin::unsubscribeFromRos(){
   delete cpuusagesub;
   delete cpupersub;
   delete memusagesub;
+  /*
   delete mountsub;
   delete adaptersub;
+  
   for (int i = 0; i < diskusagesub.size(); i++) {
     delete diskusagesub[i];
   }
@@ -258,7 +260,7 @@ void SystemMontitoringPlugin::unsubscribeFromRos(){
   netinfosub.clear();
   for (int i = 0; i < netusagesub.size(); i++) {
     delete netusagesub[i];
-  }
+  }*/
   netusagesub.clear();
   loaded = false;
 };

@@ -68,7 +68,7 @@ Component ControlPlugin::displayData() {
   layout->Add(btn_tleft);
   return Renderer(layout, [&] {
     return vbox({hbox({
-                   text("Counter:")
+                   text("Counter:") //for testing
                }),
                layout->Render()});
   });
