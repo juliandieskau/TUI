@@ -20,6 +20,7 @@ class BatteryPlugin : public ECTSPlugin {
     void subcribeToROS();
     std::string getName();
     void unsubscribeFromRos();
+    /// update the ftxui visualisation of all battery data for the update
     void calculate();
     std::vector<std::shared_ptr<std::string>> getImportantValues();
     
@@ -33,6 +34,15 @@ class BatteryPlugin : public ECTSPlugin {
     std::string allcontent;
     std::vector<std::shared_ptr<std::string>> important;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
+    
+    // Battery State aggregation
+    rosbridge_client_cpp::Subscriber my_sub1;
+    // Battery Percentage
+    rosbridge_client_cpp::Subscriber my_sub2;
+    // is Battery critical
+    rosbridge_client_cpp::Subscriber my_sub3;
+    // Estimated Time
+    rosbridge_client_cpp::Subscriber my_sub4;
 };
 
 #endif //BATTERY_PLUGIN_H

@@ -67,9 +67,9 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 - [ ] Plugin Manager
   - [ ] subscribeToROS aufrufen wenn Plugin hinzugefügt (evtl an anderer stelle)
   - [ ] unsubscribeFromROS aufrufen wenn plugins entfernt (error handling, wenn schon passiert)
-- [ ] Battery Plugin
+- [x] Battery Plugin
   - [x] Display
-  - [ ] Unsubscribe from ROS
+  - [x] Unsubscribe from ROS
 - [ ] Control Plugin
   - [x] Display Arrow Key Buttons
   - [ ] ROS inclusion
@@ -83,6 +83,7 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
   - [x] Display
   - [ ] Unsubscribe from ROS
 - [ ] Error Handling
+  - [ ] every new also needs a delete, else memory leaks might happen!
 - [x] Intendation
 - [ ] Code Style/ descriptive Names
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)

@@ -5,7 +5,7 @@ using namespace ftxui;
 ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   this->name = name;
   ros = rb;
-  cmdPub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/control/cmd", "geometry_msgs/Twist.msg", 20);
+  cmdPub = std::make_shared<rosbridge_client_cpp::Publisher>(*ros, "/ects/control/cmd", "geometry_msgs/Twist.msg", 20);
   
 }
 
@@ -33,6 +33,7 @@ void ControlPlugin::sendMessage(int topic, int message){
 /**
  * Serializes ftxui buttons press state to Twist.msg format 
  * Stores them inside linear, angular
+ * TODO
 */
 Component ControlPlugin::displayData() {
   std::string name = this->name;
@@ -62,10 +63,11 @@ void ControlPlugin::subcribeToROS(){
    * Message type "nav_msgs/Odometry.msg" 
    * "Die Position und Ausrich-tung mit Fehler"
    */
+  
 };
 
 // TODO: implement unsubscribeFromRos()
 void ControlPlugin::unsubscribeFromRos(){
-
+  // destruktor aufrufen von ALLEN Subscribern, nicht den callbacks!
 };
 
