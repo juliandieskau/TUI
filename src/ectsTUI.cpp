@@ -10,10 +10,11 @@ ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
 int ectsTUI::main() {
   std::vector<Component> container;
   auto cont = Container::Horizontal({});
+  auto plugcont = Container::Horizontal({});
   int i = 0;
   while (i < allPlugins.size()) {
     if (states[i]) {
-      cont->Add(allPlugins[i]->displayData() | Maybe(&states[i]));
+      plugcont->Add(allPlugins[i]->displayData() | Maybe(&states[i]));
     }
     i++;
   }
@@ -37,9 +38,10 @@ int ectsTUI::main() {
   
   //cont->Add(remnant);
   cont->Add(renderstate);
+  cont->Add(plugcont);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
-                  vbox(   {/*remnant->Render(), cont->Render(), */renderstate->Render()} ));
+                  vbox(   {/*remnant->Render(), cont->Render(), */plugcont->Render(),renderstate->Render()} ));
   });
   
   //auto screen = ScreenInteractive::Fullscreen();
