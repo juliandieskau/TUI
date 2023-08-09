@@ -41,7 +41,7 @@ int ectsTUI::main() {
   cont->Add(plugcont);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
-                  vbox(   {/*remnant->Render(), cont->Render(), */plugcont->Render /*,renderstate->Render()*/} ));
+                  vbox(   /*remnant->Render(), cont->Render(), */plugcont->Render /*,renderstate->Render()*/ ));
   });
   
   //auto screen = ScreenInteractive::Fullscreen();
