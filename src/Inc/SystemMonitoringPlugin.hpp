@@ -32,6 +32,15 @@ private:
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::vector<std::shared_ptr<std::string>> important;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
+    rosbridge_client_cpp::Subscriber* cpuusagesub;
+    rosbridge_client_cpp::Subscriber* cpupersub;
+    rosbridge_client_cpp::Subscriber* memusagesub;
+    rosbridge_client_cpp::Subscriber* mountsub;
+    rosbridge_client_cpp::Subscriber* adaptersub;
+    rosbridge_client_cpp::Subscriber* totalprocsub;
+    std::vector<rosbridge_client_cpp::Subscriber*> diskusagesub;
+    std::vector<rosbridge_client_cpp::Subscriber*> netinfosub;
+    std::vector<rosbridge_client_cpp::Subscriber*> netusagesub;
     std::string name;
     std::string cpuUsage = "20";
     std::string allcpuUsage = "30";
