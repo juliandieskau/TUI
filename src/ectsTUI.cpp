@@ -24,11 +24,15 @@ int ectsTUI::main() {
   });
 
   // Plugin Checkboxes, reload button
-  auto button = Button("reload", setPluginState());
+  auto button = Button("reload", [this]() {this->setPluginState();} );
   Component state = manager.displayData();
-  auto pluginContainer = Container::Vertical({button, state});
+  auto pluginContainer = Container::Vertical({});
+  pluginContainer->Add(button);
+  pluginContainer->Add(state);
   auto renderstate = Renderer(pluginContainer, [&] {
-    return window(text("Status"), state->Render(), button->Render());
+    return window(text("Status"), 
+      vbox({state->Render(), button->Render()})
+    );
   });
   
   cont->Add(remnant);
