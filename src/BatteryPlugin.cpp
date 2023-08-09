@@ -43,6 +43,7 @@ Component BatteryPlugin::displayData() {
 };
 
 void BatteryPlugin::subcribeToROS() {   
+  // Battery Percentage
   auto my_callback3 = [&](const picojson::object& json1) { 
     picojson::object json = json1; 
     picojson::value v = json["data"]; 
@@ -50,9 +51,18 @@ void BatteryPlugin::subcribeToROS() {
     *(important[0]) = "Battery percentage: " + std::to_string(battery_percentage);
     calculate();
   };
+<<<<<<< src/BatteryPlugin.cpp
+  my_sub2 = new rosbridge_client_cpp::Subscriber(*ros, "/etcs/battery/percentage", "std_msgs/Float32.msg", my_callback3, 5);
+  
+  // is Battery critical
+=======
   rosbridge_client_cpp::Subscriber my_sub2(*ros, "/etcs/battery/percentage", "std_msgs/Float32.msg", my_callback3, 5);
   batterypersub = &my_sub2;
+<<<<<<< HEAD
 
+=======
+>>>>>>> src/BatteryPlugin.cpp
+>>>>>>> 6416bef22d3eddb4ee8b3a65ed85a553bd2ec1e4
   auto my_callback2 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
     std::string v = json["data"].to_str(); 
@@ -64,9 +74,18 @@ void BatteryPlugin::subcribeToROS() {
     }
     calculate();
     };
+<<<<<<< src/BatteryPlugin.cpp
+  my_sub3 = new rosbridge_client_cpp::Subscriber(*ros, "/etcs/battery/is_critical", "std_msgs/Bool.msg", my_callback2, 5);
+  
+  // Batterystate
+=======
   rosbridge_client_cpp::Subscriber my_sub3(*ros, "/etcs/battery/is_critical", "std_msgs/Bool.msg", my_callback2, 5);
   criticalsub = &my_sub3;
+<<<<<<< HEAD
 
+=======
+>>>>>>> src/BatteryPlugin.cpp
+>>>>>>> 6416bef22d3eddb4ee8b3a65ed85a553bd2ec1e4
   auto my_callback1 = [&](const picojson::object& json1){
     picojson::object json = json1; 
     std::string all;
@@ -92,29 +111,61 @@ void BatteryPlugin::subcribeToROS() {
     battery_state = all;
     calculate();
   };
+<<<<<<< src/BatteryPlugin.cpp
+  my_sub1 = new rosbridge_client_cpp::Subscriber(*ros, "/ects/battery/usage", "sensor_msgs/BatteryState.msg", my_callback1, 5);
+
+=======
   rosbridge_client_cpp::Subscriber my_sub1(*ros, "/ects/battery/usage", "sensor_msgs/BatteryState.msg", my_callback1, 5);
   batteryusagesub = &my_sub1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> src/BatteryPlugin.cpp
+>>>>>>> 6416bef22d3eddb4ee8b3a65ed85a553bd2ec1e4
   auto my_callback4 = [&](const picojson::object& json1){ 
     picojson::object json = json1; 
     estimated_time = std::stoi(json["data"].to_str()); 
     calculate();
   };
+<<<<<<< HEAD
   rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/battery/estimated_time_", "std_msgs/Float32.msg", my_callback4, 5);
   estTimesub = &my_sub4;
   
   sendMessage();
+=======
+<<<<<<< src/BatteryPlugin.cpp
+  my_sub4 = new rosbridge_client_cpp::Subscribe(*ros, "/ects/battery/estimated_time_", "std_msgs/Float32.msg", my_callback4, 5);
+  
+  sendMessage();
+=======
+rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/battery/estimated_time_", "std_msgs/Float32.msg", my_callback4, 5);
+estTimesub = &my_sub4;
+sendMessage();
+>>>>>>> src/BatteryPlugin.cpp
+>>>>>>> 6416bef22d3eddb4ee8b3a65ed85a553bd2ec1e4
 };
 
 std::string BatteryPlugin::getName() {
   return name;
 };
 
+<<<<<<< src/BatteryPlugin.cpp
+// FIXME: never call a second time before subscribed again! (never call if not subscribed)
+void BatteryPlugin::unsubscribeFromRos() {
+  // delete frees pointed-to-data, not deleting the pointer itself!
+  // add a 'delete' call for every Subscriber that is created with 'new'
+  // delete calls destructor!
+  delete my_sub1;
+  delete my_sub2;
+  delete my_sub3;
+  delete my_sub4;
+=======
 void BatteryPlugin::unsubscribeFromRos() {
   delete batterypersub;
   delete criticalsub;
   delete batteryusagesub;
   delete estTimesub;
+>>>>>>> src/BatteryPlugin.cpp
 };
 
 void BatteryPlugin::calculate() {

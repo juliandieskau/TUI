@@ -5,7 +5,7 @@ using namespace ftxui;
 ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   this->name = name;
   ros = rb;
-  cmdPub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/control/cmd", "geometry_msgs/Twist.msg", 20);
+  cmdPub = std::make_shared<rosbridge_client_cpp::Publisher>(*ros, "/ects/control/cmd", "geometry_msgs/Twist.msg", 20);
   
 }
 
@@ -34,7 +34,6 @@ void ControlPlugin::sendMessage(){
  * Serializes ftxui buttons press state to Twist.msg format 
  * Stores them inside linear, angular
 */
-
 Component ControlPlugin::displayData() {
   std::string name = this->name;
   auto btn_up = Button("up", [&]() { linear.x = 1 });
@@ -43,7 +42,6 @@ Component ControlPlugin::displayData() {
   auto btn_left = Button("left", [&]() { linear.y = 1 });
   auto btn_tright = Button("turn right", [&]() { angular.z = -1 });
   auto btn_tleft = Button("turn left", [&]() { angular.z = 1 });
-
 
   auto layout = Container::Horizontal({btn_down, btn_right, btn_up, btn_left, btn_tright, btn_tleft});
 
@@ -63,7 +61,7 @@ Component ControlPlugin::displayData() {
   angular.zero();
 };
 
-// not needed in control
+// do nothing, since control only send
 void ControlPlugin::subcribeToROS(){
   /* SUBSCRIBERS
    * Topic name "/ects/control/position"
@@ -73,9 +71,9 @@ void ControlPlugin::subcribeToROS(){
    */
 };
 
-// not needed in control
+// do nothing, since control only send
 void ControlPlugin::unsubscribeFromRos(){
-
+  // destruktor aufrufen von ALLEN Subscribern, nicht den callbacks!
 };
 
 std::vector<std::shared_ptr<std::string>> ControlPlugin::getImportantValues() {
