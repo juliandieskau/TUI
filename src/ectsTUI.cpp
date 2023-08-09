@@ -10,43 +10,33 @@ ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
 int ectsTUI::main() {
   std::vector<Component> container;
   auto cont = Container::Horizontal({});
-  auto plugcont = Container::Horizontal({});
   int i = 0;
   while (i < allPlugins.size()) {
     if (states[i]) {
-      plugcont->Add(allPlugins[i]->displayData() | Maybe(&states[i]));
+      cont->Add(allPlugins[i]->displayData() | Maybe(&states[i]));
     }
     i++;
   }
   i = 0;
-  /*auto foot = statusbar.displayData();
+  auto foot = statusbar.displayData();
   Component remnant = Renderer(foot, [&] {
     return window(text("Footer"), foot->Render());
-  });*/
-
-  // Plugin Checkboxes, reload button
-  auto button = Button("reload", [this]() {this->setPluginState();} );
-  Component state = manager.displayData();
-  auto pluginContainer = Container::Vertical({});
-  pluginContainer->Add(button);
-  pluginContainer->Add(state);
-  auto renderstate = Renderer(pluginContainer, [&] {
-    return window(text("Status"), 
-      vbox({state->Render(), button->Render()})
-    );
   });
+
+  /*Component state = manager.displayData();
+  auto renderstate = Renderer(state, [&] {
+    return window(text("Status"), state->Render());
+  });*/
   
-  //cont->Add(remnant);
-  cont->Add(renderstate);
-  cont->Add(plugcont);
+  cont->Add(remnant);
+  //cont->Add(renderstate);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
-                  vbox(   /*remnant->Render(), cont->Render(), */plugcont->Render /*,renderstate->Render()*/ ));
+                  cont->Render());
   });
   
-  //auto screen = ScreenInteractive::Fullscreen();
-  //screen.Loop(all);
-  ScreenInteractive::FitComponent().Loop(all);
+  auto screen = ScreenInteractive::Fullscreen();
+  screen.Loop(all);
   return 0;
 };
 
