@@ -51,7 +51,7 @@ void BatteryPlugin::subcribeToROS() {
     *(important[0]) = "Battery percentage: " + std::to_string(battery_percentage);
     calculate();
   };
-  rosbridge_client_cpp::Subscriber my_sub2(*ros, "/etcs/battery/percentage", "std_msgs/Float32.msg", my_callback3, 5);
+  my_sub2 = new rosbridge_client_cpp::Subscriber(*ros, "/etcs/battery/percentage", "std_msgs/Float32.msg", my_callback3, 5);
   
   // is Battery critical
   auto my_callback2 = [&](const picojson::object& json1){ 
@@ -65,7 +65,7 @@ void BatteryPlugin::subcribeToROS() {
     }
     calculate();
     };
-  rosbridge_client_cpp::Subscriber my_sub3(*ros, "/etcs/battery/is_critical", "std_msgs/Bool.msg", my_callback2, 5);
+  my_sub3 = new rosbridge_client_cpp::Subscriber(*ros, "/etcs/battery/is_critical", "std_msgs/Bool.msg", my_callback2, 5);
   
   // Batterystate
   auto my_callback1 = [&](const picojson::object& json1){
@@ -93,23 +93,31 @@ void BatteryPlugin::subcribeToROS() {
     battery_state = all;
     calculate();
   };
-  rosbridge_client_cpp::Subscriber my_sub1(*ros, "/ects/battery/usage", "sensor_msgs/BatteryState.msg", my_callback1, 5);
+  my_sub1 = new rosbridge_client_cpp::Subscriber(*ros, "/ects/battery/usage", "sensor_msgs/BatteryState.msg", my_callback1, 5);
 
   auto my_callback4 = [&](const picojson::object& json1){ 
     picojson::object json = json1; 
     estimated_time = std::stoi(json["data"].to_str()); 
     calculate();
   };
-rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/battery/estimated_time_", "std_msgs/Float32.msg", my_callback4, 5);
-sendMessage();
+  my_sub4 = new rosbridge_client_cpp::Subscribe(*ros, "/ects/battery/estimated_time_", "std_msgs/Float32.msg", my_callback4, 5);
+  
+  sendMessage();
 };
 
 std::string BatteryPlugin::getName() {
   return name;
 };
 
-// TODO: implement unsubscribeFromRos()
-void BatteryPlugin::unsubscribeFromRos() {};
+// FIXME: never call a second time before subscribed again! (never call if not subscribed)
+void BatteryPlugin::unsubscribeFromRos() {
+  // delete frees pointed-to-data, not deleting the pointer itself!
+  // add a 'delete' call for every Subscriber that is created with 'new'
+  delete my_sub1;
+  delete my_sub2;
+  delete my_sub3;
+  delete my_sub4;
+};
 
 void BatteryPlugin::calculate() {
   allcontent = "Battery percentage: " + std::to_string(battery_percentage) + "\n";
