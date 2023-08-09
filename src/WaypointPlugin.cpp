@@ -4,7 +4,7 @@ WaypointPlugin::WaypointPlugin(std::string name, std::shared_ptr<rosbridge_clien
   ros = rb;
   this->name = name;
   important.push_back(std::make_shared<std::string>(""));
-  my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ForceRetransmit.msg", 20);
+  my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ects/ForceRetransmit", 20);
 
 };
 
@@ -54,7 +54,7 @@ void WaypointPlugin::subscribeToROS() {
     waypointlist = json["waypoints"]; 
     calculate();
   };
-  rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/waypoints/waypoint_list", "WaypointList", my_callback1, 5);   
+  rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/waypoints/waypoint_list", "ects/WaypointList", my_callback1, 5);   
   waypointlistsub = &my_sub2;
   rosbridge_client_cpp::Subscriber my_sub3(*ros, "/ects/waypoints/number_of_waypoints", "std_msgs/UInt32", my_callback2, 5);
   numwaypointsub = &my_sub3;

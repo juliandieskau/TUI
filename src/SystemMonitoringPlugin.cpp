@@ -4,7 +4,7 @@ SystemMontitoringPlugin::SystemMontitoringPlugin(std::string name, std::shared_p
   this->name = name;
   ros = rb;
   important.push_back(std::make_shared<std::string>(""));
-  my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ForceRetransmit.msg", 20);
+  my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ects/ForceRetransmit", 20);
   
   
 }
@@ -110,7 +110,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
     }
     cpuUsage = all; 
     };
-  rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/system/cpu/usage", "CpuUsage", my_callback2, 5);
+  rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/system/cpu/usage", "ects/CpuUsage", my_callback2, 5);
   cpuusagesub = &my_sub2;
   
   //CPU percentage
@@ -119,7 +119,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
     allcpuUsage = "CPU usage: " + json["usage"].to_str(); 
     *(important[0]) = allcpuUsage;
     };
-  rosbridge_client_cpp::Subscriber my_sub3(*ros, "/ects/system/cpu/percent", "CpuPercentage", my_callback3, 5);
+  rosbridge_client_cpp::Subscriber my_sub3(*ros, "/ects/system/cpu/percent", "ects/CpuPercentage", my_callback3, 5);
   cpupersub = &my_sub3;
   
   //Memory usage
@@ -133,14 +133,14 @@ void SystemMontitoringPlugin::subscribeToROS(){
     all = all + "Available: " + json["available"].to_str();
     memoryUsage = all; 
     };
-  rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/system/mem/usage", "MemoryUsage", my_callback4, 5);
+  rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/system/mem/usage", "ects/MemoryUsage", my_callback4, 5);
   memusagesub = &my_sub4;
   //Total processes
   auto my_callback7 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
     totalprocess = "Number of processes: " + json["number_of_processes"].to_str(); 
     };
-  rosbridge_client_cpp::Subscriber my_sub7(*ros, "/ects/system/processes/total", "ProcessTotal", my_callback7, 5);
+  rosbridge_client_cpp::Subscriber my_sub7(*ros, "/ects/system/processes/total", "ects/ProcessTotal", my_callback7, 5);
   totalprocsub = &my_sub7;
   //Mountpoint Diskusage
   auto my_callback6 = [&](const picojson::object& json1){ 
@@ -165,7 +165,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
     for ( int index = 0; index < mount.size(); ++index )
     {
       std::string topic = "/ects/system/disk/" + mount[index].to_str() + "/usage";
-      rosbridge_client_cpp::Subscriber my_sub6(*ros, topic, "DiskUsage", my_callback6 , 5);
+      rosbridge_client_cpp::Subscriber my_sub6(*ros, topic, "ects/DiskUsage", my_callback6 , 5);
       diskusagesub.push_back(&my_sub6);
       mountnamestopic.push_back(topic);
       name_mountpoints.push_back(mount[index].to_str());
@@ -173,7 +173,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
     } 
   
   };
-  rosbridge_client_cpp::Subscriber my_sub5(*ros, "/ects/system/disk/mountpoints", "MountpointList", my_callback5, 5);
+  rosbridge_client_cpp::Subscriber my_sub5(*ros, "/ects/system/disk/mountpoints", "ects/MountpointList", my_callback5, 5);
   mountsub = &my_sub5;
   //Networkinfo
   auto my_callback9 = [&](const picojson::object& json1){ 
@@ -218,10 +218,10 @@ void SystemMontitoringPlugin::subscribeToROS(){
     for ( int index = 0; index < adapter.size(); ++index )
     {
       std::string topic1 = "/ects/system/network/" + adapter[index].to_str() + "/info";
-      rosbridge_client_cpp::Subscriber my_sub9(*ros, topic1, "NetworkInfo", my_callback9, 5);
+      rosbridge_client_cpp::Subscriber my_sub9(*ros, topic1, "ects/NetworkInfo", my_callback9, 5);
       netinfosub.push_back(&my_sub9);
       std::string topic2 = "/ects/system/network/" + adapter[index].to_str() + "/usage";
-      rosbridge_client_cpp::Subscriber my_sub10(*ros, topic2, "NetworkUsage", my_callback10, 5);
+      rosbridge_client_cpp::Subscriber my_sub10(*ros, topic2, "ects/NetworkUsage", my_callback10, 5);
       netusagesub.push_back(&my_sub10);
       adapternamestopic.push_back(topic1);
       adapternamestopic.push_back(topic2);
@@ -231,7 +231,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
     }
     
   };  
-  rosbridge_client_cpp::Subscriber my_sub8(*ros, "/ects/system/network/adapters", "AdapterList", my_callback8, 5);
+  rosbridge_client_cpp::Subscriber my_sub8(*ros, "/ects/system/network/adapters", "ects/AdapterList", my_callback8, 5);
   adaptersub = &my_sub8;
   
   sendMessage();

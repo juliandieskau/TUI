@@ -4,7 +4,7 @@ IMUPlugin::IMUPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::Ros
   ros = rb;
   this->name = name;
   important.push_back(std::make_shared<std::string>(""));
-  my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ForceRetransmit.msg", 20);
+  my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ects/ForceRetransmit", 20);
 }
 
 void IMUPlugin::sendMessage() {
