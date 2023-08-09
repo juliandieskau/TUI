@@ -52,4 +52,8 @@ void ControlPlugin::subcribeToROS(){
 void ControlPlugin::unsubscribeFromRos(){
 
 };
+std::vector<std::shared_ptr<std::string>> ControlPlugin::getImportantValues() {
+  std::vector<std::shared_ptr<std::string>> a;
+  return a;
+}
 

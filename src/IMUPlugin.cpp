@@ -41,6 +41,7 @@ void IMUPlugin::subcribeToROS() {
     calculate();
     };
   rosbridge_client_cpp::Subscriber my_sub3(*ros, "/etcs/imu/current", "sensor_msgs/Imu.msg", my_callback4, 5);
+  imucurrentsub = &my_sub3;
   sendMessage();
 };
 
@@ -57,7 +58,7 @@ std::string IMUPlugin::getName() {
 
 // TODO: implement unsubscribeFromRos()
 void IMUPlugin::unsubscribeFromRos() {
-  
+  delete imucurrentsub;
 };
 
 std::vector<std::shared_ptr<std::string>> IMUPlugin::getImportantValues() {

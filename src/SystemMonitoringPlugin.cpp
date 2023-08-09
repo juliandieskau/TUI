@@ -116,6 +116,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     cpuUsage = all; 
     };
   rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/system/cpu/usage", "CpuUsage.msg ", my_callback2, 5);
+  cpuusagesub = &my_sub2;
   
   //CPU percentage
   auto my_callback3 = [&](const picojson::object& json1) {
@@ -124,6 +125,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     *(important[0]) = allcpuUsage;
     };
   rosbridge_client_cpp::Subscriber my_sub3(*ros, "/ects/system/cpu/percent", "CpuPercentage.msg", my_callback3, 5);
+  cpupersub = &my_sub3;
   
   //Memory usage
   auto my_callback4 = [&](const picojson::object& json1){ 
@@ -137,14 +139,14 @@ void SystemMontitoringPlugin::subcribeToROS(){
     memoryUsage = all; 
     };
   rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/system/mem/usage", "MemoryUsage.msg ", my_callback4, 5);
-  
+  memusagesub = &my_sub4;
   //Total processes
   auto my_callback7 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
     totalprocess = "Number of processes: " + json["number_of_processes"].to_str(); 
     };
   rosbridge_client_cpp::Subscriber my_sub7(*ros, "/ects/system/processes/total", "ProcessTotal.msg", my_callback7, 5);
-  
+  totalprocsub = &my_sub7;
   //Mountpoint Diskusage
   auto my_callback6 = [&](const picojson::object& json1){ 
   picojson::object json = json1;
@@ -169,6 +171,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     {
       std::string topic = "/ects/system/disk/" + mount[index].to_str() + "/usage";
       rosbridge_client_cpp::Subscriber my_sub6(*ros, topic, "DiskUsage.msg", my_callback6 , 5);
+      diskusagesub.push_back(&my_sub6);
       mountnamestopic.push_back(topic);
       name_mountpoints.push_back(mount[index].to_str());
       addtabmountpoint(index);
@@ -176,6 +179,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
   
   };
   rosbridge_client_cpp::Subscriber my_sub5(*ros, "/ects/system/disk/mountpoints", "MountpointList.srv", my_callback5, 5);
+  mountsub = &my_sub5;
   //Networkinfo
   auto my_callback9 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
@@ -220,8 +224,10 @@ void SystemMontitoringPlugin::subcribeToROS(){
     {
       std::string topic1 = "/ects/system/network/" + adapter[index].to_str() + "/info";
       rosbridge_client_cpp::Subscriber my_sub9(*ros, topic1, "NetworkInfo.msg", my_callback9, 5);
+      netinfosub.push_back(&my_sub9);
       std::string topic2 = "/ects/system/network/" + adapter[index].to_str() + "/usage";
       rosbridge_client_cpp::Subscriber my_sub10(*ros, topic2, "NetworkUsage.msg", my_callback10, 5);
+      netusagesub.push_back(&my_sub10);
       adapternamestopic.push_back(topic1);
       adapternamestopic.push_back(topic2);
       name_adapters.push_back(adapter[index].to_str());
@@ -231,6 +237,7 @@ void SystemMontitoringPlugin::subcribeToROS(){
     
   };  
   rosbridge_client_cpp::Subscriber my_sub8(*ros, "/ects/system/network/adapters", "AdapterList.srv", my_callback8, 5);
+  adaptersub = &my_sub8;
   sendMessage();
 };
 
@@ -239,7 +246,26 @@ std::string SystemMontitoringPlugin::getName() {
 };
 
 // TODO: implement unsubscribeFromRos()
-void SystemMontitoringPlugin::unsubscribeFromRos(){};
+void SystemMontitoringPlugin::unsubscribeFromRos(){
+  delete cpuusagesub;
+  delete cpupersub;
+  delete memusagesub;
+  delete mountsub;
+  delete adaptersub;
+  for (int i = 0; i < diskusagesub.size(); i++) {
+    delete diskusagesub[i];
+  }
+  diskusagesub.clear();
+  for (int i = 0; i < netinfosub.size(); i++) {
+    delete netinfosub[i];
+  }
+  netinfosub.clear();
+  for (int i = 0; i < netusagesub.size(); i++) {
+    delete netusagesub[i];
+  }
+  netusagesub.clear();
+
+};
 
 void SystemMontitoringPlugin::addtabadapterInfo(int index) {
   auto renderer = Renderer([&] {

@@ -55,8 +55,11 @@ void WaypointPlugin::subcribeToROS() {
     calculate();
   };
   rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/waypoints/waypoint_list", "WaypointList.msg", my_callback1, 5);   
+  waypointlistsub = &my_sub2;
   rosbridge_client_cpp::Subscriber my_sub3(*ros, "/ects/waypoints/number_of_waypoints", "std_msgs/UInt32.msg", my_callback2, 5);
+  numwaypointsub = &my_sub3;
   rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/waypoints/current_waypoint", "std_msgs/UInt32.msg", my_callback3, 5);
+  currentpointsub = &my_sub4;
   sendMessage();
 };
 
@@ -104,7 +107,9 @@ std::string WaypointPlugin::getName(){
 
 // TODO: implement unsubscribeFromRos()
 void WaypointPlugin::unsubscribeFromRos(){
-
+  delete waypointlistsub;
+  delete numwaypointsub;
+  delete currentpointsub;
 };
 
 std::vector<std::shared_ptr<std::string>> WaypointPlugin::getImportantValues() {

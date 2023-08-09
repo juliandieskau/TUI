@@ -33,6 +33,10 @@ class BatteryPlugin : public ECTSPlugin {
     std::string allcontent;
     std::vector<std::shared_ptr<std::string>> important;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
+    rosbridge_client_cpp::Subscriber* batterypersub;
+    rosbridge_client_cpp::Subscriber* criticalsub;
+    rosbridge_client_cpp::Subscriber* batteryusagesub;
+    rosbridge_client_cpp::Subscriber* estTimesub;
 };
 
 #endif //BATTERY_PLUGIN_H

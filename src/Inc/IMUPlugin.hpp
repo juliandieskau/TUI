@@ -31,6 +31,7 @@ class IMUPlugin : public ECTSPlugin {
     std::string orientation;
     std::string angular_velocity;
     std::string linear_acceleration;
+    rosbridge_client_cpp::Subscriber* imucurrentsub;
 };
 
 #endif //IMU_PLUGIN_H
