@@ -1,4 +1,5 @@
 #include "WaypointPlugin.hpp"
+#include <iostream> // TODO: remove after working subscribers
 
 WaypointPlugin::WaypointPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   ros = rb;
@@ -54,12 +55,9 @@ void WaypointPlugin::subscribeToROS() {
     waypointlist = json["waypoints"]; 
     calculate();
   };
-  rosbridge_client_cpp::Subscriber my_sub2(*ros, "/ects/waypoints/waypoint_list", "ects/WaypointList", my_callback1, 5);   
-  waypointlistsub = &my_sub2;
-  rosbridge_client_cpp::Subscriber my_sub3(*ros, "/ects/waypoints/number_of_waypoints", "std_msgs/UInt32", my_callback2, 5);
-  numwaypointsub = &my_sub3;
-  rosbridge_client_cpp::Subscriber my_sub4(*ros, "/ects/waypoints/current_waypoint", "std_msgs/UInt32", my_callback3, 5);
-  currentpointsub = &my_sub4;
+  waypointlistsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/waypoints/waypoint_list", "ects/WaypointList", my_callback1, 5);
+  numwaypointsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/waypoints/number_of_waypoints", "std_msgs/UInt32", my_callback2, 5);
+  currentpointsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/waypoints/current_waypoint", "std_msgs/UInt32", my_callback3, 5);
   sendMessage();
   loaded = true;
 };
@@ -111,6 +109,7 @@ void WaypointPlugin::unsubscribeFromRos(){
   delete numwaypointsub;
   delete currentpointsub;
   loaded = false;
+  std::cout << "unsubscribed by calling WaypointPlugin::unsubscribeFromRos()\n";
 };
 
 bool WaypointPlugin::isLoaded() {

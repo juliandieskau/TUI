@@ -16,7 +16,6 @@ void Statusbar::addField(ECTSPlugin** plugin) {
   for (int i = 0; i < values.size(); i++) {
     all = all + *values[i] + " ";
   }
-  auto render = Renderer([&] { return hbox(text(all));
-	  });
+  auto render = Renderer([=] { return hbox(text(all));});
   container->Add(render);
 };
