@@ -50,21 +50,7 @@ void SystemMontitoringPlugin::sendMessage(){
 
 Component SystemMontitoringPlugin::displayData() {
   std::string name = this->name;
-  
-  auto renderbasic = Renderer([&] {
-    return window(
-      text("System") | hcenter | bold,
-      vbox({
-        hbox(text(cpuUsage)),
-        hbox(text(allcpuUsage)),
-        hbox(text(memoryUsage)),
-        hbox(text(totalprocess))
-      }) | dim |
-      size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10))
-    | flex;
-  });
-  
-  Component tab_menu_adapter = Menu(&name_adapters, &adapter_tab_selected);
+  /*Component tab_menu_adapter = Menu(&name_adapters, &adapter_tab_selected);
   Component tab_container_adapter_Info = Container::Tab(
       adaptersInfo,
       &adapter_tab_selected);
@@ -76,25 +62,34 @@ Component SystemMontitoringPlugin::displayData() {
       mountpoints,
       &mountpoint_tab_selected);
   Component container = Container::Horizontal({
-      renderbasic,
       tab_menu_adapter,
       tab_container_adapter_Info,
       tab_container_adapter_Usage,
       tab_menu_mountpoint,
       tab_container_mountpoint
+  });*/
+  auto renderbasic = Renderer([&] {
+    return window(
+      text("System") | hcenter | bold,
+      vbox({
+        hbox(text(cpuUsage)),
+        hbox(text(allcpuUsage)),
+        hbox(text(memoryUsage)),
+        hbox(text(totalprocess))
+        /*hbox({
+        tab_menu_adapter->Render(),
+        tab_container_adapter_Usage->Render(),
+        tab_container_adapter_Info->Render(),
+        tab_menu_mountpoint->Render(),
+        tab_container_mountpoint->Render() 
+      })*/
+      }) | dim |
+      size(WIDTH, EQUAL, 20) | size(HEIGHT, EQUAL, 10))
+    | flex;
   });
   
-  Component renderer = Renderer(container, [&] {
-    return hbox({
-      renderbasic->Render(),
-      tab_menu_adapter->Render(),
-      tab_container_adapter_Usage->Render(),
-      tab_container_adapter_Info->Render(),
-      tab_menu_mountpoint->Render(),
-      tab_container_mountpoint->Render() 
-    }) | border;}
-  );
-  return renderer;
+
+  return renderbasic;
 };
 
 void SystemMontitoringPlugin::subscribeToROS(){ 

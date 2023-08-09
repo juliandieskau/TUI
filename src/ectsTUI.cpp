@@ -8,6 +8,7 @@ ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
 };
 
 int ectsTUI::main() {
+  auto screen = ScreenInteractive::Fullscreen();
   std::vector<Component> container;
   auto cont = Container::Horizontal({});
   int i = 0;
@@ -23,19 +24,28 @@ int ectsTUI::main() {
     return window(text("Footer"), foot->Render());
   });*/
 
+  // Plugin Checkboxes, reload button
+  auto button = Button("reload", [this]() {this->setPluginState();} );
   Component state = manager.displayData();
-  auto renderstate = Renderer(state, [&] {
-    return window(text("Status"), state->Render());
+  auto pluginContainer = Container::Vertical({});
+  pluginContainer->Add(button);
+  pluginContainer->Add(state);
+  auto renderstate = Renderer(pluginContainer, [&] {
+    return window(text("Status"), 
+      vbox({state->Render(), button->Render()})
+    );
   });
   
-  cont->Add(remnant);
-  //cont->Add(renderstate);
+  //cont->Add(remnant);
+  cont->Add(renderstate);
+  //cont->Add(cont);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
-                  cont->Render());
+                     cont->Render());
   });
   
-  auto screen = ScreenInteractive::Fullscreen();
+  //auto screen = ScreenInteractive::Fullscreen();
+  //screen.Loop(all);
   screen.Loop(all);
   return 0;
 };

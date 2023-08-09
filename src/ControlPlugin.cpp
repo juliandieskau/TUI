@@ -40,25 +40,45 @@ Component ControlPlugin::displayData() {
   // reset previous values
   (*linear).zero();
   (*angular).zero();
-  auto btn_up = Button("up", [&]() { (*linear).x = 1; });
-  auto btn_down = Button("down", [&]() { (*linear).x = -1; });
-  auto btn_right = Button("right", [&]() { (*linear).y = -1; });
-  auto btn_left = Button("left", [&]() { (*linear).y = 1; });
-  auto btn_tright = Button("turn right", [&]() { (*angular).z = -1; });
-  auto btn_tleft = Button("turn left", [&]() { (*angular).z = 1; });
-
-  auto layout = Container::Horizontal({btn_down, btn_right, btn_up, btn_left, btn_tright, btn_tleft});
-  
+  auto btn_up = Button("up", [&]() { (*linear).x = 1;
   sendMessage();
+   });
+  auto btn_down = Button("down", [&]() { (*linear).x = -1;
+  sendMessage();
+   });
+  auto btn_right = Button("right", [&]() { (*linear).y = -1; 
+  sendMessage();
+  });
+  auto btn_left = Button("left", [&]() { (*linear).y = 1; 
+  sendMessage();
+  });
+  auto btn_tright = Button("turn right", [&]() { (*angular).z = -1; 
+  sendMessage();
+  });
+  auto btn_tleft = Button("turn left", [&]() { (*angular).z = 1; 
+  sendMessage();
+  });
+
+  auto layout = Container::Horizontal({});
+  layout->Add(btn_up);
+  layout->Add(btn_down);
+  layout->Add(btn_right);
+  layout->Add(btn_left);
+  layout->Add(btn_tright);
+  layout->Add(btn_tleft);
   return Renderer(layout, [&] {
-    auto element = vbox({vbox({btn_tleft->Render(), btn_up->Render() | vcenter,
+    return vbox({hbox({
+                   text("Counter:")
+               }),
+               layout->Render()});
+  });
+
+/*{vbox({btn_tleft->Render(), btn_up->Render() | vcenter,
                               btn_tright->Render()}),
                         vbox({btn_left->Render(), btn_down->Render() | vcenter,
-                              btn_right->Render()})});
-    element = element | borderEmpty | border | size(WIDTH, LESS_THAN, 80) |
-              size(HEIGHT, LESS_THAN, 20) | center;
-    return element;
-  });
+                              btn_right->Render()})}) | borderEmpty | border | size(WIDTH, LESS_THAN, 80) |
+              size(HEIGHT, LESS_THAN, 20*/
+
 };
 
 // do nothing, since control only send
