@@ -18,10 +18,10 @@ int ectsTUI::main() {
     i++;
   }
   i = 0;
-  auto foot = statusbar.displayData();
+  /*auto foot = statusbar.displayData();
   Component remnant = Renderer(foot, [&] {
     return window(text("Footer"), foot->Render());
-  });
+  });*/
 
   // Plugin Checkboxes, reload button
   auto button = Button("reload", [this]() {this->setPluginState();} );
@@ -35,16 +35,16 @@ int ectsTUI::main() {
     );
   });
   
-  cont->Add(remnant);
+  //cont->Add(remnant);
   cont->Add(renderstate);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
-                  vbox(   {remnant->Render(), renderstate->Render()} ));
+                  vbox(   {/*remnant->Render(), cont->Render(), */renderstate->Render()} ));
   });
   
-  auto screen = ScreenInteractive::Fullscreen();
-  screen.Loop(all);
-  //ScreenInteractive::FitComponent().Loop(all);
+  //auto screen = ScreenInteractive::Fullscreen();
+  //screen.Loop(all);
+  ScreenInteractive::FitComponent().Loop(all);
   return 0;
 };
 
