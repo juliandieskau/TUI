@@ -3,7 +3,7 @@
 BatteryPlugin::BatteryPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   ros = rb;
   this->name = name;
-  important.push_back(std::make_shared<std::string>("")); 
+  important = std::make_shared<std::string>("battery");
   my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ects/ForceRetransmit", 20);
 }
 
@@ -47,7 +47,7 @@ void BatteryPlugin::subscribeToROS() {
     picojson::object json = json1; 
     picojson::value v = json["data"]; 
     battery_percentage = std::stoi(v.to_str()) + 1.0;
-    *(important[0]) = "Battery percentage: " + std::to_string(battery_percentage);
+    *(important) = "Battery percentage: " + std::to_string(battery_percentage);
     calculate();
   };
   batterypersub = new rosbridge_client_cpp::Subscriber(*ros, "/etcs/battery/percentage", "std_msgs/Float32", my_callback3, 5);
@@ -127,6 +127,6 @@ bool BatteryPlugin::isLoaded() {
   return loaded;
 }
 
-std::vector<std::shared_ptr<std::string>> BatteryPlugin::getImportantValues() {
+std::shared_ptr<std::string> BatteryPlugin::getImportantValues() {
   return important;
 };

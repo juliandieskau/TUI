@@ -21,7 +21,7 @@ class IMUPlugin : public ECTSPlugin {
     std::string getName();
     void unsubscribeFromRos();
     void calculate();
-    std::vector<std::shared_ptr<std::string>> getImportantValues();
+    std::shared_ptr<std::string> getImportantValues();
     bool isLoaded();
     
   private:
@@ -29,7 +29,7 @@ class IMUPlugin : public ECTSPlugin {
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::string name;
     std::string allcontent;
-    std::vector<std::shared_ptr<std::string>> important;
+    std::shared_ptr<std::string> important;
     std::string orientation;
     std::string angular_velocity;
     std::string linear_acceleration;

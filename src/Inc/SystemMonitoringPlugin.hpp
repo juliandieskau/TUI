@@ -25,14 +25,16 @@ public:
     void addtabadapterUsage(int index);
     void addtabadapterInfo(int index);
     void addtabmountpoint(int index);
-    std::vector<std::shared_ptr<std::string>> getImportantValues();
+    std::shared_ptr<std::string> getImportantValues();
     bool isLoaded();
     
 private:
     std::vector<std::string> mountnamestopic;
     std::vector<std::string> adapternamestopic;
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
-    std::vector<std::shared_ptr<std::string>> important;
+
+    std::shared_ptr<std::string> important;
+
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     rosbridge_client_cpp::Subscriber* cpuusagesub;
     rosbridge_client_cpp::Subscriber* cpupersub;

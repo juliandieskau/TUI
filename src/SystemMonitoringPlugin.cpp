@@ -3,7 +3,7 @@
 SystemMontitoringPlugin::SystemMontitoringPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   this->name = name;
   ros = rb;
-  important.push_back(std::make_shared<std::string>(""));
+  important = std::make_shared<std::string>("system");
   my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ects/ForceRetransmit", 20);
   
   
@@ -97,6 +97,9 @@ void SystemMontitoringPlugin::subscribeToROS(){
   auto my_callback2 = [&](const picojson::object& json1){ 
     picojson::object json = json1;
     std::string all = "Total usage: " + json["total_usage"].to_str() + " \n";
+
+    *(important) = all; // here the value is correctly inside
+
     picojson::value usage1 = json["per_core_usage"];
     auto usage = usage1.get<std::vector<picojson::value>>();
     picojson::value average1 = json["load_averages"];
@@ -116,7 +119,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
   auto my_callback3 = [&](const picojson::object& json1) {
     picojson::object json = json1; 
     allcpuUsage = "CPU usage: " + json["usage"].to_str() + " \n"; 
-    *(important[0]) = allcpuUsage; // prints default value
+    //*(important[0]) = allcpuUsage; // prints default value
     };
   cpupersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/percent", "ects/CpuPercentage", my_callback3, 5);
   
@@ -290,6 +293,6 @@ bool SystemMontitoringPlugin::isLoaded() {
   return loaded;
 }
 
-std::vector<std::shared_ptr<std::string>> SystemMontitoringPlugin::getImportantValues() {
+std::shared_ptr<std::string> SystemMontitoringPlugin::getImportantValues() {
   return important;
 };

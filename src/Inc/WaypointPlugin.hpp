@@ -25,7 +25,7 @@ class WaypointPlugin : public ECTSPlugin {
     int total_distance;
     float determineDistance(int index);
     std::string allcontent;
-    std::vector<std::shared_ptr<std::string>> important;
+    std::shared_ptr<std::string> important;
     rosbridge_client_cpp::Subscriber* waypointlistsub;
     rosbridge_client_cpp::Subscriber* numwaypointsub;
     rosbridge_client_cpp::Subscriber* currentpointsub;
@@ -34,7 +34,7 @@ class WaypointPlugin : public ECTSPlugin {
   public:
     WaypointPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();
-    std::vector<std::shared_ptr<std::string>> getImportantValues();
+    std::shared_ptr<std::string> getImportantValues();
     Component displayData();
     void subscribeToROS();
     std::string getName();

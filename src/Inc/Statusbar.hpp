@@ -11,9 +11,9 @@
 using namespace ftxui;
 class Statusbar {
 private:
-	Component container = Container::Vertical({});
+	Component container = Container::Horizontal({});
 public:
 	Component displayData();
-	void addField(ECTSPlugin** plugin);
+	void addField(ECTSPlugin* plugin);
 };
 #endif //STATUS_BAR_H

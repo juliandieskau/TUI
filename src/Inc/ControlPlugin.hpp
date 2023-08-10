@@ -35,7 +35,7 @@ class ControlPlugin : public ECTSPlugin {
     void subscribeToROS();
     std::string getName() { return name; };
     void unsubscribeFromRos();
-    std::vector<std::shared_ptr<std::string>> getImportantValues();
+    std::shared_ptr<std::string> getImportantValues();
     bool isLoaded();
   
   private:

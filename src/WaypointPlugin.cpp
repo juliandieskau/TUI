@@ -1,10 +1,9 @@
 #include "WaypointPlugin.hpp"
-#include <iostream> // TODO: remove after working subscribers
 
 WaypointPlugin::WaypointPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   ros = rb;
   this->name = name;
-  important.push_back(std::make_shared<std::string>(""));
+  important = std::make_shared<std::string>("Waypoint");
   my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ects/ForceRetransmit", 20);
 
 };
@@ -84,7 +83,7 @@ void WaypointPlugin::calculate() {
     allcontent = allcontent + "Accuracy: " + (waypointlist[current_index])["heading_accuracy"].to_str() + "\n";
     allcontent = allcontent + "Distance to next waypoint: " + std::to_string(distance_to_next) + " ";
     allcontent = allcontent + "Distance to last waypoint: " + std::to_string(total_distance) + "\n";
-    *(important[0]) = "Distance to last waypoint: " + std::to_string(total_distance);
+    *(important) = "Distance to last waypoint: " + std::to_string(total_distance);
     allcontent = allcontent + "Amount of waypoints: " + std::to_string(amount_of_waypoints) + " ";
     allcontent = allcontent + "Next waypoint: " + std::to_string(current_index);*/
   }
@@ -109,13 +108,12 @@ void WaypointPlugin::unsubscribeFromRos(){
   delete numwaypointsub;
   delete currentpointsub;
   loaded = false;
-  std::cout << "unsubscribed by calling WaypointPlugin::unsubscribeFromRos()\n";
 };
 
 bool WaypointPlugin::isLoaded() {
   return loaded;
 }
 
-std::vector<std::shared_ptr<std::string>> WaypointPlugin::getImportantValues() {
+std::shared_ptr<std::string> WaypointPlugin::getImportantValues() {
   return important;
 };

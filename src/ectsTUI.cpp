@@ -91,6 +91,6 @@ void ectsTUI::addPlugin(ECTSPlugin* plugin) {
   allPlugins.push_back(plugin);
   states[counter] = true;
   manager.addCheckbox(Checkbox(plugin->getName(), &states[counter] ));
-  statusbar.addField(&plugin);
+  statusbar.addField(plugin);
   counter++;
 };

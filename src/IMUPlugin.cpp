@@ -3,7 +3,7 @@
 IMUPlugin::IMUPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   ros = rb;
   this->name = name;
-  important.push_back(std::make_shared<std::string>(""));
+  important = std::make_shared<std::string>("IMU");
   my_pub = std::make_shared<rosbridge_client_cpp::Publisher>(*rb, "/ects/retransmit", "ects/ForceRetransmit", 20);
 }
 
@@ -47,7 +47,7 @@ void IMUPlugin::subscribeToROS() {
 
 void IMUPlugin::calculate() {
   allcontent = "Orientation: " + orientation + "\n";
-  *(important[0]) = allcontent;
+  *(important) = allcontent;
   allcontent = allcontent + "Angular velocity: " + angular_velocity + "\n"; 
   allcontent = allcontent + "Linear acceleration: " + linear_acceleration + "\n";
 };
@@ -65,6 +65,6 @@ bool IMUPlugin::isLoaded() {
   return loaded;
 }
 
-std::vector<std::shared_ptr<std::string>> IMUPlugin::getImportantValues() {
+std::shared_ptr<std::string> IMUPlugin::getImportantValues() {
   return important;
 };
