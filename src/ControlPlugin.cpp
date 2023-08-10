@@ -4,13 +4,11 @@
 using namespace ftxui;
 
 ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
-  std::cout << "control plugin constructor called\n";
   ros = rb;
   this->name = name;
   cmdPub = std::make_shared<rosbridge_client_cpp::Publisher>(*ros, "/ects/control/cmd", "geometry_msgs/Twist", 20);
-  //linear = new Vector3();
-  //angular = new Vector3();
-  std::cout << "control plugin created\n";
+  linear = new Vector3();
+  angular = new Vector3();
 }
 
 /**
@@ -19,7 +17,6 @@ ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_
 */
 void ControlPlugin::sendMessage(){
   // serialize Vector3 linear to JSON
-  /*
   picojson::object linJSON;
   linJSON["x"] = picojson::value((*linear).x);
   linJSON["y"] = picojson::value((*linear).y);
@@ -33,7 +30,7 @@ void ControlPlugin::sendMessage(){
   picojson::object twistJSON;
   twistJSON["linear"] = picojson::value(linJSON);
   twistJSON["angular"] = picojson::value(angJSON);
-  cmdPub->publish<picojson::object>(twistJSON);*/
+  cmdPub->publish<picojson::object>(twistJSON);
 };
 
 /**
@@ -41,14 +38,11 @@ void ControlPlugin::sendMessage(){
  * Stores them inside linear, angular
 */
 Component ControlPlugin::displayData() {
-  std::cout << "ControlPlugin::displayData() reached\n";
   std::string name = this->name;
   auto layout = Container::Horizontal({});
   // reset previous values
-  /*
   (*linear).zero();
   (*angular).zero();
-  std::cout << "ControlPlugin: linear/angular zero() worked\n";
   
 
   auto btn_up = Button("up", [&] { (*linear).x = 1; sendMessage(); });
@@ -57,7 +51,6 @@ Component ControlPlugin::displayData() {
   auto btn_left = Button("left", [&] { (*linear).y = 1; sendMessage(); });
   auto btn_tright = Button("turn right", [&] { (*angular).z = -1; sendMessage(); });
   auto btn_tleft = Button("turn left", [&] { (*angular).z = 1; sendMessage(); });
-  std::cout << "ControlPlugin btn_* defined\n";
 
   layout->Add(btn_up);
   layout->Add(btn_down);
@@ -65,7 +58,7 @@ Component ControlPlugin::displayData() {
   layout->Add(btn_left);
   layout->Add(btn_tright);
   layout->Add(btn_tleft);
-  */
+
   auto renderer = Renderer(layout, [=] {
     return window(
       text("Control") | hcenter | bold,
@@ -81,7 +74,6 @@ Component ControlPlugin::displayData() {
                         vbox({btn_left->Render(), btn_down->Render() | vcenter,
                               btn_right->Render()})}) | borderEmpty | border | size(WIDTH, LESS_THAN, 80) |
               size(HEIGHT, LESS_THAN, 20*/
-  std::cout << "ControlPlugin returns now\n";
   return renderer;
 };
 

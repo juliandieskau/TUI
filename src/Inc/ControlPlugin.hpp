@@ -11,7 +11,7 @@
 #include "rosbridge_client_cpp/rosbridge.h"
 
 using namespace ftxui;
-/*
+
 struct Vector3 {
   double x, y, z;
   Vector3() {
@@ -24,7 +24,7 @@ struct Vector3 {
     y = 0.0;
     z = 0.0;
   }
-};*/
+};
 
 class ControlPlugin : public ECTSPlugin {
   public:
@@ -40,8 +40,8 @@ class ControlPlugin : public ECTSPlugin {
   
   private:
     // control state variables
-    //Vector3* linear;
-    //Vector3* angular;
+    Vector3* linear;
+    Vector3* angular;
     bool up, down, left, right;
     std::string name;
     // ROS Client variables
