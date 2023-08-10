@@ -23,19 +23,16 @@ int main() {
   ectsTUI tui(rb);
 
   // initialize an Object for every Plugin
-  ECTSPlugin* plugin1 = new SystemMontitoringPlugin("System Monitor", rb);
-  ECTSPlugin* plugin2 = new BatteryPlugin("Battery", rb);
-  ECTSPlugin* plugin4 = new IMUPlugin("Inertia", rb);
-  ECTSPlugin* plugin5 = new WaypointPlugin("Waypoints", rb);
-  ECTSPlugin* plugin6 = new ControlPlugin("control", rb);
+  std::vector<std::shared_ptr<ECTSPlugin>> plugins;
+  plugins.push_back(std::make_shared<SystemMontitoringPlugin>("System Monitor", rb));
+  plugins.push_back(std::make_shared<BatteryPlugin>("Battery", rb));
+  plugins.push_back(std::make_shared<IMUPlugin>("Inertia", rb));
+  plugins.push_back(std::make_shared<WaypointPlugin>("Waypoints", rb));
+  plugins.push_back(std::make_shared<ControlPlugin>("control", rb));
 
   // add Plugins to the tui
-  tui.addPlugin(plugin1);
-  tui.addPlugin(plugin2);
-  //tui.addPlugin(plugin3);// make comment for testing, currently blocks ftxui from showing
-  tui.addPlugin(plugin4);
-  tui.addPlugin(plugin5);
-  tui.addPlugin(plugin6);
+    for (auto plugin : plugins)
+        tui.addPlugin(plugin);
 
   // loop over Plugins to display them (loop inside this call)
   tui.main();

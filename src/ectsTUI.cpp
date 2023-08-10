@@ -87,7 +87,7 @@ void ectsTUI::setPluginState() {
  * Am anfang sind alle Plugins als angezeigt gesetzt
  * Nur initial aufrufen, subscribe und unsubscribe ist über setPluginState()
 */
-void ectsTUI::addPlugin(ECTSPlugin* plugin) {
+void ectsTUI::addPlugin(std::shared_ptr<ECTSPlugin> plugin) {
   allPlugins.push_back(plugin);
   states[counter] = true;
   manager.addCheckbox(Checkbox(plugin->getName(), &states[counter] ));
