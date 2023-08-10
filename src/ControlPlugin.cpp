@@ -7,8 +7,8 @@ ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_
   ros = rb;
   this->name = name;
   cmdPub = std::make_shared<rosbridge_client_cpp::Publisher>(*ros, "/ects/control/cmd", "geometry_msgs/Twist", 20);
-  linear = new Vector3();
-  angular = new Vector3();
+  linear.zero();
+  angular.zero();
 }
 
 /**
@@ -18,14 +18,14 @@ ControlPlugin::ControlPlugin(std::string name, std::shared_ptr<rosbridge_client_
 void ControlPlugin::sendMessage(){
   // serialize Vector3 linear to JSON
   picojson::object linJSON;
-  linJSON["x"] = picojson::value((*linear).x);
-  linJSON["y"] = picojson::value((*linear).y);
-  linJSON["z"] = picojson::value((*linear).z);
+  linJSON["x"] = picojson::value(linear.x);
+  linJSON["y"] = picojson::value(linear.y);
+  linJSON["z"] = picojson::value(linear.z);
   // serialize Vector3 angular to JSON
   picojson::object angJSON;
-  angJSON["x"] = picojson::value((*angular).x);
-  angJSON["y"] = picojson::value((*angular).y);
-  angJSON["z"] = picojson::value((*angular).z);
+  angJSON["x"] = picojson::value(angular.x);
+  angJSON["y"] = picojson::value(angular.y);
+  angJSON["z"] = picojson::value(angular.z);
   // append linear ang angular JSON objects to Twist Message
   picojson::object twistJSON;
   twistJSON["linear"] = picojson::value(linJSON);
@@ -41,16 +41,16 @@ Component ControlPlugin::displayData() {
   std::string name = this->name;
   auto layout = Container::Horizontal({});
   // reset previous values
-  (*linear).zero();
-  (*angular).zero();
+  linear.zero();
+  angular.zero();
   
 
-  auto btn_up = Button("up", [&] { (*linear).x = 1; sendMessage(); });
-  auto btn_down = Button("down", [&] { (*linear).x = -1; sendMessage(); });
-  auto btn_right = Button("right", [&] { (*linear).y = -1; sendMessage(); });
-  auto btn_left = Button("left", [&] { (*linear).y = 1; sendMessage(); });
-  auto btn_tright = Button("turn right", [&] { (*angular).z = -1; sendMessage(); });
-  auto btn_tleft = Button("turn left", [&] { (*angular).z = 1; sendMessage(); });
+  auto btn_up = Button("up", [&] { linear.x = 1; sendMessage(); });
+  auto btn_down = Button("down", [&] { linear.x = -1; sendMessage(); });
+  auto btn_right = Button("right", [&] { linear.y = -1; sendMessage(); });
+  auto btn_left = Button("left", [&] { linear.y = 1; sendMessage(); });
+  auto btn_tright = Button("turn right", [&] { angular.z = -1; sendMessage(); });
+  auto btn_tleft = Button("turn left", [&] { angular.z = 1; sendMessage(); });
 
   layout->Add(btn_up);
   layout->Add(btn_down);

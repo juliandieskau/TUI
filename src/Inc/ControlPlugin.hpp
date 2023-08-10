@@ -40,8 +40,8 @@ class ControlPlugin : public ECTSPlugin {
   
   private:
     // control state variables
-    Vector3* linear;
-    Vector3* angular;
+    Vector3 linear;
+    Vector3 angular;
     bool up, down, left, right;
     std::string name;
     // ROS Client variables
