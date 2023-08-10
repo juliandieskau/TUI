@@ -12,6 +12,6 @@ Component Statusbar::displayData() {
 }
 void Statusbar::addField(ECTSPlugin* plugin) {
   auto values = (*(plugin)).getImportantValues();
-  auto render = Renderer([=] { return hbox(text(*values));});
+  auto render = Renderer([=] { return hbox(paragraph(*values));});
   container->Add(render);
 };

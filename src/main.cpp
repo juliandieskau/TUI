@@ -15,7 +15,6 @@ int main() {
   { std::cout << "RosbridgeClient connected" << std::endl; };
   auto on_disconnection = []()
   { std::cout << "RosbridgeClient disconnected" << std::endl; };
-
   //rosbridge_client_cpp::RosbridgeClient rb("localhost", 9090, on_connection, on_disconnection);
   // rb ist shared_ptr auf RosbridgeClient, nicht ros client selbst!
   auto rb = std::make_shared<rosbridge_client_cpp::RosbridgeClient>("localhost", 9090, on_connection, on_disconnection);
@@ -26,9 +25,9 @@ int main() {
   // initialize an Object for every Plugin
   ECTSPlugin* plugin1 = new SystemMontitoringPlugin("System Monitor", rb);
   ECTSPlugin* plugin2 = new BatteryPlugin("Battery", rb);
-  ECTSPlugin* plugin3 = new ControlPlugin("Control", rb);
   ECTSPlugin* plugin4 = new IMUPlugin("Inertia", rb);
   ECTSPlugin* plugin5 = new WaypointPlugin("Waypoints", rb);
+  ECTSPlugin* plugin6 = new ControlPlugin("control", rb);
 
   // add Plugins to the tui
   tui.addPlugin(plugin1);
@@ -36,6 +35,7 @@ int main() {
   //tui.addPlugin(plugin3);// make comment for testing, currently blocks ftxui from showing
   tui.addPlugin(plugin4);
   tui.addPlugin(plugin5);
+  //tui.addPlugin(plugin6);
 
   // loop over Plugins to display them (loop inside this call)
   tui.main();

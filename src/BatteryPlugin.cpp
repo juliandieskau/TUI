@@ -30,14 +30,14 @@ Component BatteryPlugin::displayData() {
   std::string name = this->name;
   auto renderbasic = Renderer([&] {
   // Color if Battery is low
-  return window(
-            text("Battery") | hcenter | bold,
-            vbox(
-                hbox(paragraph(allcontent))
-            ) | dim |
-                size(WIDTH, EQUAL, 50) | size(HEIGHT, EQUAL, 10)) |
-        flex;
-      }
+    return window(
+          text("Battery") | hcenter | bold,
+          vbox(
+              hbox(paragraph(allcontent))
+          ) | dim |
+              size(WIDTH, EQUAL, 50) | size(HEIGHT, EQUAL, 10)) |
+      flex;
+    }
   );
   return renderbasic;
 };
