@@ -51,7 +51,8 @@ void WaypointPlugin::subscribeToROS() {
   };
   auto my_callback1 = [&](const picojson::object& json1){
     picojson::object json = json1; 
-    waypointlist = json["waypoints"]; 
+    picojson::value val = json["waypoints"]; 
+    auto waypointlist = val.get<std::vector<picojson::value>>();
     calculate();
   };
   waypointlistsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/waypoints/waypoint_list", "ects/WaypointList", my_callback1, 5);
@@ -62,7 +63,7 @@ void WaypointPlugin::subscribeToROS() {
 };
 
 void WaypointPlugin::calculate() {
-  if (!waypointlist.is<picojson::null>()) {
+  if (!waypointlist.empty()) {
     if (current_index - 1 < 0) {
       distance_to_next = 0;
       for (int i = current_index + 1; i < amount_of_waypoints; i++) {
@@ -79,24 +80,49 @@ void WaypointPlugin::calculate() {
       }
 
     }
-    /*allcontent = "Radius: " + (waypointlist[current_index])["radius"].to_str() + " ";
-    allcontent = allcontent + "Accuracy: " + (waypointlist[current_index])["heading_accuracy"].to_str() + "\n";
+    auto valobj = waypointlist[current_index].get<std::map<std::string, picojson::value>>();  
+    std::vector<picojson::value> allval;
+    for(std::map<std::string, picojson::value>::iterator it = valobj.begin(); it != valobj.end(); ++it) {
+    allval.push_back(it->second);
+   }
+    allcontent = "Name: " + allval[0].to_str() + " ";
+    allcontent = allcontent + "Radius: " + allval[2].to_str() + "\n";
+    allcontent = allcontent + "Accuracy: " + allval[3].to_str() + "\n";
     allcontent = allcontent + "Distance to next waypoint: " + std::to_string(distance_to_next) + " ";
     allcontent = allcontent + "Distance to last waypoint: " + std::to_string(total_distance) + "\n";
     *(important) = "Distance to last waypoint: " + std::to_string(total_distance);
     allcontent = allcontent + "Amount of waypoints: " + std::to_string(amount_of_waypoints) + " ";
-    allcontent = allcontent + "Next waypoint: " + std::to_string(current_index);*/
+    allcontent = allcontent + "Next waypoint: " + std::to_string(current_index) + " ";
   }
 };
 
 // TODO: implement determineDistance(int index)
 float WaypointPlugin::determineDistance(int index) {
-  /*float x = std::stof((waypointlist[index])[x].to_str()) - std::stof((waypointlist[index - 1])[x].to_str());
-  float y = std::stof((waypointlist[index])[y].to_str()) - std::stof((waypointlist[index - 1])[y].to_str());
+    auto valobjf = waypointlist[index].get<std::map<std::string, picojson::value>>();  
+    std::vector<picojson::value> allvalf;
+    for(std::map<std::string, picojson::value>::iterator it = valobjf.begin(); it != valobjf.end(); ++it) {
+    allvalf.push_back(it->second);
+   }
+   auto koordvalf = allvalf[1].get<std::map<std::string, picojson::value>>();  
+    std::vector<picojson::value> allkoordf;
+    for(std::map<std::string, picojson::value>::iterator it = koordvalf.begin(); it != koordvalf.end(); ++it) {
+    allkoordf.push_back(it->second);
+   }
+   auto valobjs = waypointlist[index - 1].get<std::map<std::string, picojson::value>>();  
+    std::vector<picojson::value> allvals;
+    for(std::map<std::string, picojson::value>::iterator it = valobjs.begin(); it != valobjs.end(); ++it) {
+    allvals.push_back(it->second);
+   }
+   auto koordvals = allvals[1].get<std::map<std::string, picojson::value>>();  
+    std::vector<picojson::value> allkoords;
+    for(std::map<std::string, picojson::value>::iterator it = koordvals.begin(); it != koordvals.end(); ++it) {
+    allkoords.push_back(it->second);
+   }
+  float x = std::stof(allkoordf[0].to_str()) - std::stof(allkoords[0].to_str());
+  float y = std::stof(allkoordf[1].to_str()) - std::stof(allkoords[1].to_str());
   float potx = x*x;
   float poty = y*y;
-  return sqrt(potx, poty);*/
-  return 0.0f;
+  return sqrt(potx + poty);
 };
 
 std::string WaypointPlugin::getName(){

@@ -18,11 +18,11 @@ class WaypointPlugin : public ECTSPlugin {
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::string name;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
-    picojson::value waypointlist;
+    std::vector<picojson::value> waypointlist;
     int current_index;
     int amount_of_waypoints;
-    int distance_to_next;
-    int total_distance;
+    float distance_to_next;
+    float total_distance;
     float determineDistance(int index);
     std::string allcontent;
     std::shared_ptr<std::string> important;
