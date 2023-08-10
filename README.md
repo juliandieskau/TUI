@@ -68,8 +68,8 @@ cd build
 # TODO
 use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) for listing them inside the code
 ## TODO now
-- [ ] Reload button nur einmal clickbar, bleibt danach stehen auf geclickt
-- [ ] plugins zeigen nichts an <-> plugins unsubscriben automatisch nach subscriben
+- [ ] Reload button nur einmal clickbar, bleibt danach stehen auf geclickt(visuell)
+- [ ] Controllplugin buggy
 - [ ] UNIT TESTS
 - [ ] Error Handling
   - [ ] every new also needs a delete, else memory leaks might happen!
@@ -78,8 +78,3 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 - [ ] Code Style/ descriptive Names
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)
 - [ ] nicely looking newlines and data representation
-
-# Changes to Draft Phase
-- [x] Removed Topic Monitor Plugin (no need for it)
-- [x] remove update() methods, not needed (ftxui does it)
-- [x] removePlugin() umbenannt zu setPluginState(), subscribed unsubscribed wenn reload button gedrückt, da checkboxes kein onclick event haben und subscribe/unsubscribe nur einmal gecalled werden soll
