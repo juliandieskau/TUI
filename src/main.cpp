@@ -35,7 +35,7 @@ int main() {
   //tui.addPlugin(plugin3);// make comment for testing, currently blocks ftxui from showing
   tui.addPlugin(plugin4);
   tui.addPlugin(plugin5);
-  //tui.addPlugin(plugin6);
+  tui.addPlugin(plugin6);
 
   // loop over Plugins to display them (loop inside this call)
   tui.main();

@@ -66,7 +66,7 @@ Component ControlPlugin::displayData() {
   layout->Add(btn_tright);
   layout->Add(btn_tleft);
   */
-  auto renderer = Renderer(layout, [&] {
+  auto renderer = Renderer(layout, [=] {
     return window(
       text("Control") | hcenter | bold,
       vbox({
@@ -109,7 +109,6 @@ bool ControlPlugin::isLoaded() {
 }
 
 std::shared_ptr<std::string> ControlPlugin::getImportantValues() {
-  std::shared_ptr<std::string> a;
-  return a;
+  return std::make_shared<std::string>();
 }
 
