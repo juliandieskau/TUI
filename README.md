@@ -68,8 +68,7 @@ cd build
 # TODO
 use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) for listing them inside the code
 ## TODO now
-- [ ] Reload button nur einmal clickbar, bleibt danach stehen auf geclickt(visuell)
-- [ ] Controllplugin buggy
+- [x] Controllplugin buggy (Erik)
 - [ ] UNIT TESTS
 - [ ] Error Handling
   - [ ] every new also needs a delete, else memory leaks might happen!
