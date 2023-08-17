@@ -24,6 +24,12 @@ struct Vector3 {
     y = 0.0;
     z = 0.0;
   }
+  bool isZero() {
+    if (x == 0.0 && y == 0.0 && z == 0.0) {
+      return true;
+    }
+    return false;
+  }
 };
 
 class ControlPlugin : public ECTSPlugin {

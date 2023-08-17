@@ -43,15 +43,22 @@ Component ControlPlugin::displayData() {
   // reset previous values
   linear.zero();
   angular.zero();
+
+  // get button presses and set corresponding Twist values
+  // TODO look if encoding works, must be UTF-8!!
+  // using unicode hex codes with \u to insert arrows
+  auto btn_up = Button("\u2191", [&] { linear.x = 1; sendMessage(); });
+  auto btn_down = Button("\u2193", [&] { linear.x = -1; sendMessage(); });
+  auto btn_right = Button("\u2192", [&] { linear.y = -1; sendMessage(); });
+  auto btn_left = Button("\u2190", [&] { linear.y = 1; sendMessage(); });
+  auto btn_tright = Button("\u2197", [&] { angular.z = -1; sendMessage(); });
+  auto btn_tleft = Button("\u2196", [&] { angular.z = 1; sendMessage(); });
+  // send if no button is pressed 
+  if (linear.isZero() && linear.isZero()) {
+    sendMessage();
+  }
   
-
-  auto btn_up = Button("up", [&] { linear.x = 1; sendMessage(); });
-  auto btn_down = Button("down", [&] { linear.x = -1; sendMessage(); });
-  auto btn_right = Button("right", [&] { linear.y = -1; sendMessage(); });
-  auto btn_left = Button("left", [&] { linear.y = 1; sendMessage(); });
-  auto btn_tright = Button("turn right", [&] { angular.z = -1; sendMessage(); });
-  auto btn_tleft = Button("turn left", [&] { angular.z = 1; sendMessage(); });
-
+  // add buttons to screen
   layout->Add(btn_up);
   layout->Add(btn_down);
   layout->Add(btn_right);
@@ -103,4 +110,3 @@ bool ControlPlugin::isLoaded() {
 std::shared_ptr<std::string> ControlPlugin::getImportantValues() {
   return std::make_shared<std::string>();
 }
-
