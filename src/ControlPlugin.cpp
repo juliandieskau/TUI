@@ -70,7 +70,17 @@ Component ControlPlugin::displayData() {
     return window(
       text("Control") | hcenter | bold,
       vbox({
-        layout->Render()
+        hbox({
+          btn_tleft->Render(), 
+          btn_up->Render(), 
+          btn_tright->Render()
+        }),
+        hbox({
+          btn_left->Render(), 
+          btn_down->Render(), 
+          btn_right->Render()
+        })
+        //layout->Render()
       }) | dim |
       size(WIDTH, EQUAL, 80) | size(HEIGHT, EQUAL, 20))
     | flex;

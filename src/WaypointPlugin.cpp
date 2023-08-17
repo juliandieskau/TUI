@@ -84,7 +84,8 @@ void WaypointPlugin::calculate() {
     std::vector<picojson::value> allval;
     for(std::map<std::string, picojson::value>::iterator it = valobj.begin(); it != valobj.end(); ++it) {
     allval.push_back(it->second);
-   }
+    }
+    //TODO: change allcontent from string to a ftxui component and add all lines as hboxes in a vbox
     allcontent = "Name: " + allval[0].to_str() + " ";
     allcontent = allcontent + "Radius: " + allval[2].to_str() + "\n";
     allcontent = allcontent + "Accuracy: " + allval[3].to_str() + "\n";

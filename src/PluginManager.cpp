@@ -12,5 +12,4 @@ Component PluginManager::displayData(){
 
 void PluginManager::addCheckbox(Component check){
     container->Add(check);
-      
 };
