@@ -130,7 +130,7 @@ std::string WaypointPlugin::getName(){
   return name;
 };
 
-void WaypointPlugin::unsubscribeFromRos(){
+void WaypointPlugin::unsubscribeFromROS(){
   delete waypointlistsub;
   delete numwaypointsub;
   delete currentpointsub;

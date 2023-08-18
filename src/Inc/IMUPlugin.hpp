@@ -19,7 +19,7 @@ class IMUPlugin : public ECTSPlugin {
     Component displayData();
     void subscribeToROS();
     std::string getName();
-    void unsubscribeFromRos();
+    void unsubscribeFromROS();
     void calculate();
     std::shared_ptr<std::string> getImportantValues();
     bool isLoaded();

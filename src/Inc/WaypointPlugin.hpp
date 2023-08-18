@@ -38,7 +38,7 @@ class WaypointPlugin : public ECTSPlugin {
     Component displayData();
     void subscribeToROS();
     std::string getName();
-    void unsubscribeFromRos();
+    void unsubscribeFromROS();
     void calculate();
     bool loaded = false;
 };

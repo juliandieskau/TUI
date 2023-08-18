@@ -245,7 +245,7 @@ std::string SystemMontitoringPlugin::getName() {
   return name;
 };
 
-void SystemMontitoringPlugin::unsubscribeFromRos(){
+void SystemMontitoringPlugin::unsubscribeFromROS(){
   delete cpuusagesub;
   delete cpupersub;
   delete memusagesub;

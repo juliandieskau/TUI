@@ -107,7 +107,7 @@ std::string BatteryPlugin::getName() {
   return name;
 };
 
-void BatteryPlugin::unsubscribeFromRos() {
+void BatteryPlugin::unsubscribeFromROS() {
   delete batterypersub;
   delete criticalsub;
   delete batteryusagesub;

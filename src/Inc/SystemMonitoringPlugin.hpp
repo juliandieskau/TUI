@@ -20,7 +20,7 @@ public:
     Component displayData();
     void subscribeToROS();
     std::string getName();
-    void unsubscribeFromRos();
+    void unsubscribeFromROS();
     std::string allcontent;
     void addtabadapterUsage(int index);
     void addtabadapterInfo(int index);

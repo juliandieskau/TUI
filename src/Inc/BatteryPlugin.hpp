@@ -19,7 +19,7 @@ class BatteryPlugin : public ECTSPlugin {
     Component displayData();
     void subscribeToROS();
     std::string getName();
-    void unsubscribeFromRos();
+    void unsubscribeFromROS();
     /// update the ftxui visualisation of all battery data for the update
     void calculate();
     std::shared_ptr<std::string> getImportantValues();

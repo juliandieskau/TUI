@@ -77,7 +77,7 @@ void ectsTUI::setPluginState() {
       } // anderer case soll nichts passieren
     } else { // checkbox nicht angeclicked
       if (allPlugins[i]->isLoaded()) { // aber plugin noch subscribed
-        allPlugins[i]->unsubscribeFromRos();
+          allPlugins[i]->unsubscribeFromROS();
       }
     }
   }

@@ -105,7 +105,7 @@ void ControlPlugin::subscribeToROS(){
 };
 
 // do nothing, since control only send
-void ControlPlugin::unsubscribeFromRos(){
+void ControlPlugin::unsubscribeFromROS(){
   // destruktor aufrufen von ALLEN Subscribern, nicht den callbacks!
 };
 

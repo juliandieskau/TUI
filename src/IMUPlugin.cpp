@@ -78,7 +78,7 @@ std::string IMUPlugin::getName() {
   return name;
 };
 
-void IMUPlugin::unsubscribeFromRos() {
+void IMUPlugin::unsubscribeFromROS() {
   delete imucurrentsub;
   loaded = false;
 };

@@ -28,7 +28,7 @@ class ECTSPlugin {
     /// Subscribed auf - vom Plugin benötigte - ROS-Topics in überreichtem ROS-Client.
     virtual void subscribeToROS() = 0;
     /// Unsubscribed von - vom Plugin benötigten - ROS-Topics in überreichtem ROS-Client.
-    virtual void unsubscribeFromRos() = 0;
+    virtual void unsubscribeFromROS() = 0;
     /// Gibt den Namen des Plugins als string zurück.
     virtual std::string getName() = 0;
     /// Gibt Werte zurück, die in der Status-Bar angezeigt werden können.
