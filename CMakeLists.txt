@@ -23,7 +23,7 @@ FetchContent_Declare(rosbridge_client
   #GIT_REPOSITORY https://github.com/ppianpak/rosbridgecpp -- was a mistake, wrong repository
   #GIT_REPOSITORY https://github.com/antoniocoratelli/rosbridge_client_cpp
   GIT_REPOSITORY https://git.scc.kit.edu/pse-robot-monitoring/rosbridge_client_cpp.git
-  GIT_TAG v2018
+  GIT_TAG v2018-patch-arch
 )
 
 FetchContent_GetProperties(rosbridge_client)
