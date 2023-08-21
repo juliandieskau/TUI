@@ -29,6 +29,10 @@ public:
     bool isLoaded();
     
 private:
+    std::vector<Element> allcorepar;
+    std::vector<Element> allcpuav;
+    std::vector<Element> memusage;
+    std::vector<Element> totalproc;
     std::vector<std::string> mountnamestopic;
     std::vector<std::string> adapternamestopic;
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
@@ -46,10 +50,6 @@ private:
     std::vector<rosbridge_client_cpp::Subscriber*> netinfosub;
     std::vector<rosbridge_client_cpp::Subscriber*> netusagesub;
     std::string name;
-    std::string cpuUsage = "20";
-    std::string allcpuUsage = "30";
-    std::string memoryUsage = "40";
-    std::string totalprocess = "2";
     std::vector<Component> adaptersInfo;
     std::vector<Component> adaptersUsage;
     std::vector<Component> mountpoints;

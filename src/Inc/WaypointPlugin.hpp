@@ -24,7 +24,7 @@ class WaypointPlugin : public ECTSPlugin {
     float distance_to_next;
     float total_distance;
     float determineDistance(int index);
-    std::string allcontent;
+    std::vector<Element> allvaltotal;
     std::shared_ptr<std::string> important;
     rosbridge_client_cpp::Subscriber* waypointlistsub;
     rosbridge_client_cpp::Subscriber* numwaypointsub;

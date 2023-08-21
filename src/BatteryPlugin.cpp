@@ -33,7 +33,8 @@ Component BatteryPlugin::displayData() {
     return window(
           text("Battery") | hcenter | bold,
           vbox(
-              hbox(paragraph(allcontent))
+              vbox(batteryperel),
+              vbox(usageel)
           ) | dim |
               size(WIDTH, EQUAL, 50) | size(HEIGHT, EQUAL, 10)) |
       flex;
@@ -68,26 +69,38 @@ void BatteryPlugin::subscribeToROS() {
   auto my_callback1 = [&](const picojson::object& json1){
     picojson::object json = json1; 
     std::string all;
-    all = "Batterystate: \n";
-    all = all + "Voltage: " + json["voltage"].to_str() + " ";
-    all = all + "Current: " + json["current"].to_str() + "\n";
-    all = all + "Capacity: " + json["capacity"].to_str() + " ";
-    all = all + "Design capacity: " + json["design_capacity"].to_str() + "\n";
-    all = all + "Percentage: " + json["percentage"].to_str() + " ";
+    all = "Batterystate: ";
+    usageel.push_back(paragraph(all));
+    all = "Voltage: " + json["voltage"].to_str();
+    usageel.push_back(paragraph(all));
+    all = "Current: " + json["current"].to_str();
+    usageel.push_back(paragraph(all));
+    all = "Capacity: " + json["capacity"].to_str();
+    usageel.push_back(paragraph(all));
+    all = "Design capacity: " + json["design_capacity"].to_str();
+    usageel.push_back(paragraph(all));
+    all = "Percentage: " + json["percentage"].to_str();
+    usageel.push_back(paragraph(all));
     
-    all = all + "Power supply status: " + json["power_supply_status"].to_str() + "\n";
-    all = all + "Power supply health: " + json["power_supply_health"].to_str() + " ";
-    all = all + "Power supply technology: " + json["power_supply_technology"].to_str() + "\n";
+    all = "Power supply status: " + json["power_supply_status"].to_str();
+    usageel.push_back(paragraph(all));
+    all = "Power supply health: " + json["power_supply_health"].to_str();
+    usageel.push_back(paragraph(all));
+    all = "Power supply technology: " + json["power_supply_technology"].to_str();
+    usageel.push_back(paragraph(all));
     
-    all = all + "Present: " + json["present"].to_str() + " ";
-    all = all + "Location: " + json["location"].to_str() + "\n";
-    all = all + "Serial number: " + json["serial_number"].to_str() + " ";
+    all = "Present: " + json["present"].to_str();
+    usageel.push_back(paragraph(all));
+    all = "Location: " + json["location"].to_str();
+    usageel.push_back(paragraph(all));
+    all = "Serial number: " + json["serial_number"].to_str();
+    usageel.push_back(paragraph(all));
     picojson::value cells = json["cell_voltage"];
     auto v = cells.get<std::vector<picojson::value>>();
     for (int i = 0; i < v.size(); i++) {
-      all = all + "Cell " + std::to_string(i) + " voltage: " + v[i].to_str() + "\n";
+      all = "Cell " + std::to_string(i) + " voltage: " + v[i].to_str();
+      usageel.push_back(paragraph(all));
     }
-    battery_state = all;
     calculate();
   };
   batteryusagesub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/battery/usage", "sensor_msgs/BatteryState", my_callback1, 5);
@@ -116,11 +129,12 @@ void BatteryPlugin::unsubscribeFromROS() {
 };
 
 void BatteryPlugin::calculate() {
-  allcontent = "Battery percentage: " + std::to_string(battery_percentage) + "\n";
-  allcontent = allcontent + "Critical state: " + std::to_string(is_critical) + "\n";
-  allcontent = allcontent + "Battery percentage: " + std::to_string(battery_percentage) + "\n";
-  allcontent = allcontent + "Estimated time: " + std::to_string(estimated_time) + "\n";
-  allcontent = allcontent + battery_state;
+  allcontent = "Battery percentage: " + std::to_string(battery_percentage);
+  batteryperel.push_back(paragraph(allcontent));
+  allcontent = "Critical state: " + std::to_string(is_critical);
+  batteryperel.push_back(paragraph(allcontent));
+  allcontent = "Estimated time: " + std::to_string(estimated_time);
+  batteryperel.push_back(paragraph(allcontent));
 }
 
 bool BatteryPlugin::isLoaded() {

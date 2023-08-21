@@ -72,10 +72,10 @@ Component SystemMontitoringPlugin::displayData() {
     return window(
       text("System") | hcenter | bold,
       vbox({
-        hbox(paragraph(cpuUsage)),
-        hbox(paragraph(allcpuUsage)),
-        hbox(paragraph(memoryUsage)),
-        hbox(paragraph(totalprocess))
+        vbox(allcorepar),
+        vbox(allcpuav),
+        vbox(memusage),
+        vbox(totalproc)
         /*hbox({
         tab_menu_adapter->Render(),
         tab_container_adapter_Usage->Render(),
@@ -95,9 +95,10 @@ Component SystemMontitoringPlugin::displayData() {
 void SystemMontitoringPlugin::subscribeToROS(){ 
   //CPU usage
   auto my_callback2 = [&](const picojson::object& json1){ 
+    allcorepar.clear();
     picojson::object json = json1;
-    std::string all = "Total usage: " + json["total_usage"].to_str() + " \n";
-
+    std::string all = "Total usage: " + json["total_usage"].to_str();
+    allcorepar.push_back(paragraph(all));
     *(important) = all; // here the value is correctly inside
 
     picojson::value usage1 = json["per_core_usage"];
@@ -106,40 +107,50 @@ void SystemMontitoringPlugin::subscribeToROS(){
     auto average = average1.get<std::vector<picojson::value>>();
     
     for (int a = 0; a < usage.size(); a++) {
-      all = all + "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str() + " \n"; 
+      all = "Per core usage of Core " + std::to_string(a) + ": " + usage[a].to_str(); 
+      allcorepar.push_back(paragraph(all));
     }
     for (int a = 0; a < average.size(); a++) {
-      all = all + "Per core average of Core " + std::to_string(a) + ": " + average[a].to_str() + " \n"; 
+      all = "Per core average of Core " + std::to_string(a) + ": " + average[a].to_str(); 
+      allcorepar.push_back(paragraph(all));
     }
-    cpuUsage = all; 
     };
   cpuusagesub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/usage", "ects/CpuUsage", my_callback2, 5);
   
   //CPU percentage
   auto my_callback3 = [&](const picojson::object& json1) {
+    allcpuav.clear();
     picojson::object json = json1; 
-    allcpuUsage = "CPU usage: " + json["usage"].to_str() + " \n"; 
-    //*(important[0]) = allcpuUsage; // prints default value
+    std::string all = "CPU usage: " + json["usage"].to_str(); 
+    allcpuav.push_back(paragraph(all));
     };
   cpupersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/percent", "ects/CpuPercentage", my_callback3, 5);
   
   //Memory usage
   auto my_callback4 = [&](const picojson::object& json1){ 
+    memusage.clear();
     picojson::object json = json1;
-    std::string all = "Used: " + json["used"].to_str() + " "; 
-    all = all + "Total: " + json["total"].to_str() + " \n";
-    all = all + "Free: " + json["free"].to_str() + " ";
-    all = all + "Shared: " + json["shared"].to_str() + " \n";
-    all = all + "Buffcache: " + json["buff_cache"].to_str() + " ";
-    all = all + "Available: " + json["available"].to_str();
-    memoryUsage = all; 
+    std::string all = "Used: " + json["used"].to_str(); 
+    memusage.push_back(paragraph(all));
+    all = "Total: " + json["total"].to_str();
+    memusage.push_back(paragraph(all));
+    all = "Free: " + json["free"].to_str();
+    memusage.push_back(paragraph(all));
+    all = "Shared: " + json["shared"].to_str();
+    memusage.push_back(paragraph(all));
+    all = "Buffcache: " + json["buff_cache"].to_str();
+    memusage.push_back(paragraph(all));
+    all = "Available: " + json["available"].to_str();
+    memusage.push_back(paragraph(all));
     };
   memusagesub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/mem/usage", "ects/MemoryUsage", my_callback4, 5);
 
   //Total processes
   auto my_callback7 = [&](const picojson::object& json1){ 
+    totalproc.clear();
     picojson::object json = json1;
-    totalprocess = "Number of processes: " + json["number_of_processes"].to_str(); 
+    std::string all = "Number of processes: " + json["number_of_processes"].to_str(); 
+    totalproc.push_back(paragraph(all));
     };
   totalprocsub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/processes/total", "ects/ProcessTotal", my_callback7, 5);
   

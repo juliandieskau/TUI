@@ -33,6 +33,7 @@ class IMUPlugin : public ECTSPlugin {
     std::string orientation;
     std::string angular_velocity;
     std::string linear_acceleration;
+    std::vector<Element> allel;
     rosbridge_client_cpp::Subscriber* imucurrentsub;
     bool loaded = false;
 };

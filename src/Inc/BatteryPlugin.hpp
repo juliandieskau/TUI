@@ -31,9 +31,10 @@ class BatteryPlugin : public ECTSPlugin {
     float battery_percentage;
     bool is_critical;
     int estimated_time;
-    std::string battery_state;
     std::string allcontent;
     std::shared_ptr<std::string> important;
+    std::vector<Element> batteryperel;
+    std::vector<Element> usageel;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     rosbridge_client_cpp::Subscriber* batterypersub;
     rosbridge_client_cpp::Subscriber* criticalsub;
