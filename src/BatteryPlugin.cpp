@@ -68,6 +68,7 @@ void BatteryPlugin::subscribeToROS() {
 
   auto my_callback1 = [&](const picojson::object& json1){
     picojson::object json = json1; 
+    usageel.clear();
     std::string all;
     all = "Batterystate: ";
     usageel.push_back(paragraph(all));
@@ -129,6 +130,7 @@ void BatteryPlugin::unsubscribeFromROS() {
 };
 
 void BatteryPlugin::calculate() {
+  batteryperel.clear();
   allcontent = "Battery percentage: " + std::to_string(battery_percentage);
   batteryperel.push_back(paragraph(allcontent));
   allcontent = "Critical state: " + std::to_string(is_critical);
