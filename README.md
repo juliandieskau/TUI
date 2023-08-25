@@ -77,3 +77,9 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 - [ ] Code Style/ descriptive Names
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)
 - [ ] nicely looking newlines and data representation
+
+[2023-08-24 14:24:10] [info] Error getting remote endpoint: asio.system:107 (Transport endpoint is not connected)
+[2023-08-24 14:24:10] [error] handle_connect error: Underlying Transport Error  RosbridgeClient disconnected 
+[2023-08-24 14:24:13] [info] asio async_connect error: asio.system:111 (Connection refused) 
+[2023-08-24 14:24:13] [info] Error getting remote endpoint: asio.system:107 (Transport endpoint is not connected)
+[2023-08-24 14:24:13] [error] handle_connect error: Underlying Transport Error RosbridgeClient disconnected  
