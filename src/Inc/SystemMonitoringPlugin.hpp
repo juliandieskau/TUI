@@ -29,6 +29,7 @@ public:
     bool isLoaded();
     
 private:
+    int maxwidth = 5;
     std::vector<Element> allcorepar;
     std::vector<Element> allcpuav;
     std::vector<Element> memusage;
@@ -66,6 +67,8 @@ private:
     std::vector<std::string> name_mountpoints;
     int adapter_tab_selected = 0;
     bool loaded = false;
+    std::string truncate(std::string str);
+    
 };
 
 

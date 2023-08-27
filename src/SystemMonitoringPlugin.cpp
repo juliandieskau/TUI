@@ -97,7 +97,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
   auto my_callback2 = [&](const picojson::object& json1){ 
     allcorepar.clear();
     picojson::object json = json1;
-    std::string all = "Total usage: " + truncate(json["total_usage"].to_str());
+    std::string all = "Total usage: " + SystemMontitoringPlugin::truncate(json["total_usage"].to_str());
     allcorepar.push_back(paragraph(all));
     *(important) = all; // here the value is correctly inside
 
@@ -107,11 +107,11 @@ void SystemMontitoringPlugin::subscribeToROS(){
     auto average = average1.get<std::vector<picojson::value>>();
     
     for (int a = 0; a < usage.size(); a++) {
-      all = "Per core usage of Core " + std::to_string(a) + ": " + truncate(usage[a].to_str()); 
+      all = "Per core usage of Core " + std::to_string(a) + ": " + SystemMontitoringPlugin::truncate(usage[a].to_str()); 
       allcorepar.push_back(paragraph(all));
     }
     for (int a = 0; a < average.size(); a++) {
-      all = "Per core average of Core " + std::to_string(a) + ": " + truncate(average[a].to_str()); 
+      all = "Per core average of Core " + std::to_string(a) + ": " + SystemMontitoringPlugin::truncate(average[a].to_str()); 
       allcorepar.push_back(paragraph(all));
     }
     };
@@ -121,7 +121,7 @@ void SystemMontitoringPlugin::subscribeToROS(){
   auto my_callback3 = [&](const picojson::object& json1) {
     allcpuav.clear();
     picojson::object json = json1; 
-    std::string all = "CPU usage: " + truncate(json["usage"].to_str()); 
+    std::string all = "CPU usage: " + SystemMontitoringPlugin::truncate(json["usage"].to_str()); 
     allcpuav.push_back(paragraph(all));
     };
   cpupersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/percent", "ects/CpuPercentage", my_callback3, 5);
