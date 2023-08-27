@@ -58,15 +58,24 @@ catkin_make && rosrun ects ects ects_config.json
 ```
 Prepare another terminal for service calls or publishing on rostopics.
 
-### insert Backend address and port into settings file
-open ../settings.json <br>
-edit value of address and port tag to match backend address and port
-
-### launch ECTS-TUI
-from TUI directory
+### open build folder
+from TUI directory 
 ```bash
 cd build
+```
+
+### start ects-tui with command line arguments
+0: ects-tui provides the option to be started without arguments and will default to localhost:9090 <br>
+```bash
 ./ects-tui
+```
+1: you can specify the ip as the first argument and the port will default to 9090 <br>
+```bash
+./ects-tui 127.0.0.1
+```
+2: you can specify both ip and port in that order as command line arguments <br>
+```bash
+./ects-tui 127.0.0.1 9090
 ```
 
 # TODO
