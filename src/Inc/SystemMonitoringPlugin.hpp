@@ -49,7 +49,7 @@ private:
     rosbridge_client_cpp::Subscriber* totalprocsub;
     std::vector<rosbridge_client_cpp::Subscriber*> diskusagesub;
     std::vector<rosbridge_client_cpp::Subscriber*> netinfosub;
-    std::vector<rosbridge_client_cpp::Subscriber*> netusagesub;
+//    std::vector<rosbridge_client_cpp::Subscriber*> netusagesub;
     std::string name;
     std::vector<Component> adaptersInfo;
     std::vector<Component> adaptersUsage;

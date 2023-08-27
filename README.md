@@ -92,7 +92,7 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 - [ ] nicely looking newlines and data representation
 
 # settings file
-- backend address and port
+- default backend address and port
 - color scheme of the console window
 - open/closed plugin windows 
 - 

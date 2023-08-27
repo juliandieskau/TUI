@@ -29,16 +29,14 @@ int ectsTUI::main() {
     return window(text("Footer"), foot->Render());
   });
 
-  // Plugin Checkboxes, reload button
-  auto button = Button("reload", [this]() {this->setPluginState();} );
+  // Plugin Checkboxes
   Component state = manager.displayData();
   auto pluginContainer = Container::Vertical({});
-  pluginContainer->Add(button);
   pluginContainer->Add(state);
 
   auto renderstate = Renderer(pluginContainer, [&] {
     return window(text("Status"), 
-      vbox({state->Render(), button->Render()})
+      vbox({state->Render()})
     );
   });
   
@@ -52,8 +50,7 @@ int ectsTUI::main() {
   //cont->Add(cont);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
-    vbox({renderPlugin->Render(), remnant->Render()})
-                     );
+    vbox({ renderPlugin->Render(), remnant->Render() }) );
   });
   
   //auto screen = ScreenInteractive::Fullscreen();
