@@ -82,8 +82,9 @@ Component ControlPlugin::displayData() {
         })
         //layout->Render()
       }) | dim |
-      size(WIDTH, EQUAL, 80) | size(HEIGHT, EQUAL, 20))
-    | flex;
+      size(WIDTH, EQUAL, 9) | size(HEIGHT, EQUAL, 9))
+    //| flex
+    ;
   });
 
   /*{vbox({btn_tleft->Render(), btn_up->Render() | vcenter,
