@@ -89,7 +89,7 @@ void ectsTUI::setPluginState() {
 void ectsTUI::addPlugin(std::shared_ptr<ECTSPlugin> plugin) {
   allPlugins.push_back(plugin);
   states[counter] = true;
-  manager.addCheckbox(Checkbox(plugin->getName(), &states[counter] ));
+  manager.addCheckbox( Checkbox(plugin->getName(), &states[counter]) );
   statusbar.addField(plugin);
   counter++;
 };

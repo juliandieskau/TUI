@@ -74,9 +74,10 @@ void SystemMontitoringPlugin::subscribeToROS(){
     picojson::object json = json1;
     
     // total cpu usage
-    std::string all = "Total usage: " + SystemMontitoringPlugin::truncate(json["total_usage"].to_str());
+    std::string totalUsage = SystemMontitoringPlugin::truncate(json["total_usage"].to_str());
+    std::string all = "Total usage: " + totalUsage;
     allcorepar.push_back(paragraph(all));
-    *(important) = all; // here the value is correctly inside
+    *(important) = "CPU usage: " + totalUsage; // here the value is correctly inside
     
     picojson::value usage1 = json["per_core_usage"];
     auto usage = usage1.get<std::vector<picojson::value>>();

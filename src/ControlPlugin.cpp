@@ -81,9 +81,7 @@ Component ControlPlugin::displayData() {
           btn_right->Render()
         })
         //layout->Render()
-      }) | dim |
-      size(WIDTH, EQUAL, 9) | size(HEIGHT, EQUAL, 9))
-    //| flex
+      }) | size(WIDTH, EQUAL, 9) | size(HEIGHT, EQUAL, 9))
     ;
   });
 
