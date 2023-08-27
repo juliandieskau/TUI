@@ -92,12 +92,12 @@ void SystemMontitoringPlugin::subscribeToROS(){
     }
     
     // average cpu usage
-    allcorepar.push_back(paragraph("Average Usage over the past") | bold);
-    all = "1 Minute: " + SystemMontitoringPlugin::truncate(average[0].to_str()); 
+    allcorepar.push_back(paragraph("load average") | bold);
+    all = "1 minute: " + SystemMontitoringPlugin::truncate(average[0].to_str()); 
     allcorepar.push_back(paragraph(all));
-    all = "5 Minutes: " + SystemMontitoringPlugin::truncate(average[1].to_str()); 
+    all = "5 minutes: " + SystemMontitoringPlugin::truncate(average[1].to_str()); 
     allcorepar.push_back(paragraph(all));
-    all = "15 Minutes: " + SystemMontitoringPlugin::truncate(average[2].to_str()); 
+    all = "15 minutes: " + SystemMontitoringPlugin::truncate(average[2].to_str()); 
     allcorepar.push_back(paragraph(all));
   };
   cpuusagesub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/usage", "ects/CpuUsage", my_callback2, 5);

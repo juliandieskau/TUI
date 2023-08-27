@@ -47,14 +47,12 @@ int ectsTUI::main() {
   cont->Add(remnant);
   statusCont->Add(renderstate);
   cont->Add(renderPlugin);
-  //cont->Add(cont);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
     vbox({ renderPlugin->Render(), remnant->Render() }) );
   });
   
-  //auto screen = ScreenInteractive::Fullscreen();
-  //screen.Loop(all);
+  
   screen.Loop(all);
   return 0;
 };
