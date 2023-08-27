@@ -13,10 +13,10 @@
 
 int main(int argc, char* argv[]) {
   // initialize a ROS client
-  auto on_connection = []()
-  { std::cout << "RosbridgeClient connected" << std::endl; };
-  auto on_disconnection = []()
-  { std::cout << "RosbridgeClient disconnected" << std::endl; };
+  auto on_connection = []() {}; //TODO: output in ftxui window for messages
+  //{ std::cout << "RosbridgeClient connected" << std::endl; };
+  auto on_disconnection = []() {}; //TODO: output in ftxui window for messages
+  //{ std::cout << "RosbridgeClient disconnected" << std::endl; };
   //rosbridge_client_cpp::RosbridgeClient rb("localhost", 9090, on_connection, on_disconnection);
   // rb ist shared_ptr auf RosbridgeClient, nicht ros client selbst!
   //int ip = atoi(argv[0]);

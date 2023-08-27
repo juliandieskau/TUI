@@ -8,7 +8,7 @@ ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
 };
 
 int ectsTUI::main() {
-  auto screen = ScreenInteractive::Fullscreen();
+  auto screen = ScreenInteractive::Fullscreen();  
   std::vector<Component> container;
 
   auto cont = Container::Horizontal({});
