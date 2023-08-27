@@ -9,8 +9,6 @@
 
 #include "rosbridge_client_cpp/rosbridge.h"
 
-
-
 int main(int argc, char* argv[]) {  
   // initialize a ROS client
   auto on_connection = []() {}; //TODO: output in ftxui window for messages
@@ -20,14 +18,14 @@ int main(int argc, char* argv[]) {
   
   // check if command line arguments match needed amount
   // if no arguments provided use default values with localhost
-  std::str ip = "localhost";
+  std::string ip("localhost");
   int port = 9090;
 
   if (argc > 1) {
     ip = argv[1];
   }
   if (argc > 2) {
-    port = argv[2];
+    port = std::atoi(argv[2]);
   }
   auto rb = std::make_shared<rosbridge_client_cpp::RosbridgeClient>(ip, port, on_connection, on_disconnection);
   
@@ -43,8 +41,9 @@ int main(int argc, char* argv[]) {
   plugins.push_back(std::make_shared<ControlPlugin>("control", rb));
   
   // add Plugins to the tui
-    for (auto plugin : plugins)
-        tui.addPlugin(plugin);
+  for (auto plugin : plugins) {
+    tui.addPlugin(plugin);
+  }
   
   // loop over Plugins to display them (loop inside this call)
   std::thread thr(std::bind(&ectsTUI::setPluginState, tui));
