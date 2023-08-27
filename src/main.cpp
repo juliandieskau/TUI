@@ -9,7 +9,13 @@
 
 #include "rosbridge_client_cpp/rosbridge.h"
 
+std::string address = "localhost";
+int port = 9090;
+
 int main() {
+  // load the settings.json file and initialize its values
+  
+  
   // initialize a ROS client
   auto on_connection = []() {}; //TODO: output in ftxui window for messages
   //{ std::cout << "RosbridgeClient connected" << std::endl; };
@@ -17,7 +23,7 @@ int main() {
   //{ std::cout << "RosbridgeClient disconnected" << std::endl; };
   //rosbridge_client_cpp::RosbridgeClient rb("localhost", 9090, on_connection, on_disconnection);
   // rb ist shared_ptr auf RosbridgeClient, nicht ros client selbst!
-  auto rb = std::make_shared<rosbridge_client_cpp::RosbridgeClient>("localhost", 9090, on_connection, on_disconnection);
+  auto rb = std::make_shared<rosbridge_client_cpp::RosbridgeClient>(address, port, on_connection, on_disconnection);
   
   // initialize the TUI and add the ROS client to it
   ectsTUI tui(rb);
@@ -42,3 +48,4 @@ int main() {
   }*/
   return 0;
 }
+
