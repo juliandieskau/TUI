@@ -26,6 +26,8 @@ class BatteryPlugin : public ECTSPlugin {
     bool isLoaded();
     
   private:
+    int maxwidth = 5;
+    std::string truncate(std::string str);
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::string name;
     float battery_percentage;

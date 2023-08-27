@@ -72,15 +72,15 @@ void BatteryPlugin::subscribeToROS() {
     std::string all;
     all = "Batterystate: ";
     usageel.push_back(paragraph(all));
-    all = "Voltage: " + json["voltage"].to_str();
+    all = "Voltage: " + truncate(json["voltage"].to_str());
     usageel.push_back(paragraph(all));
-    all = "Current: " + json["current"].to_str();
+    all = "Current: " + truncate(json["current"].to_str());
     usageel.push_back(paragraph(all));
-    all = "Capacity: " + json["capacity"].to_str();
+    all = "Capacity: " + truncate(json["capacity"].to_str());
     usageel.push_back(paragraph(all));
-    all = "Design capacity: " + json["design_capacity"].to_str();
+    all = "Design capacity: " + truncate(json["design_capacity"].to_str());
     usageel.push_back(paragraph(all));
-    all = "Percentage: " + json["percentage"].to_str();
+    all = "Percentage: " + truncate(json["percentage"].to_str()) + "%";
     usageel.push_back(paragraph(all));
     
     all = "Power supply status: " + json["power_supply_status"].to_str();
@@ -99,7 +99,7 @@ void BatteryPlugin::subscribeToROS() {
     picojson::value cells = json["cell_voltage"];
     auto v = cells.get<std::vector<picojson::value>>();
     for (int i = 0; i < v.size(); i++) {
-      all = "Cell " + std::to_string(i) + " voltage: " + v[i].to_str();
+      all = "Cell " + std::to_string(i) + " voltage: " + truncate(v[i].to_str());
       usageel.push_back(paragraph(all));
     }
     calculate();
@@ -131,11 +131,11 @@ void BatteryPlugin::unsubscribeFromROS() {
 
 void BatteryPlugin::calculate() {
   batteryperel.clear();
-  allcontent = "Battery percentage: " + std::to_string(battery_percentage);
+  allcontent = "Battery percentage: " + truncate(std::to_string(battery_percentage));
   batteryperel.push_back(paragraph(allcontent));
-  allcontent = "Critical state: " + std::to_string(is_critical);
+  allcontent = "Critical state: " + truncate(std::to_string(is_critical));
   batteryperel.push_back(paragraph(allcontent));
-  allcontent = "Estimated time: " + std::to_string(estimated_time);
+  allcontent = "Estimated time: " + truncate(std::to_string(estimated_time));
   batteryperel.push_back(paragraph(allcontent));
 }
 
@@ -145,4 +145,12 @@ bool BatteryPlugin::isLoaded() {
 
 std::shared_ptr<std::string> BatteryPlugin::getImportantValues() {
   return important;
+};
+
+std::string BatteryPlugin::truncate(std::string str)
+{
+    if (str.length() > maxwidth) {
+      return str.substr(0, maxwidth);
+    }
+    return str;
 };

@@ -25,6 +25,8 @@ class IMUPlugin : public ECTSPlugin {
     bool isLoaded();
     
   private:
+    std::string truncate(std::string str);
+    int maxwidth = 5;
     std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
     std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
     std::string name;

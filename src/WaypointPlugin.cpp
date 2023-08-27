@@ -103,15 +103,15 @@ void WaypointPlugin::calculate() {
     std::string allcontent;
     allcontent = "Name: " + allname.to_str();
     allvaltotal.push_back(paragraph(allcontent));
-    allcontent = "Radius: " + allrad.to_str();
+    allcontent = "Radius: " + truncate(allrad.to_str());
     allvaltotal.push_back(paragraph(allcontent));
-    allcontent = "Accuracy: " + allaccur.to_str();
+    allcontent = "Accuracy: " + truncate(allaccur.to_str());
     allvaltotal.push_back(paragraph(allcontent));
-    allcontent = "Distance to next waypoint: " + std::to_string(distance_to_next);
+    allcontent = "Distance to next waypoint: " + truncate(std::to_string(distance_to_next));
     allvaltotal.push_back(paragraph(allcontent));
-    allcontent = "Distance to last waypoint: " + std::to_string(total_distance);
+    allcontent = "Distance to last waypoint: " + truncate(std::to_string(total_distance));
     allvaltotal.push_back(paragraph(allcontent));
-    *(important) = "Distance to last waypoint: " + std::to_string(total_distance);
+    *(important) = "Distance to last waypoint: " + truncate(std::to_string(total_distance));
     allvaltotal.push_back(paragraph(allcontent));
     allcontent = "Amount of waypoints: " + std::to_string(amount_of_waypoints);
     allvaltotal.push_back(paragraph(allcontent));
@@ -185,4 +185,12 @@ bool WaypointPlugin::isLoaded() {
 
 std::shared_ptr<std::string> WaypointPlugin::getImportantValues() {
   return important;
+};
+
+std::string WaypointPlugin::truncate(std::string str)
+{
+    if (str.length() > maxwidth) {
+      return str.substr(0, maxwidth);
+    }
+    return str;
 };

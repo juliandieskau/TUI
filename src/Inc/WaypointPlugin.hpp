@@ -30,7 +30,9 @@ class WaypointPlugin : public ECTSPlugin {
     rosbridge_client_cpp::Subscriber* numwaypointsub;
     rosbridge_client_cpp::Subscriber* currentpointsub;
     bool isLoaded();
-  
+    int maxwidth = 5;
+    std::string truncate(std::string str);
+
   public:
     WaypointPlugin(std::string name, std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb);
     void sendMessage();

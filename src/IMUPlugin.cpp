@@ -54,12 +54,16 @@ void IMUPlugin::subscribeToROS() {
     allvallin.push_back(it->second);
     }
     
-    orientation = "[" + allval[0].to_str() + "]" + "[" + allval[1].to_str() + "]" +
-    "[" + allval[2].to_str() + "]" + "[" + allval[3].to_str() + "]";
-    angular_velocity = "[" + allvalang[0].to_str() + "]" + 
-    "[" + allvalang[1].to_str() + "]" + "[" + allvalang[2].to_str() + "]";
+    orientation = "[" + truncate(allval[0].to_str()) + "]" + 
+    "[" + truncate(allval[1].to_str()) + "]" +
+    "[" + truncate(allval[2].to_str()) + "]" + 
+    "[" + truncate(allval[3].to_str()) + "]";
+    angular_velocity = "[" + truncate(allvalang[0].to_str()) + "]" + 
+    "[" + truncate(allvalang[1].to_str()) + "]" + 
+    "[" + truncate(allvalang[2].to_str()) + "]";
     linear_acceleration = "[" + allvallin[0].to_str() + "]" + 
-    "[" + allvallin[1].to_str() + "]" + "[" + allvallin[2].to_str() + "]"; 
+    "[" + truncate(allvallin[1].to_str()) + "]" + 
+    "[" + truncate(allvallin[2].to_str()) + "]"; 
     calculate();
     };
   imucurrentsub = new rosbridge_client_cpp::Subscriber(*ros, "/etcs/imu/current", "sensor_msgs/Imu", my_callback4, 5);
@@ -93,4 +97,12 @@ bool IMUPlugin::isLoaded() {
 
 std::shared_ptr<std::string> IMUPlugin::getImportantValues() {
   return important;
+};
+
+std::string IMUPlugin::truncate(std::string str)
+{
+    if (str.length() > maxwidth) {
+      return str.substr(0, maxwidth);
+    }
+    return str;
 };
