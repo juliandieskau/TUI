@@ -58,6 +58,10 @@ catkin_make && rosrun ects ects ects_config.json
 ```
 Prepare another terminal for service calls or publishing on rostopics.
 
+### insert Backend address and port into settings file
+open ../settings.json <br>
+edit value of address and port tag to match backend address and port
+
 ### launch ECTS-TUI
 from TUI directory
 ```bash
@@ -77,3 +81,9 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 - [ ] Code Style/ descriptive Names
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)
 - [ ] nicely looking newlines and data representation
+
+# settings file
+- backend address and port
+- color scheme of the console window
+- open/closed plugin windows 
+- 
