@@ -8,7 +8,6 @@ ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
 };
 
 int ectsTUI::main() {
-  auto screen = ScreenInteractive::Fullscreen();  
   std::vector<Component> container;
 
   auto cont = Container::Horizontal({});
@@ -52,6 +51,15 @@ int ectsTUI::main() {
     vbox({ renderPlugin->Render(), remnant->Render() }) );
   });
   
+  auto screen = ScreenInteractive::Fullscreen();  
+  /*auto screen = Screen::Create(Dimension::Full());
+  bool printLoop = true;
+  while (printLoop) {
+    std::cout << "loop\n";
+    Render(screen, window( text("TUI"), vbox({ renderPlugin->Render(), remnant->Render() }) ));
+    screen.Print();
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }*/
   
   screen.Loop(all);
   return 0;
