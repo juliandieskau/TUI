@@ -70,6 +70,7 @@ void ectsTUI::setPluginState() {
   // loaded in plugins
   // if schleife die überprüft ob schon geloaded oder nicht, während gleichzeitig state true/false
   // allPlugins[i] gehört zu states[i] -> überprüfen
+  
   for (int i = 0; i < counter; i++) {
     if (states[i]) { // checkbox angeclicked
       if (!allPlugins[i]->isLoaded()) { // aber plugin nicht loaded (subscribed)
@@ -81,6 +82,7 @@ void ectsTUI::setPluginState() {
       }
     }
   }
+  std::this_thread::sleep_for(std::chrono::seconds(5));
 };
 
 /**

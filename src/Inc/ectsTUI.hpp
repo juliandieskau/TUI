@@ -1,6 +1,7 @@
 #ifndef ECTS_PTUI_H
 #define ECTS_PTUI_H
-
+#include <chrono>
+#include <thread>
 #include <memory>
 #include "ftxui/component/captured_mouse.hpp"
 #include "ftxui/component/component.hpp"

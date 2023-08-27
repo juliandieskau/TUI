@@ -1,6 +1,6 @@
 #include "ECTSPlugin.hpp"
 #include "ectsTUI.hpp"
-
+#include <thread>
 #include "SystemMonitoringPlugin.hpp"
 #include "BatteryPlugin.hpp"
 #include "ControlPlugin.hpp"
@@ -9,7 +9,9 @@
 
 #include "rosbridge_client_cpp/rosbridge.h"
 
-int main() {
+
+
+int main(int argc, char* argv[]) {
   // initialize a ROS client
   auto on_connection = []()
   { std::cout << "RosbridgeClient connected" << std::endl; };
@@ -17,6 +19,8 @@ int main() {
   { std::cout << "RosbridgeClient disconnected" << std::endl; };
   //rosbridge_client_cpp::RosbridgeClient rb("localhost", 9090, on_connection, on_disconnection);
   // rb ist shared_ptr auf RosbridgeClient, nicht ros client selbst!
+  //int ip = atoi(argv[0]);
+  int ip = 0;
   auto rb = std::make_shared<rosbridge_client_cpp::RosbridgeClient>("localhost", 9090, on_connection, on_disconnection);
   
   // initialize the TUI and add the ROS client to it
@@ -35,6 +39,8 @@ int main() {
         tui.addPlugin(plugin);
 
   // loop over Plugins to display them (loop inside this call)
+  std::thread thr(std::bind(&ectsTUI::setPluginState, tui));
+  thr.detach();
   tui.main();
   
   /*while (true) {
