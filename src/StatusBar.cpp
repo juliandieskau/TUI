@@ -10,8 +10,9 @@ using namespace ftxui;
 Component Statusbar::displayData() {
   return container;
 }
+
 void Statusbar::addField(std::shared_ptr<ECTSPlugin> plugin) {
   auto values = plugin->getImportantValues();
-  auto render = Renderer([=] { return hbox(paragraph(*values));});
-  container->Add(render);
+  auto valuesRendered = Renderer([=] { return hbox(paragraph(*values)) | hcenter | flex; });
+  container->Add(valuesRendered);
 };
