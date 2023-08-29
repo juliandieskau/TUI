@@ -53,8 +53,7 @@ int ectsTUI::main() {
   
 
   
-  auto screen = ScreenInteractive::Fullscreen();  
-  screen.TrackMouse(false);
+  auto screen = ScreenInteractive::Fullscreen(); 
   
   auto d = std::thread([&] {
         for (;;) {
