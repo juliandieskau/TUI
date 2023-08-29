@@ -84,7 +84,14 @@ use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemNam
 - [ ] Error Handling
 
 ## TODO testing phase
+<<<<<<< Updated upstream
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)
+=======
+- [x] Code Style/ descriptive Names
+- [ ] Documentation for Methods, Classes, Members (-> Entwurf)
+- [x] nicely looking newlines and data representation
+- [ ] farben descriptive grün->rot
+>>>>>>> Stashed changes
 
 # settings file
 - default backend address and port

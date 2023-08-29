@@ -55,7 +55,6 @@ Component SystemMontitoringPlugin::displayData() {
       text("System") | hcenter | bold,
       vbox({
         window(text("CPU usage") | bold, vbox(allcorepar)),
-        window(text("CPU percentage") | bold, vbox(allcpuav)),
         window(text("memory usage") | bold, vbox(memusage)),
         window(text("processes") | bold, vbox(totalproc)),
       }) | dim |
@@ -101,15 +100,6 @@ void SystemMontitoringPlugin::subscribeToROS(){
     allcorepar.push_back(paragraph(all));
   };
   cpuusagesub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/usage", "ects/CpuUsage", my_callback2, 5);
-  
-  //CPU percentage
-  auto my_callback3 = [&](const picojson::object& json1) {
-    allcpuav.clear();
-    picojson::object json = json1; 
-    std::string all = "CPU usage: " + SystemMontitoringPlugin::truncate(json["usage"].to_str()); 
-    allcpuav.push_back(paragraph(all));
-  };
-  cpupersub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/system/cpu/percent", "ects/CpuPercentage", my_callback3, 5);
   
   //Memory usage
   auto my_callback4 = [&](const picojson::object& json1){ 

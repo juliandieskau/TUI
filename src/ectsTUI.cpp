@@ -51,17 +51,21 @@ int ectsTUI::main() {
     vbox({ renderPlugin->Render(), remnant->Render() }) );
   });
   
+
+  
   auto screen = ScreenInteractive::Fullscreen();  
-  /*auto screen = Screen::Create(Dimension::Full());
-  bool printLoop = true;
-  while (printLoop) {
-    std::cout << "loop\n";
-    Render(screen, window( text("TUI"), vbox({ renderPlugin->Render(), remnant->Render() }) ));
-    screen.Print();
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-  }*/
+  screen.TrackMouse(false);
+  
+  auto d = std::thread([&] {
+        for (;;) {
+            screen.PostEvent(Event::Custom);
+            sleep(1);
+        }    
+  });
   
   screen.Loop(all);
+  d.join();
+  
   return 0;
 };
 
