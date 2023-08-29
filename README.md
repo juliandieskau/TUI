@@ -1,16 +1,6 @@
 # ECTS TUI
 [TOC]
 
-## Used Libraries
-
-### ftxui-starter
-CMakeList and main() method based on ftxui-starter:  
-Minimal starter project using the [FTXUI library](https://github.com/ArthurSonzogni/ftxui)
-
-### rosbridge
-[Rosbridge Client](https://github.com/antoniocoratelli/rosbridge_client_cpp/tree/v2018/) as ros-bridge library. <br>
-Fixed forked version in [GitLab](https://git.scc.kit.edu/pse-robot-monitoring/rosbridge_client_cpp.git)
-
 ## Setup project
 
 ### VSCode Dev Container:
@@ -50,13 +40,11 @@ source devel/local_setup.bash
 ```bash
 git submodule update --recursive --init
 ```
-Follow launch instructions of the ECTS Backend [README.md](https://git.scc.kit.edu/pse-robot-monitoring/pse/-/blob/main/README.md) to launch `roscore` and `rosbridge` in prepared terminals. <br>
 
-build and run `ects` in prepared terminal
+Build and run the backend with roscore and rosbridge:
 ```bash
-catkin_make && rosrun ects ects ects_config.json
+catkin_make && roslaunch ects ects.launch config:=/workspace/ects_config.json
 ```
-Prepare another terminal for service calls or publishing on rostopics.
 
 ### open build folder
 from TUI directory 
@@ -78,18 +66,25 @@ cd build
 ./ects-tui 127.0.0.1 9090
 ```
 
+## Used Libraries
+
+### ftxui-starter
+CMakeList and main() method based on ftxui-starter:  
+Minimal starter project using the [FTXUI library](https://github.com/ArthurSonzogni/ftxui)
+
+### rosbridge
+[Rosbridge Client](https://github.com/antoniocoratelli/rosbridge_client_cpp/tree/v2018/) as ros-bridge library. <br>
+Fixed forked version in [GitLab](https://git.scc.kit.edu/pse-robot-monitoring/rosbridge_client_cpp.git)
+
+
 # TODO
 use VSCode Plugin [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) for listing them inside the code
 ## TODO now
-- [x] Controllplugin buggy (Erik)
 - [ ] UNIT TESTS
 - [ ] Error Handling
-  - [ ] every new also needs a delete, else memory leaks might happen!
 
 ## TODO testing phase
-- [ ] Code Style/ descriptive Names
 - [ ] Documentation for Methods, Classes, Members (-> Entwurf)
-- [ ] nicely looking newlines and data representation
 
 # settings file
 - default backend address and port
