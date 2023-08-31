@@ -41,7 +41,7 @@ void WaypointPlugin::subscribeToROS() {
     picojson::value indx = json["data"];
     amount_of_waypoints = std::stoi(indx.to_str());*/
     std::string asdsd = "Orientation: a";
-    allvaltotal.push_back(paragraph(allcontent));
+    allvaltotal.push_back(paragraph(asdsd));
     //calculate();
   };
   auto my_callback3 = [&](const picojson::object &json1) {
@@ -50,7 +50,7 @@ void WaypointPlugin::subscribeToROS() {
     current_index = std::stoi(indx.to_str());
     calculate();*/
     std::string asdsd = "Orientation: a";
-    allvaltotal.push_back(paragraph(allcontent));
+    allvaltotal.push_back(paragraph(asdsd));
   };
   auto my_callback1 = [&](const picojson::object &json1) {
     /*picojson::object json = json1;
@@ -58,7 +58,7 @@ void WaypointPlugin::subscribeToROS() {
     auto waypointlist = val.get<std::vector<picojson::value>>();
     calculate();*/
     std::string asdsd = "Orientation: a";
-    allvaltotal.push_back(paragraph(allcontent));
+    allvaltotal.push_back(paragraph(asdsd));
   };
   waypointlistsub = new rosbridge_client_cpp::Subscriber(
       *ros, "/ects/waypoints/waypoint_list", "ects/WaypointList", my_callback1,
