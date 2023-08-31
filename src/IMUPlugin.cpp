@@ -80,7 +80,7 @@ void IMUPlugin::subscribeToROS() {
 
 void IMUPlugin::calculate() {
   allel.clear();
-  allcontent = "Orientation: " + orientation + "\n";
+  allcontent = "Orientation: " + orientation;
   *(important) = allcontent;
   allel.push_back(paragraph(allcontent));
   allcontent = "Angular velocity: " + angular_velocity;

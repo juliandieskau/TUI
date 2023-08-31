@@ -28,7 +28,7 @@ Component WaypointPlugin::displayData() {
 
   auto renderbasic = Renderer([&] {
     return window(text("Waypoint") | hcenter | bold,
-                  vbox(allvaltotal) | dim | size(WIDTH, EQUAL, 300) |
+                  vbox(allvaltotal) | dim | size(WIDTH, EQUAL, 50) |
                       size(HEIGHT, EQUAL, 20)) |
            flex;
   });
@@ -36,12 +36,6 @@ Component WaypointPlugin::displayData() {
 };
 
 void WaypointPlugin::subscribeToROS() {
-  auto my_callback2 = [&](const picojson::object &json1) {
-    picojson::object json = json1;
-    picojson::value indx = json["data"];
-    amount_of_waypoints = std::stoi(indx.to_str());
-    calculate();
-  };
   auto my_callback3 = [&](const picojson::object &json1) {
     picojson::object json = json1;
     picojson::value indx = json["data"];
@@ -56,8 +50,6 @@ void WaypointPlugin::subscribeToROS() {
   };
   waypointlistsub = subscribe(*ros, "/ects/waypoints/waypoint_list",
                               "ects/WaypointList", my_callback1, 5);
-  numwaypointsub = subscribe(*ros, "/ects/waypoints/number_of_waypoints",
-                             "std_msgs/UInt32", my_callback2, 5);
   currentpointsub = subscribe(*ros, "/ects/waypoints/current_waypoint",
                               "std_msgs/UInt32", my_callback3, 5);
   sendMessage();
@@ -70,6 +62,9 @@ void WaypointPlugin::calculate() {
     amount_of_waypoints = waypointlist.size();
     distance_to_next = 0;
     total_distance = 0;
+    if (current_index >= amount_of_waypoints) {
+      current_index = 0;
+    }
     for (int i = current_index + 1; i < amount_of_waypoints; i++) {
       total_distance = total_distance + determineDistance(i);
       if (i == current_index + 1) {
@@ -127,7 +122,6 @@ std::string WaypointPlugin::getName() { return name; };
 
 void WaypointPlugin::unsubscribeFromROS() {
   delete waypointlistsub;
-  delete numwaypointsub;
   delete currentpointsub;
   loaded = false;
 };
