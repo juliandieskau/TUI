@@ -40,6 +40,7 @@ void WaypointPlugin::subscribeToROS() {
     /*picojson::object json = json1;
     picojson::value indx = json["data"];
     amount_of_waypoints = std::stoi(indx.to_str());*/
+    allvaltotal.clear();
     std::string asdsd = "Orientation: a";
     allvaltotal.push_back(paragraph(asdsd));
     //calculate();
@@ -49,6 +50,7 @@ void WaypointPlugin::subscribeToROS() {
     picojson::value indx = json["data"];
     current_index = std::stoi(indx.to_str());
     calculate();*/
+    allvaltotal.clear();
     std::string asdsd = "Orientation: a";
     allvaltotal.push_back(paragraph(asdsd));
   };
@@ -57,6 +59,7 @@ void WaypointPlugin::subscribeToROS() {
     picojson::value val = json["waypoints"];
     auto waypointlist = val.get<std::vector<picojson::value>>();
     calculate();*/
+    allvaltotal.clear();
     std::string asdsd = "Orientation: a";
     allvaltotal.push_back(paragraph(asdsd));
   };
