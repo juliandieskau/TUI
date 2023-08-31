@@ -13,11 +13,11 @@ BatteryPlugin::BatteryPlugin(
 void BatteryPlugin::sendMessage() {
   picojson::object json;
   json["reload_all"] = picojson::value(false);
-  json["topic"] = picojson::value("/etcs/battery/percentage");
+  json["topic"] = picojson::value("/ects/battery/percentage");
   (*my_pub).publish<picojson::object>(json);
 
   json["reload_all"] = picojson::value(false);
-  json["topic"] = picojson::value("/etcs/battery/is_critical");
+  json["topic"] = picojson::value("/ects/battery/is_critical");
   (*my_pub).publish<picojson::object>(json);
 
   json["reload_all"] = picojson::value(false);
@@ -50,7 +50,7 @@ void BatteryPlugin::subscribeToROS() {
     calculate();
   };
   batterypersub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/etcs/battery/percentage", "std_msgs/Float32", my_callback3, 5);
+      *ros, "/ects/battery/percentage", "std_msgs/Float32", my_callback3, 5);
 
   auto my_callback2 = [&](const picojson::object &json1) {
     picojson::object json = json1;
@@ -63,7 +63,7 @@ void BatteryPlugin::subscribeToROS() {
     calculate();
   };
   criticalsub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/etcs/battery/is_critical", "std_msgs/Bool", my_callback2, 5);
+      *ros, "/ects/battery/is_critical", "std_msgs/Bool", my_callback2, 5);
 
   auto my_callback1 = [&](const picojson::object &json1) {
     picojson::object json = json1;
