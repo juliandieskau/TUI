@@ -36,21 +36,21 @@ void IMUPlugin::subscribeToROS() {
     picojson::value val = json["orientation"]; 
     auto valobj = val.get<std::map<std::string, picojson::value>>();  
     std::vector<picojson::value> allval;
-    for(std::map<std::string, picojson::value>::iterator it = valobj.begin(); it != valobj.end(); ++it) {
+    for(std::map<std::string, picojson::value>::iterator it = valobj.begin(); it != valobj.end(); it++) {
     allval.push_back(it->second);
     }
     
     picojson::value valang = json["angular_velocity"]; 
     auto valobjang = valang.get<std::map<std::string, picojson::value>>();  
     std::vector<picojson::value> allvalang;
-    for(std::map<std::string, picojson::value>::iterator it = valobjang.begin(); it != valobjang.end(); ++it) {
+    for(std::map<std::string, picojson::value>::iterator it = valobjang.begin(); it != valobjang.end(); it++) {
     allvalang.push_back(it->second);
     }
     
     picojson::value vallin = json["linear_acceleration"]; 
     auto valobjlin = vallin.get<std::map<std::string, picojson::value>>();  
     std::vector<picojson::value> allvallin;
-    for(std::map<std::string, picojson::value>::iterator it = valobjlin.begin(); it != valobjlin.end(); ++it) {
+    for(std::map<std::string, picojson::value>::iterator it = valobjlin.begin(); it != valobjlin.end(); it++) {
     allvallin.push_back(it->second);
     }
     

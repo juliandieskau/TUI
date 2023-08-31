@@ -27,8 +27,9 @@ public:
     void addtabmountpoint(int index);
     std::shared_ptr<std::string> getImportantValues();
     bool isLoaded();
-    
 private:
+    std::string truncate(std::string str);
+    int maxwidth = 5;
     std::vector<Element> allcorepar;
     std::vector<Element> allcpuav;
     std::vector<Element> memusage;

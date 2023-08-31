@@ -66,7 +66,7 @@ void BatteryPlugin::subscribeToROS() {
     };
   criticalsub = new rosbridge_client_cpp::Subscriber(*ros, "/etcs/battery/is_critical", "std_msgs/Bool", my_callback2, 5);
 
-  auto my_callback1 = [&](const picojson::object& json1){
+  auto my_callback1 = [&](const picojson::object& json1) {
     picojson::object json = json1; 
     usageel.clear();
     std::string all;
@@ -82,15 +82,18 @@ void BatteryPlugin::subscribeToROS() {
     usageel.push_back(paragraph(all));
     all = "Percentage: " + truncate(json["percentage"].to_str()) + "%";
     usageel.push_back(paragraph(all));
-    
+    (*important) = all;
     all = "Power supply status: " + json["power_supply_status"].to_str();
     usageel.push_back(paragraph(all));
     all = "Power supply health: " + json["power_supply_health"].to_str();
     usageel.push_back(paragraph(all));
     all = "Power supply technology: " + json["power_supply_technology"].to_str();
     usageel.push_back(paragraph(all));
-    
-    all = "Present: " + json["present"].to_str();
+    std::string present = "";
+    if (!json["present"].is<picojson::null>()) {
+      present = json["present"].to_str();
+    }
+    all = "Present: " + present;
     usageel.push_back(paragraph(all));
     all = "Location: " + json["location"].to_str();
     usageel.push_back(paragraph(all));
@@ -102,7 +105,6 @@ void BatteryPlugin::subscribeToROS() {
       all = "Cell " + std::to_string(i) + " voltage: " + truncate(v[i].to_str());
       usageel.push_back(paragraph(all));
     }
-    calculate();
   };
   batteryusagesub = new rosbridge_client_cpp::Subscriber(*ros, "/ects/battery/usage", "sensor_msgs/BatteryState", my_callback1, 5);
 

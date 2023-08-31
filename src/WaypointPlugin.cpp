@@ -65,21 +65,13 @@ void WaypointPlugin::subscribeToROS() {
 void WaypointPlugin::calculate() {
   if (!waypointlist.empty()) {
     allvaltotal.clear();
-    if (current_index - 1 < 0) {
-      distance_to_next = 0;
-      for (int i = current_index + 1; i < amount_of_waypoints; i++) {
-        total_distance = total_distance + determineDistance(i);
-        if (i == 1) {
-          distance_to_next = distance_to_next + determineDistance(i);
-        }
+    distance_to_next = 0;
+    total_distance = 0;
+    for (int i = current_index + 1; i < amount_of_waypoints; i++) {
+      total_distance = total_distance + determineDistance(i);
+      if (i == current_index + 1) {
+        distance_to_next = distance_to_next + determineDistance(i);
       }
-    }
-    else {
-      distance_to_next = determineDistance(current_index);
-      for (int i = current_index; i < amount_of_waypoints; i++) {
-        total_distance = total_distance + determineDistance(i);
-      }
-
     }
     auto valobj = waypointlist[current_index].get<std::map<std::string, picojson::value>>();  
     picojson::value allrad;
@@ -112,7 +104,6 @@ void WaypointPlugin::calculate() {
     allcontent = "Distance to last waypoint: " + truncate(std::to_string(total_distance));
     allvaltotal.push_back(paragraph(allcontent));
     *(important) = "Distance to last waypoint: " + truncate(std::to_string(total_distance));
-    allvaltotal.push_back(paragraph(allcontent));
     allcontent = "Amount of waypoints: " + std::to_string(amount_of_waypoints);
     allvaltotal.push_back(paragraph(allcontent));
     allcontent = "Next waypoint: " + std::to_string(current_index);
