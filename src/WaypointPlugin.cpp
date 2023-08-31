@@ -28,7 +28,7 @@ Component WaypointPlugin::displayData() {
 
   auto renderbasic = Renderer([&] {
     return window(text("Waypoint") | hcenter | bold,
-                  vbox(vbox(allvaltotal)) | dim | size(WIDTH, EQUAL, 50) |
+                  vbox(allvaltotal) | dim | size(WIDTH, EQUAL, 50) |
                       size(HEIGHT, EQUAL, 10)) |
            flex;
   });
