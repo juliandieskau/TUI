@@ -95,10 +95,10 @@ void BatteryPlugin::subscribeToROS() {
     }
     all = "Present: " + json["present"].to_str();
     usageel.push_back(paragraph(all));
-    /*all = "Location: " + json["location"].to_str();
+    all = "Location: " + json["location"].to_str();
     usageel.push_back(paragraph(all));
     all = "Serial number: " + json["serial_number"].to_str();
-    usageel.push_back(paragraph(all));*/
+    usageel.push_back(paragraph(all));
     picojson::value cells = json["cell_voltage"];
     auto v = cells.get<std::vector<picojson::value>>();
     for (int i = 0; i < v.size(); i++) {
