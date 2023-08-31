@@ -13,7 +13,7 @@ IMUPlugin::IMUPlugin(
 void IMUPlugin::sendMessage() {
   picojson::object json;
   json["reload_all"] = picojson::value(false);
-  json["topic"] = picojson::value("/etcs/imu/current");
+  json["topic"] = picojson::value("/etcs/battery/percentage");
   //json["topic"] = picojson::value("/etcs/imu/current");
   (*my_pub).publish<picojson::object>(json);
 };
