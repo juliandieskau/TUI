@@ -32,7 +32,7 @@ Component IMUPlugin::displayData() {
 
 void IMUPlugin::subscribeToROS() {
   auto my_callback4 = [&](const picojson::object &json1) {
-    /*allel.clear();
+    allel.clear();
     picojson::object json = json1;
     picojson::value val = json["orientation"];
     auto valobj = val.get<std::map<std::string, picojson::value>>();
@@ -70,7 +70,7 @@ void IMUPlugin::subscribeToROS() {
     linear_acceleration = "[" + truncate(allvallin[0].to_str()) + "]" + "[" +
                           truncate(allvallin[1].to_str()) + "]" + "[" +
                           truncate(allvallin[2].to_str()) + "]";
-    calculate();*/
+    calculate();
   };
   imucurrentsub = new rosbridge_client_cpp::Subscriber(
     *ros, "/ects/imu/current", "sensor_msgs/Imu", my_callback4, 5);
