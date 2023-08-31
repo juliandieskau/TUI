@@ -25,7 +25,7 @@ void BatteryPlugin::sendMessage() {
   (*my_pub).publish<picojson::object>(json);
 
   json["reload_all"] = picojson::value(false);
-  json["topic"] = picojson::value("/ects/battery/estimated_time_");
+  json["topic"] = picojson::value("/ects/battery/estimated_time_remaining");
   (*my_pub).publish<picojson::object>(json);
 };
 
@@ -124,7 +124,7 @@ void BatteryPlugin::subscribeToROS() {
     calculate();
   };
   estTimesub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/battery/estimated_time_", "std_msgs/Float32", my_callback4,
+      *ros, "/ects/battery/estimated_time_remaining", "std_msgs/Float32", my_callback4,
       5);
 
   sendMessage();
