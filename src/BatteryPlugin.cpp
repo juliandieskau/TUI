@@ -35,7 +35,7 @@ Component BatteryPlugin::displayData() {
     // Color if Battery is low
     return window(text("Battery") | hcenter | bold,
                   vbox(vbox(batteryperel), vbox(usageel)) | dim |
-                      size(WIDTH, EQUAL, 50) | size(HEIGHT, EQUAL, 10)) |
+                      size(WIDTH, EQUAL, 50) | size(HEIGHT, EQUAL, 20)) |
            flex;
   });
   return renderbasic;
