@@ -13,7 +13,7 @@ IMUPlugin::IMUPlugin(
 void IMUPlugin::sendMessage() {
   picojson::object json;
   json["reload_all"] = picojson::value(false);
-  //json["topic"] = picojson::value("/ects/system/processes/total");
+  // json["topic"] = picojson::value("/ects/system/processes/total");
   json["topic"] = picojson::value("/ects/imu/current");
   (*my_pub).publish<picojson::object>(json);
 };
@@ -72,8 +72,8 @@ void IMUPlugin::subscribeToROS() {
                           truncate(allvallin[2].to_str()) + "]";
     calculate();
   };
-  imucurrentsub = new rosbridge_client_cpp::Subscriber(
-    *ros, "/ects/imu/current", "sensor_msgs/Imu", my_callback4, 5);
+  imucurrentsub =
+      subscribe(*ros, "/ects/imu/current", "sensor_msgs/Imu", my_callback4, 5);
   sendMessage();
   loaded = true;
 };

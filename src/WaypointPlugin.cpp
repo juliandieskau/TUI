@@ -43,7 +43,7 @@ void WaypointPlugin::subscribeToROS() {
     allvaltotal.clear();
     std::string asdsd = "Orientation: a";
     allvaltotal.push_back(paragraph(asdsd));
-    //calculate();
+    // calculate();
   };
   auto my_callback3 = [&](const picojson::object &json1) {
     /*picojson::object json = json1;
@@ -63,15 +63,12 @@ void WaypointPlugin::subscribeToROS() {
     std::string asdsd = "Orientation: a";
     allvaltotal.push_back(paragraph(asdsd));
   };
-  waypointlistsub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/waypoints/waypoint_list", "ects/WaypointList", my_callback1,
-      5);
-  numwaypointsub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/waypoints/number_of_waypoints", "std_msgs/UInt32",
-      my_callback2, 5);
-  currentpointsub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/waypoints/current_waypoint", "std_msgs/UInt32", my_callback3,
-      5);
+  waypointlistsub = subscribe(*ros, "/ects/waypoints/waypoint_list",
+                              "ects/WaypointList", my_callback1, 5);
+  numwaypointsub = subscribe(*ros, "/ects/waypoints/number_of_waypoints",
+                             "std_msgs/UInt32", my_callback2, 5);
+  currentpointsub = subscribe(*ros, "/ects/waypoints/current_waypoint",
+                              "std_msgs/UInt32", my_callback3, 5);
   sendMessage();
   loaded = true;
 };
@@ -87,7 +84,8 @@ void WaypointPlugin::calculate() {
         distance_to_next = distance_to_next + determineDistance(i);
       }
     }
-    auto valobj = waypointlist[current_index].get<std::map<std::string, picojson::value>>();  
+    auto valobj = waypointlist[current_index]
+                      .get<std::map<std::string, picojson::value>>();
     picojson::value allrad;
     picojson::value allaccur;
     picojson::value allname;
@@ -121,7 +119,8 @@ void WaypointPlugin::calculate() {
     allcontent = "Distance to last waypoint: " +
                  truncate(std::to_string(total_distance));
     allvaltotal.push_back(paragraph(allcontent));
-    *(important) = "Distance to last waypoint: " + truncate(std::to_string(total_distance));
+    *(important) = "Distance to last waypoint: " +
+                   truncate(std::to_string(total_distance));
     allcontent = "Amount of waypoints: " + std::to_string(amount_of_waypoints);
     allvaltotal.push_back(paragraph(allcontent));
     allcontent = "Next waypoint: " + std::to_string(current_index);

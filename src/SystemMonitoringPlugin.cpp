@@ -103,8 +103,8 @@ void SystemMontitoringPlugin::subscribeToROS() {
         "15 minutes: " + SystemMontitoringPlugin::truncate(average[2].to_str());
     allcorepar.push_back(paragraph(all));
   };
-  cpuusagesub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/system/cpu/usage", "ects/CpuUsage", my_callback2, 5);
+  cpuusagesub = subscribe(*ros, "/ects/system/cpu/usage", "ects/CpuUsage",
+                          my_callback2, 5);
 
   // Memory usage
   auto my_callback4 = [&](const picojson::object &json1) {
@@ -123,8 +123,8 @@ void SystemMontitoringPlugin::subscribeToROS() {
     all = "Available: " + json["available"].to_str();
     memusage.push_back(paragraph(all));
   };
-  memusagesub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/system/mem/usage", "ects/MemoryUsage", my_callback4, 5);
+  memusagesub = subscribe(*ros, "/ects/system/mem/usage", "ects/MemoryUsage",
+                          my_callback4, 5);
 
   // Total processes
   auto my_callback7 = [&](const picojson::object &json1) {
@@ -134,9 +134,8 @@ void SystemMontitoringPlugin::subscribeToROS() {
         "Number of processes: " + json["number_of_processes"].to_str();
     totalproc.push_back(paragraph(all));
   };
-  totalprocsub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/system/processes/total", "ects/ProcessTotal", my_callback7,
-      5);
+  totalprocsub = subscribe(*ros, "/ects/system/processes/total",
+                           "ects/ProcessTotal", my_callback7, 5);
 
   sendMessage();
   loaded = true;

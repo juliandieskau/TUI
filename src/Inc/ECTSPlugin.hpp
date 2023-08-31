@@ -1,6 +1,7 @@
 #ifndef ECTS_PLUGIN_H
 #define ECTS_PLUGIN_H
 
+#include "Sync.hpp"
 #include "ftxui/component/captured_mouse.hpp"
 #include "ftxui/component/component.hpp"
 #include "ftxui/component/component_base.hpp"

@@ -5,8 +5,8 @@
 #include "SystemMonitoringPlugin.hpp"
 #include "WaypointPlugin.hpp"
 #include "ectsTUI.hpp"
-#include <thread>
 #include <chrono>
+#include <thread>
 
 #include "rosbridge_client_cpp/rosbridge.h"
 
@@ -49,14 +49,17 @@ int main(int argc, char *argv[]) {
   }
 
   // loop over Plugins to display them (loop inside this call)
-  //std::thread thr(std::bind(&ectsTUI::setPluginState, tui));
+  // std::thread thr(std::bind(&ectsTUI::setPluginState, tui));
   auto thr = std::thread([&] {
     for (;;) {
-      tui.setPluginState();
+      {
+        std::lock_guard g{global_mutex};
+        tui.setPluginState();
+      }
       std::this_thread::sleep_for(std::chrono::seconds(2));
     }
   });
-  //thr.detach();
+  // thr.detach();
   tui.main();
   thr.join();
 

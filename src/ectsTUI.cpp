@@ -1,5 +1,6 @@
 #include "ectsTUI.hpp"
 #include "ECTSPlugin.hpp"
+#include "ftxui/component/loop.hpp"
 
 ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
   counter = 0;
@@ -8,6 +9,7 @@ ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
 };
 
 int ectsTUI::main() {
+  global_mutex.lock();
   std::vector<Component> container;
 
   auto cont = Container::Horizontal({});
@@ -51,12 +53,22 @@ int ectsTUI::main() {
 
   auto d = std::thread([&] {
     for (;;) {
-      screen.PostEvent(Event::Custom);
-      sleep(1);
+      {
+        std::lock_guard g{global_mutex};
+        screen.PostEvent(Event::Custom);
+      }
+      std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
   });
 
-  screen.Loop(all);
+  Loop loop(&screen, std::move(all));
+  while (!loop.HasQuitted()) {
+    loop.RunOnce();
+    global_mutex.unlock();
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    global_mutex.lock();
+  }
+  global_mutex.unlock();
   d.join();
 
   return 0;
@@ -83,7 +95,6 @@ void ectsTUI::setPluginState() {
       }
     }
   }
-  std::this_thread::sleep_for(std::chrono::seconds(2));
 };
 
 /**

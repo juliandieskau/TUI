@@ -49,8 +49,8 @@ void BatteryPlugin::subscribeToROS() {
     *(important) = "Battery percentage: " + std::to_string(battery_percentage);
     calculate();
   };
-  batterypersub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/battery/percentage", "std_msgs/Float32", my_callback3, 5);
+  batterypersub = subscribe(*ros, "/ects/battery/percentage",
+                            "std_msgs/Float32", my_callback3, 5);
 
   auto my_callback2 = [&](const picojson::object &json1) {
     picojson::object json = json1;
@@ -62,8 +62,8 @@ void BatteryPlugin::subscribeToROS() {
     }
     calculate();
   };
-  criticalsub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/battery/is_critical", "std_msgs/Bool", my_callback2, 5);
+  criticalsub = subscribe(*ros, "/ects/battery/is_critical", "std_msgs/Bool",
+                          my_callback2, 5);
 
   auto my_callback1 = [&](const picojson::object &json1) {
     picojson::object json = json1;
@@ -115,8 +115,8 @@ void BatteryPlugin::subscribeToROS() {
       usageel.push_back(paragraph(all));
     }
   };
-  batteryusagesub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/battery/usage", "sensor_msgs/BatteryState", my_callback1, 5);
+  batteryusagesub = subscribe(*ros, "/ects/battery/usage",
+                              "sensor_msgs/BatteryState", my_callback1, 5);
 
   auto my_callback4 = [&](const picojson::object &json1) {
     picojson::object json = json1;
@@ -124,8 +124,8 @@ void BatteryPlugin::subscribeToROS() {
     calculate();
   };
   estTimesub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/ects/battery/estimated_time_remaining", "std_msgs/Float32", my_callback4,
-      5);
+      *ros, "/ects/battery/estimated_time_remaining", "std_msgs/Float32",
+      my_callback4, 5);
 
   sendMessage();
   loaded = true;
