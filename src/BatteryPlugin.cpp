@@ -45,7 +45,7 @@ void BatteryPlugin::subscribeToROS() {
   auto my_callback3 = [&](const picojson::object &json1) {
     picojson::object json = json1;
     picojson::value v = json["data"];
-    battery_percentage = std::stoi(v.to_str()) + 1.0;
+    battery_percentage = std::stoi(v.to_str()) + 0.0;
     *(important) = "Battery percentage: " + std::to_string(battery_percentage);
     calculate();
   };

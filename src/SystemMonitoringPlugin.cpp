@@ -153,8 +153,8 @@ std::string SystemMontitoringPlugin::getName() { return name; };
 
 void SystemMontitoringPlugin::unsubscribeFromROS() {
   delete cpuusagesub;
-  delete cpupersub;
   delete memusagesub;
+  delete totalprocsub;
 
   // netusagesub.clear();
   loaded = false;

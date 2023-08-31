@@ -13,7 +13,7 @@ IMUPlugin::IMUPlugin(
 void IMUPlugin::sendMessage() {
   picojson::object json;
   json["reload_all"] = picojson::value(false);
-  json["topic"] = picojson::value("/etcs/battery/percentage");
+  json["topic"] = picojson::value("/ects/system/processes/total");
   //json["topic"] = picojson::value("/etcs/imu/current");
   (*my_pub).publish<picojson::object>(json);
 };
@@ -35,6 +35,7 @@ void IMUPlugin::subscribeToROS() {
     //allel.clear();
     allcontent = "Orientation: a";
     allel.push_back(paragraph(allcontent));
+    (*important) = "Hallo";
     /*picojson::object json = json1;
     picojson::value val = json["orientation"];
     auto valobj = val.get<std::map<std::string, picojson::value>>();
@@ -75,7 +76,7 @@ void IMUPlugin::subscribeToROS() {
     calculate();*/
   };
   imucurrentsub = new rosbridge_client_cpp::Subscriber(
-    *ros, "/etcs/battery/percentage", "std_msgs/Float32", my_callback4, 5);
+    *ros, "/ects/system/processes/total", "ects/ProcessTotal", my_callback4, 5);
    //   *ros, "/etcs/imu/current", "sensor_msgs/Imu", my_callback4, 5);
   sendMessage();
   loaded = true;
