@@ -21,7 +21,7 @@ Component IMUPlugin::displayData() {
   std::string name = this->name;
 
   auto renderbasic = Renderer([&] {
-    return window(text("IMU") | hcenter | bold, vbox(vbox(allel)) | dim |
+    return window(text("IMU") | hcenter | bold, vbox(allel) | dim |
                                                     size(WIDTH, EQUAL, 50) |
                                                     size(HEIGHT, EQUAL, 10)) |
            flex;
