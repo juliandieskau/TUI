@@ -18,13 +18,13 @@ private:
   std::shared_ptr<rosbridge_client_cpp::Publisher> my_pub;
   std::string name;
   std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
-  std::vector<picojson::value> waypointlist;
-  int current_index;
-  int amount_of_waypoints;
-  float distance_to_next;
-  float total_distance;
+  std::vector<picojson::value> waypointlist{};
+  int current_index{};
+  int amount_of_waypoints{};
+  float distance_to_next{};
+  float total_distance{};
   float determineDistance(int index);
-  std::vector<Element> allvaltotal;
+  std::vector<Element> allvaltotal{};
   std::shared_ptr<std::string> important;
   rosbridge_client_cpp::Subscriber *waypointlistsub;
   rosbridge_client_cpp::Subscriber *numwaypointsub;
@@ -44,6 +44,8 @@ public:
   void unsubscribeFromROS();
   void calculate();
   bool loaded = false;
+
+  std::tuple<double, double> position(int index);
 };
 
 #endif // WAYPOINT_PLUGIN_H

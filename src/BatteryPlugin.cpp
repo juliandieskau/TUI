@@ -123,9 +123,8 @@ void BatteryPlugin::subscribeToROS() {
     estimated_time = std::stoi(json["data"].to_str());
     calculate();
   };
-  estTimesub = subscribe(
-      *ros, "/ects/battery/estimated_time_remaining", "std_msgs/Float32",
-      my_callback4, 5);
+  estTimesub = subscribe(*ros, "/ects/battery/estimated_time_remaining",
+                         "std_msgs/Float32", my_callback4, 5);
 
   sendMessage();
   loaded = true;

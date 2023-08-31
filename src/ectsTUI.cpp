@@ -57,7 +57,7 @@ int ectsTUI::main() {
         std::lock_guard g{global_mutex};
         screen.PostEvent(Event::Custom);
       }
-      std::this_thread::sleep_for(std::chrono::milliseconds(500));
+      std::this_thread::sleep_for(std::chrono::milliseconds(200));
     }
   });
 
