@@ -24,11 +24,11 @@ using namespace ftxui;
  */
 class ectsTUI {
 private:
-  std::vector<std::shared_ptr<ECTSPlugin>> allPlugins;
+  std::vector<std::shared_ptr<ECTSPlugin>> allPlugins{};
   std::array<bool, 25> states;
   int counter;
-  PluginManager manager;
-  Statusbar statusbar;
+  PluginManager manager{};
+  Statusbar statusbar{};
   std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> ros;
 
 public:
