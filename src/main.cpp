@@ -6,6 +6,7 @@
 #include "WaypointPlugin.hpp"
 #include "ectsTUI.hpp"
 #include <thread>
+#include <chrono>
 
 #include "rosbridge_client_cpp/rosbridge.h"
 
@@ -52,6 +53,7 @@ int main(int argc, char *argv[]) {
   auto thr = std::thread([&] {
     for (;;) {
       tui.setPluginState();
+      std::this_thread::sleep_for(std::chrono::seconds(2));
     }
   });
   //thr.detach();
