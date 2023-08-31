@@ -8,7 +8,6 @@ ectsTUI::ectsTUI(std::shared_ptr<rosbridge_client_cpp::RosbridgeClient> rb) {
 };
 
 int ectsTUI::main() {
-  auto screen = ScreenInteractive::Fullscreen();  
   std::vector<Component> container;
 
   auto cont = Container::Horizontal({});
@@ -25,60 +24,62 @@ int ectsTUI::main() {
 
   // Status Bar
   auto foot = statusbar.displayData();
-  Component remnant = Renderer(foot, [&] {
-    return window(text("Footer"), foot->Render());
-  });
+  Component remnant =
+      Renderer(foot, [&] { return window(text("Footer"), foot->Render()); });
 
-  // Plugin Checkboxes, reload button
-  auto button = Button("reload", [this]() {this->setPluginState();} );
+  // Plugin Checkboxes
   Component state = manager.displayData();
   auto pluginContainer = Container::Vertical({});
-  pluginContainer->Add(button);
   pluginContainer->Add(state);
 
   auto renderstate = Renderer(pluginContainer, [&] {
-    return window(text("Status"), 
-      vbox({state->Render(), button->Render()})
-    );
+    return window(text("Status"), vbox({state->Render()}));
   });
-  
-  auto renderPlugin = Renderer(statusCont, [&] {
-    return statusCont->Render();
-  });
+
+  auto renderPlugin =
+      Renderer(statusCont, [&] { return statusCont->Render(); });
 
   cont->Add(remnant);
   statusCont->Add(renderstate);
   cont->Add(renderPlugin);
-  //cont->Add(cont);
   auto all = Renderer(cont, [&] {
     return window(text("TUI"),
-    vbox({renderPlugin->Render(), remnant->Render()})
-                     );
+                  vbox({renderPlugin->Render(), remnant->Render()}));
   });
-  
-  //auto screen = ScreenInteractive::Fullscreen();
-  //screen.Loop(all);
+
+  auto screen = ScreenInteractive::Fullscreen();
+
+  auto d = std::thread([&] {
+    for (;;) {
+      screen.PostEvent(Event::Custom);
+      sleep(1);
+    }
+  });
+
   screen.Loop(all);
+  d.join();
+
   return 0;
 };
 
-
 /**
- * überprüft ob Plugin angezeigt werden soll und den state von subscribe/unsubscribe und ruft diese auf
-*/
+ * überprüft ob Plugin angezeigt werden soll und den state von
+ * subscribe/unsubscribe und ruft diese auf
+ */
 void ectsTUI::setPluginState() {
   // loaded in plugins
-  // if schleife die überprüft ob schon geloaded oder nicht, während gleichzeitig state true/false
-  // allPlugins[i] gehört zu states[i] -> überprüfen
-  
+  // if schleife die überprüft ob schon geloaded oder nicht, während
+  // gleichzeitig state true/false allPlugins[i] gehört zu states[i] ->
+  // überprüfen
+
   for (int i = 0; i < counter; i++) {
-    if (states[i]) { // checkbox angeclicked
+    if (states[i]) {                    // checkbox angeclicked
       if (!allPlugins[i]->isLoaded()) { // aber plugin nicht loaded (subscribed)
         allPlugins[i]->subscribeToROS();
-      } // anderer case soll nichts passieren
-    } else { // checkbox nicht angeclicked
+      }                                // anderer case soll nichts passieren
+    } else {                           // checkbox nicht angeclicked
       if (allPlugins[i]->isLoaded()) { // aber plugin noch subscribed
-          allPlugins[i]->unsubscribeFromROS();
+        allPlugins[i]->unsubscribeFromROS();
       }
     }
   }
@@ -88,11 +89,11 @@ void ectsTUI::setPluginState() {
 /**
  * Am anfang sind alle Plugins als angezeigt gesetzt
  * Nur initial aufrufen, subscribe und unsubscribe ist über setPluginState()
-*/
+ */
 void ectsTUI::addPlugin(std::shared_ptr<ECTSPlugin> plugin) {
   allPlugins.push_back(plugin);
   states[counter] = true;
-  manager.addCheckbox(Checkbox(plugin->getName(), &states[counter] ));
+  manager.addCheckbox(Checkbox(plugin->getName(), &states[counter]));
   statusbar.addField(plugin);
   counter++;
 };
