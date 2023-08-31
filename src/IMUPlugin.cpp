@@ -22,7 +22,7 @@ Component IMUPlugin::displayData() {
   std::string name = this->name;
 
   auto renderbasic = Renderer([&] {
-    return window(text("IMUA") | hcenter | bold, vbox(allel) | dim |
+    return window(text("IMU") | hcenter | bold, vbox(allel) | dim |
                                                     size(WIDTH, EQUAL, 50) |
                                                     size(HEIGHT, EQUAL, 10)) |
            flex;
@@ -67,7 +67,7 @@ void IMUPlugin::subscribeToROS() {
     angular_velocity = "[" + truncate(allvalang[0].to_str()) + "]" + "[" +
                        truncate(allvalang[1].to_str()) + "]" + "[" +
                        truncate(allvalang[2].to_str()) + "]";
-    linear_acceleration = "[" + allvallin[0].to_str() + "]" + "[" +
+    linear_acceleration = "[" + truncate(allvallin[0].to_str()) + "]" + "[" +
                           truncate(allvallin[1].to_str()) + "]" + "[" +
                           truncate(allvallin[2].to_str()) + "]";
     calculate();
