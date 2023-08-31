@@ -93,7 +93,7 @@ void BatteryPlugin::subscribeToROS() {
     if (!json["present"].is<picojson::null>()) {
       present = json["present"].to_str();
     }
-    all = "Present: " + present;
+    all = "Present: " + json["present"].to_str();
     usageel.push_back(paragraph(all));
     /*all = "Location: " + json["location"].to_str();
     usageel.push_back(paragraph(all));
