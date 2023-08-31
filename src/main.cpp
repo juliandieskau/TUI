@@ -48,9 +48,15 @@ int main(int argc, char *argv[]) {
   }
 
   // loop over Plugins to display them (loop inside this call)
-  std::thread thr(std::bind(&ectsTUI::setPluginState, tui));
-  thr.detach();
+  //std::thread thr(std::bind(&ectsTUI::setPluginState, tui));
+  auto thr = std::thread([&] {
+    for (;;) {
+      tui.setPluginState();
+    }
+  });
+  //thr.detach();
   tui.main();
+  thr.join();
 
   /*while (true) {
     // loop to hold TUI running even if nothing happens - not sure if needed

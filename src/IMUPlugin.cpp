@@ -32,7 +32,7 @@ Component IMUPlugin::displayData() {
 
 void IMUPlugin::subscribeToROS() {
   auto my_callback4 = [&](const picojson::object &json1) {
-    allel.clear();
+    //allel.clear();
     allcontent = "Orientation: a";
     allel.push_back(paragraph(allcontent));
     /*picojson::object json = json1;
