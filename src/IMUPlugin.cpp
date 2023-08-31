@@ -14,6 +14,7 @@ void IMUPlugin::sendMessage() {
   picojson::object json;
   json["reload_all"] = picojson::value(false);
   json["topic"] = picojson::value("/etcs/imu/current");
+  //json["topic"] = picojson::value("/etcs/imu/current");
   (*my_pub).publish<picojson::object>(json);
 };
 
@@ -74,7 +75,8 @@ void IMUPlugin::subscribeToROS() {
     calculate();*/
   };
   imucurrentsub = new rosbridge_client_cpp::Subscriber(
-      *ros, "/etcs/imu/current", "sensor_msgs/Imu", my_callback4, 5);
+    *ros, "/etcs/battery/percentage", "std_msgs/Float32", my_callback4, 5);
+   //   *ros, "/etcs/imu/current", "sensor_msgs/Imu", my_callback4, 5);
   sendMessage();
   loaded = true;
 };
