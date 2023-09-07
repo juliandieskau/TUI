@@ -56,6 +56,6 @@ Create a `.cpp` file in `src/` and `.hpp` file in `src/Inc/` for the new Plugin.
 For consistency, name these files after what the new plugin does, ending in _Plugin_.<br>
 Add "_NewPlugin_.cpp" to `add_executable` in Line 42 of `CMakeLists.txt`. <br>
 Similar to existing plugins, inherit your Plugin from `ECTSPlugin` and implement its virtual methods. <br>
-<br>
+A basic implementation to use as a template can be found in `template/`<br>
 To add the new Plugin into the TUI, add the header of the new Plugin to the includes of `main.cpp`.<br>
 Use `plugins.push_back()` in `main()` to register the new Plugin into the TUI.
