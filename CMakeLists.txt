@@ -51,7 +51,7 @@ target_include_directories(ects-tui PRIVATE ${rosbridge_client_cpp_SOURCE_DIR}/i
 target_link_libraries(ects-tui
 PRIVATE ftxui::screen
 PRIVATE ftxui::dom
-PRIVATE ftxui::component # Not needed for this example.
+PRIVATE ftxui::component
 PRIVATE rosbridge_client_cpp
 )
 

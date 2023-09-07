@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
   plugins.push_back(std::make_shared<BatteryPlugin>("Battery", rb));
   plugins.push_back(std::make_shared<IMUPlugin>("Inertia", rb));
   plugins.push_back(std::make_shared<WaypointPlugin>("Waypoints", rb));
-  plugins.push_back(std::make_shared<ControlPlugin>("control", rb));
+  plugins.push_back(std::make_shared<ControlPlugin>("Control", rb));
 
   // add Plugins to the tui
   for (auto plugin : plugins) {

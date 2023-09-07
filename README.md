@@ -15,15 +15,15 @@ cd build
 ```
 
 ### start ects-tui with command line arguments
-0: ects-tui provides the option to be started without arguments and will default to localhost:9090 <br>
+ects-tui provides the option to be started without arguments and will default to localhost:9090 <br>
 ```bash
 ./ects-tui
 ```
-1: you can specify the ip as the first argument and the port will default to 9090 <br>
+you can specify the ip as the first argument and the port will default to 9090 <br>
 ```bash
 ./ects-tui 127.0.0.1
 ```
-2: you can specify both ip and port in that order as command line arguments <br>
+you can specify both ip and port in that order as command line arguments <br>
 ```bash
 ./ects-tui 127.0.0.1 9090
 ```
@@ -52,3 +52,10 @@ Minimal starter project using the [FTXUI library](https://github.com/ArthurSonzo
 Fixed forked version in [GitLab](https://git.scc.kit.edu/pse-robot-monitoring/rosbridge_client_cpp.git)
 
 ### How to develop a new plugin
+Create a `.cpp` file in `src/` and `.hpp` file in `src/Inc/` for the new Plugin. <br>
+For consistency, name these files after what the new plugin does, ending in _Plugin_.<br>
+Add "_NewPlugin_.cpp" to `add_executable` in Line 42 of `CMakeLists.txt`. <br>
+Similar to existing plugins, inherit your Plugin from `ECTSPlugin` and implement its virtual methods. <br>
+<br>
+To add the new Plugin into the TUI, add the header of the new Plugin to the includes of `main.cpp`.<br>
+Use `plugins.push_back()` in `main()` to register the new Plugin into the TUI.
