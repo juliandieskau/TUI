@@ -1,5 +1,6 @@
 # ECTS TUI
-[TOC]
+README was written with GitLab markdown.
+Project for University together with 4 other students, contributions in this mainly by me and another person.
 
 ## Build instructions
 ```bash
