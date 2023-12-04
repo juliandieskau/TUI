@@ -1,6 +1,8 @@
 # ECTS TUI
-README was written with GitLab markdown.
-Project for University together with 4 other students, contributions in this mainly by me and another person.
+README was written with Gitlab markdown and project ported from Gitlab.<br>
+Project for university together with 4 other students, contributions in the TUI mainly by me and another student.<br>
+Project formed as a whole together with web interface and backend which I didn't contribute to. <br>
+This was made in collaboration with the Fraunhofer IOSB, who gave their permission to make our code public.
 
 ## Build instructions
 ```bash
