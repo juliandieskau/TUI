@@ -18,9 +18,8 @@ if(NOT ftxui_POPULATED)
   add_subdirectory(${ftxui_SOURCE_DIR} ${ftxui_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
-# --- Fetch rosbridgecpp
+# --- Fetch rosbridge_client_cpp
 FetchContent_Declare(rosbridge_client
-  #GIT_REPOSITORY https://github.com/ppianpak/rosbridgecpp -- was a mistake, wrong repository
   GIT_REPOSITORY https://github.com/antoniocoratelli/rosbridge_client_cpp # is not working but no other option right now
   #GIT_REPOSITORY https://git.scc.kit.edu/pse-robot-monitoring/rosbridge_client_cpp.git # no access anymore, i hope i have the fixes saved somewhere
   GIT_TAG v2018
