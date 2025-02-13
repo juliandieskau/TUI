@@ -8,7 +8,8 @@ COPY src/ ./src
 
 # Compile source files
 RUN mkdir build 
-RUN cd build && \
+RUN --mount=type=bind,source=CMakeLists.txt,target=/app/CMakeLists.txt \ 
+  cd build && \
   cmake -S ../ -B . && \
   make
 
