@@ -23,5 +23,5 @@ ARG TUI_PORT=9090
 EXPOSE $TUI_PORT
 
 # Copy compiled files from builder and run the TUI
-COPY --from=builder /app/build .
-ENTRYPOINT [ "./ects-tui", "$TUI_IP", "$TUI_PORT" ]
+COPY --from=builder /app .
+ENTRYPOINT [ "./build/ects-tui", "$TUI_IP", "$TUI_PORT" ]
