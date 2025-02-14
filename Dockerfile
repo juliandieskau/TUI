@@ -22,6 +22,11 @@ ARG TUI_IP=127.0.0.1
 ARG TUI_PORT=9090
 EXPOSE $TUI_PORT
 
-# Copy compiled files from builder and run the TUI
-COPY --from=builder /app .
-ENTRYPOINT [ "./build/ects-tui", "$TUI_IP", "$TUI_PORT" ]
+# Copy compiled files from builder 
+COPY --from=builder /app/build .
+
+# Install dependencies
+#RUN apt update && apt install -y libcurl4
+
+# and run the TUI
+ENTRYPOINT [ "./ects-tui", "$TUI_IP", "$TUI_PORT" ]
