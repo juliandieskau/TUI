@@ -53,7 +53,7 @@ target_link_libraries(ects-tui
 PRIVATE ftxui::screen
 PRIVATE ftxui::dom
 PRIVATE ftxui::component
-PRIVATE rosbridge_client
+PRIVATE rosbridge_client_cpp
 )
 
 if (EMSCRIPTEN) 
