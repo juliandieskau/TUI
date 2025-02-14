@@ -24,4 +24,4 @@ EXPOSE $TUI_PORT
 
 # Copy compiled files from builder and run the TUI
 COPY --from=builder /app/build .
-ENTRYPOINT ./ects-tui $TUI_IP $TUI_PORT
+ENTRYPOINT [ "./ects-tui", "$TUI_IP", "$TUI_PORT" ]
